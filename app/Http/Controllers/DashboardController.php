@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 class DashboardController extends Controller
 {
     public function index(){
-        return inertia('Index/Index');
+        $message = "Hello World";
+        return inertia('Index/Index',['message'=> $message]);
+
         }
 }
