@@ -7,8 +7,8 @@
     > -->
     <aside
         mini="false"
-        class="fixed inset-y-0 left-0 flex-wrap items-center justify-between block w-full p-0 my-4 transition-all duration-200 ease-in-out -translate-x-full bg-white border-0 shadow-xl dark:shadow-none xl:ml-6 dark:bg-slate-850 z-990 rounded-2xl xl:translate-x-0 ps ps--active-y max-w-64 overflow-y-auto"
         id="sidenav-main"
+        class="fixed inset-y-0 left-0 flex-wrap items-center justify-between block w-full p-0 my-4 transition-all duration-200 ease-in-out -translate-x-full bg-white border-0 shadow-xl dark:shadow-none xl:ml-6 dark:bg-slate-850 z-990 rounded-2xl xl:translate-x-0 ps ps--active-y max-w-64 overflow-y-auto"
     >
         <div class="h-19">
             <i
@@ -17,8 +17,7 @@
             ></i>
             <a
                 class="block px-8 py-6 m-0 text-sm whitespace-nowrap dark:text-white text-slate-700"
-                href="https://demos.creative-tim.com/argon-dashboard-tailwind/pages/dashboard.html"
-                target="_blank"
+                href="#"
             >
                 <img
                     src="../../../assets/img/cricket_logo.png"
@@ -53,9 +52,7 @@
                         <div
                             class="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5"
                         >
-                            <i
-                                class="relative top-0 text-sm leading-normal text-blue-500 ni ni-tv-2"
-                            ></i>
+                        <font-awesome-icon icon="fa-solid fa-house"  />
                         </div>
                         <span
                             class="ml-1 duration-300 opacity-100 pointer-events-none ease"
@@ -156,7 +153,26 @@
                         Dashboard
                     </h6>
                 </nav>
-
+                <div class="flex items-center">
+                    <a
+                        mini-sidenav-burger=""
+                        href="javascript:;"
+                        class="p-0 text-sm text-white transition-all ease-nav-brand xl:block"
+                        aria-expanded="false"
+                    >
+                        <div class="w-4.5 overflow-hidden">
+                            <i
+                                class="ease mb-0.75 relative block h-0.5 translate-x-[5px] rounded-sm bg-white transition-all"
+                            ></i>
+                            <i
+                                class="ease mb-0.75 relative block h-0.5 rounded-sm bg-white transition-all"
+                            ></i>
+                            <i
+                                class="ease relative block h-0.5 translate-x-[5px] rounded-sm bg-white transition-all"
+                            ></i>
+                        </div>
+                    </a>
+                </div>
                 <div
                     class="flex items-center mt-2 grow sm:mt-0 sm:mr-6 md:mr-0 lg:flex lg:basis-auto"
                 >
@@ -589,9 +605,6 @@
                             <div
                                 class="border-black/12.5 mb-0 rounded-t-2xl border-b-0 border-solid p-6 pt-4 pb-0"
                             >
-                                <h6 class="capitalize dark:text-white">
-                                    Sales overview
-                                </h6>
                                 <p
                                     class="mb-0 text-sm leading-normal dark:text-white dark:opacity-60"
                                 ></p>
@@ -600,7 +613,7 @@
                                 <div>
                                     <canvas
                                         id="chart-line"
-                                        height="150"
+                                        height="130"
                                     ></canvas>
                                 </div>
                             </div>
@@ -611,7 +624,7 @@
 
                     <div class="flex flex-wrap mt-6 w-full justify-between">
                         <div
-                            class="w-full  px-3 mt-0 mb-6 lg:mb-0 lg:w-4/9 lg:flex-none"
+                            class="w-full px-3 mt-0 mb-6 lg:mb-0 lg:w-6/12 lg:flex-none"
                         >
                             <div
                                 class="relative flex flex-col min-w-0 break-words bg-white border-0 border-solid shadow-xl dark:bg-slate-850 dark:shadow-dark-xl dark:bg-gray-950 border-black-125 rounded-2xl bg-clip-border"
@@ -652,22 +665,7 @@
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td
-                                                    class="p-2 align-middle bg-transparent border-b whitespace-nowrap dark:border-white/40"
-                                                >
-                                                    <div class="text-center">
-                                                        <p
-                                                            class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-60"
-                                                        >
-                                                            Sales:
-                                                        </p>
-                                                        <h6
-                                                            class="mb-0 text-sm leading-normal dark:text-white"
-                                                        >
-                                                            2500
-                                                        </h6>
-                                                    </div>
-                                                </td>
+
                                                 <td
                                                     class="p-2 align-middle bg-transparent border-b whitespace-nowrap dark:border-white/40"
                                                 >
@@ -834,7 +832,6 @@
                                                         </h6>
                                                     </div>
                                                 </td>
-                                               
                                             </tr>
                                             <tr>
                                                 <td
@@ -917,7 +914,7 @@
                             </div>
                         </div>
                         <div
-                            class="w-full  px-3 mt-0 mb-6 lg:mb-0 lg:w-4/9 lg:flex-none"
+                            class="w-full px-3 mt-0 mb-6 lg:mb-0 lg:w-6/12 lg:flex-none"
                         >
                             <div
                                 class="border-black/12.5 shadow-xl dark:bg-slate-850 dark:shadow-dark-xl relative flex min-w-0 flex-col break-words rounded-2xl border-0 border-solid bg-white bg-clip-border"
@@ -927,7 +924,7 @@
                                         Categories
                                     </h6>
                                 </div>
-                                <div class="flex-auto p-4">
+                                <div class="flex-auto p-4 overflow-x-auto">
                                     <ul
                                         class="flex flex-col pl-0 mb-0 rounded-lg"
                                     >
