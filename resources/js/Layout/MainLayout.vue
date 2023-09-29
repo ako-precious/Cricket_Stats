@@ -22,7 +22,7 @@
                     class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4"
                 >
                     <div style="backdrop-filter: blur(20px);"
-                        class="relative flex flex-col min-w-0 break-words shadow-3xl  dark:shadow-dark-xl rounded-2xl bg-clip-border"
+                        class="relative flex flex-col min-w-0 break-words shadow-3xl  dark:shadow-dark-xl rounded-2xl bg-clip-border dark:bg-slate-850 "
                     >
                         <div class="flex-auto p-4">
                             <div class="flex flex-row -mx-3">
@@ -68,7 +68,7 @@
                     class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4"
                 >
                     <div style="backdrop-filter: blur(20px);"
-                        class="relative flex flex-col min-w-0 break-words  shadow-3xl  dark:shadow-dark-xl rounded-2xl bg-clip-border"
+                        class="relative flex flex-col min-w-0 break-words  shadow-3xl  dark:shadow-dark-xl rounded-2xl bg-clip-border dark:bg-slate-850 "
                     >
                         <div class="flex-auto p-4">
                             <div class="flex flex-row -mx-3">
@@ -114,7 +114,7 @@
                     class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4"
                 >
                     <div style="backdrop-filter: blur(20px);"
-                        class="relative flex flex-col min-w-0 break-words shadow-3xl  dark:shadow-dark-xl rounded-2xl bg-clip-border"
+                        class="relative flex flex-col min-w-0 break-words shadow-3xl  dark:shadow-dark-xl rounded-2xl bg-clip-border dark:bg-slate-850 "
                     >
                         <div class="flex-auto p-4">
                             <div class="flex flex-row -mx-3">
@@ -160,7 +160,7 @@
                     class="w-full max-w-full px-3 sm:w-1/2 sm:flex-none xl:w-1/4"
                 >
                     <div style="backdrop-filter: blur(20px);"
-                        class="relative flex flex-col min-w-0 break-words shadow-3xl dark:shadow-dark-xl rounded-2xl bg-clip-border"
+                        class="relative flex flex-col min-w-0 break-words shadow-3xl dark:shadow-dark-xl rounded-2xl bg-clip-border dark:bg-slate-850 "
                     >
                         <div class="flex-auto p-4">
                             <div class="flex flex-row -mx-3">
@@ -209,7 +209,7 @@
                         class="w-full  max-w-full px-3 mt-0 lg:w-10/12 lg:flex-none"
                     >
                         <div style="backdrop-filter: blur(20px);"
-                            class="border-black/12.5 dark:shadow-dark-xl shadow-3xl relative z-20 flex min-w-0 flex-col break-words rounded-2xl border-0 border-solid bg-clip-border"
+                            class="border-black/12.5 dark:shadow-dark-xl shadow-3xl relative z-20 flex min-w-0 flex-col break-words rounded-2xl border-0 border-solid bg-clip-border dark:bg-slate-850 "
                         >
                             <div
                                 class="border-black/12.5 mb-0 rounded-t-2xl border-b-0 border-solid p-6 pt-4 pb-0"
@@ -526,7 +526,7 @@
                             class="w-full px-3 mt-0 mb-6 md:mb-0 md:w-6/12 lg:flex-none"
                         >
                             <div style="backdrop-filter: blur(20px);"
-                                class="border-black/12.5 shadow-3xl  dark:shadow-dark-xl relative flex min-w-0 flex-col break-words rounded-2xl border-0 border-solid bg-clip-border"
+                                class="border-black/12.5 shadow-3xl  dark:shadow-dark-xl relative flex min-w-0 flex-col break-words rounded-2xl border-0 border-solid bg-clip-border dark:bg-slate-850 "
                             >
                                 <div class="p-4 pb-0 rounded-t-4">
                                     <h6 class="mb-0 dark:text-white">
@@ -695,7 +695,7 @@
                     </div>
                 </div>
                 <div style="backdrop-filter: blur(20px);"
-                    class="w-full max-w-full px-3 lg:w-4/12 lg:flex-none  shadow-3xl "
+                    class="w-full max-w-full px-3 lg:w-4/12 lg:flex-none  shadow-3xl dark:bg-slate-850 "
                 >
                     <div
                         slider

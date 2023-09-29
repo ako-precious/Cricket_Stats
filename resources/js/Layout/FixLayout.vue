@@ -1,6 +1,6 @@
 <template>
   <div>
-        <a @click="toggleClass" class="fixed px-4 py-2 text-xl bg-white shadow-lg cursor-pointer bottom-8 right-8 z-990 rounded-circle text-slate-700">
+        <a @click="toggleClass" class="fixed px-4 py-2 text-xl bg-white shadow-lg cursor-pointer bottom-8 right-8 z-990 rounded-circle text-slate-700 dark:bg-slate-850">
         <font-awesome-icon icon="fa-solid fa-gear" style="color: #2a744a;" />
         </a>
         <!-- -right-90 in loc de 0-->
@@ -119,7 +119,7 @@
                   <div class="flex mt-2 mb-12">
                       <h6 class="mb-0 dark:text-white">Light / Dark</h6>
                       <div class="block pl-0 ml-auto min-h-6">
-                          <input
+                          <input @click="toggleDarkMode()"
                               dark-toggle
                               class="rounded-10 duration-250 ease-in-out after:rounded-circle after:shadow-2xl after:duration-250 checked:after:translate-x-5.3 h-5 relative float-left mt-1 ml-auto w-10 cursor-pointer appearance-none border border-solid border-gray-200 bg-slate-800/10 bg-none bg-contain bg-left bg-no-repeat align-top transition-all after:absolute after:top-px after:h-4 after:w-4 after:translate-x-px after:bg-white after:content-[''] checked:border-blue-500/95 checked:bg-blue-500/95 checked:bg-none checked:bg-right"
                               type="checkbox"
@@ -137,8 +137,11 @@
 <script setup>
 // import { Link } from "@inertiajs/vue3";
 import fixedPluginCard from "@/Layout/Component/FixedPluginCard.vue";
-import { ref } from 'vue';
-// defineProps(["message"]);
+import { useDark, useToggle } from "@vueuse/core";
+
+const isDark = useDark()
+const toggleDarkMode = useToggle(isDark)
+
 </script>
 
 <script>
@@ -146,7 +149,8 @@ import { ref } from 'vue';
 export default {
     data() {
     return {
-      isClassAdded: '-right-90', // Initialize as false
+      isClassAdded: '-right-90',
+      
     };
   },
   methods: {
@@ -155,6 +159,7 @@ export default {
     
       this.isClassAdded = this.isClassAdded === '-right-90' ? 'right-0' : '-right-90';
     },
+  
   },
 }
 </script>
