@@ -11,9 +11,9 @@
         class="fixed inset-y-0 left-0 flex-wrap items-center  justify-between block w-full p-0 my-4 transition-all duration-200 ease-in-out -translate-x-full bg-white border-0 shadow-xl dark:shadow-none xl:ml-6 dark:bg-slate-850 z-990 rounded-2xl xl:translate-x-0 ps ps--active-y max-w-64 overflow-y-auto"
         id="sidenav-main"
     >
-        <div  class="h-20  " >
+        <div  class="h-20 " >
             <i
-                class=" top-0 right-0 p-4 opacity-50 cursor-pointer fas fa-times text-slate-400 dark:text-white xl:hidden"
+                class="sticky  top-0 right-0 p-4 opacity-50 cursor-pointer fas fa-times text-slate-400 dark:text-white xl:hidden"
                 aria-hidden="true"
                 sidenav-close-btn=""
             ></i>

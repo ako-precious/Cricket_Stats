@@ -1,16 +1,13 @@
 <template>
-  <div fixed-plugin>
+  <div fixed-pugin>
         <a
-            fixed-plugin-button
+            fixed-plugin-button 
             class="fixed px-4 py-2 text-xl bg-white shadow-lg cursor-pointer bottom-8 right-8 z-990 rounded-circle text-slate-700"
         >
-        <font-awesome-icon icon="fa-solid fa-gear" />
+        <font-awesome-icon icon="fa-solid fa-gear" style="color: #2a744a;" />
         </a>
         <!-- -right-90 in loc de 0-->
-        <div
-            fixed-plugin-card
-            class="z-sticky backdrop-blur-2xl backdrop-saturate-200 dark:bg-slate-850/80 shadow-3xl w-90 ease -right-90 fixed top-0 left-auto flex h-full min-w-0 flex-col break-words rounded-none border-0 bg-white/80 bg-clip-border px-2.5 duration-200"
-        >
+        <fixedPluginCard v-if="slideinTrigger.buttonTrigger">
             <div class="px-6 pt-4 pb-0 mb-0 border-b-0 rounded-t-2xl">
                 <div class="float-left">
                     <h5 class="mt-4 mb-0 dark:text-white">
@@ -167,11 +164,37 @@
                     </a>
                 </div>
             </div>
-        </div>
+        </fixedPluginCard>
     </div>
 </template>
 <script setup>
+import {ref} from vue;
 import { Link } from "@inertiajs/vue3";
+import fixedPluginCard from "@/Layout/Component/FixedPluginCard.vue"
 defineProps(["message"]);
 </script>
-<script></script>
+
+<script>
+
+export default {
+    setup(){
+        const slideinTrigger = ref({
+            buttonTrigger:false          
+        });
+        return {
+            slideinTrigger
+        }
+    }
+//   name: 'componentA',
+//   components: {
+//     fixedPluginCard
+//   },
+//   methods: {
+//     openModal: function () {
+//         fixedPluginCard.classList.toggle("-right-90");
+//           fixedPluginCard.classList.toggle("right-0");
+//     },
+    // otherMethods:...
+//   }
+}
+</script>

@@ -1,9 +1,9 @@
 var pageName = window.location.pathname.split("/").pop().split(".")[0];
 
 var fixedPlugin = document.querySelector("[fixed-plugin]");
+var fixedPluginCard = document.querySelector("[fixed-plugin-card]");
 var fixedPluginButton = document.querySelector("[fixed-plugin-button]");
 var fixedPluginButtonNav = document.querySelector("[fixed-plugin-button-nav]");
-var fixedPluginCard = document.querySelector("[fixed-plugin-card]");
 var fixedPluginCloseButton = document.querySelector("[fixed-plugin-close-button]");
 
 var navbar = document.querySelector("[navbar-main]");
@@ -33,6 +33,7 @@ var sidenav_highlight = document.querySelector("a[href=" + CSS.escape(sidenav_ta
 
 // fixed plugin toggle
 if (pageName != "rtl") {
+  
   fixedPluginButton.addEventListener("click", function () {
     fixedPluginCard.classList.toggle("-right-90");
     fixedPluginCard.classList.toggle("right-0");
