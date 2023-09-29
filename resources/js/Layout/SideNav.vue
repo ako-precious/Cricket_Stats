@@ -58,9 +58,7 @@
                         <div
                             class="stroke-none flex h-8 w-8 items-center justify-center rounded-lg bg-center fill-current p-2.5 text-center text-black"
                         >
-                            <i
-                                class="text-sm leading-normal text-blue-500 ni ni-shop"
-                            ></i>
+                        <font-awesome-icon icon="fa-solid fa-house" style="color: #2a744a;" />
                         </div>
 
                         <span
@@ -1533,8 +1531,6 @@
     </aside> 
 </template>
 <script setup>
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { Link } from "@inertiajs/vue3";
-defineProps(["message"]);
 </script>
 <script></script>

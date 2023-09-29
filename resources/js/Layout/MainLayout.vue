@@ -1,6 +1,11 @@
 <template>
     
- 
+    <div class="absolute h-screen w-full bg-[linear-gradient(to_bottom,rgba(5,150,105,1),rgba(110,231,183,0.8))] dark:hidden min-h-75"></div>
+        <!-- sidenav  -->
+             <SideNav/>
+        <!-- sidenav  -->
+        <!-- rgb(110 231 183 / var(--tw-bg-opacity)); -->
+
     <main
         class="relative h-full  max-h-screen transition-all duration-200 ease-in-out xl:ml-68 rounded-xl"
     >
@@ -741,13 +746,15 @@
         <!-- end cards -->
     </main>
     <!-- fixed plugin  -->
-
+    <FixLayout />
     <!-- end fixed plugin  -->
 </template>
 <script setup>
 // import { Link } from "@inertiajs/vue3";
 import Footer from "@/Layout/FooterLayout.vue";
 import NavBar from "@/Layout/NavBar.vue";
+import SideNav from "@/Layout/SideNav.vue";
+import FixLayout from "@/Layout/FixLayout.vue";
 defineProps(["message"]);
 </script>
 <script></script>
