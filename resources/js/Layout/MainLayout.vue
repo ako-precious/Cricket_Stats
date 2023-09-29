@@ -2,7 +2,7 @@
     
  
     <main
-        class="relative h-full max-h-screen transition-all duration-200 ease-in-out xl:ml-68 rounded-xl"
+        class="relative h-full  max-h-screen transition-all duration-200 ease-in-out xl:ml-68 rounded-xl"
     >
         <!-- Navbar -->
          <NavBar></NavBar>
@@ -16,8 +16,8 @@
                 <div
                     class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4"
                 >
-                    <div
-                        class="relative flex flex-col min-w-0 break-words bg-white shadow-xl dark:bg-slate-850 dark:shadow-dark-xl rounded-2xl bg-clip-border"
+                    <div style="backdrop-filter: blur(20px);"
+                        class="relative flex flex-col min-w-0 break-words shadow-3xl  dark:shadow-dark-xl rounded-2xl bg-clip-border"
                     >
                         <div class="flex-auto p-4">
                             <div class="flex flex-row -mx-3">
@@ -59,11 +59,11 @@
                 </div>
 
                 <!-- card2 -->
-                <div
+                <div 
                     class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4"
                 >
-                    <div
-                        class="relative flex flex-col min-w-0 break-words bg-white shadow-xl dark:bg-slate-850 dark:shadow-dark-xl rounded-2xl bg-clip-border"
+                    <div style="backdrop-filter: blur(20px);"
+                        class="relative flex flex-col min-w-0 break-words  shadow-3xl  dark:shadow-dark-xl rounded-2xl bg-clip-border"
                     >
                         <div class="flex-auto p-4">
                             <div class="flex flex-row -mx-3">
@@ -108,8 +108,8 @@
                 <div
                     class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4"
                 >
-                    <div
-                        class="relative flex flex-col min-w-0 break-words bg-white shadow-xl dark:bg-slate-850 dark:shadow-dark-xl rounded-2xl bg-clip-border"
+                    <div style="backdrop-filter: blur(20px);"
+                        class="relative flex flex-col min-w-0 break-words shadow-3xl  dark:shadow-dark-xl rounded-2xl bg-clip-border"
                     >
                         <div class="flex-auto p-4">
                             <div class="flex flex-row -mx-3">
@@ -154,8 +154,8 @@
                 <div
                     class="w-full max-w-full px-3 sm:w-1/2 sm:flex-none xl:w-1/4"
                 >
-                    <div
-                        class="relative flex flex-col min-w-0 break-words bg-white shadow-xl dark:bg-slate-850 dark:shadow-dark-xl rounded-2xl bg-clip-border"
+                    <div style="backdrop-filter: blur(20px);"
+                        class="relative flex flex-col min-w-0 break-words shadow-3xl dark:shadow-dark-xl rounded-2xl bg-clip-border"
                     >
                         <div class="flex-auto p-4">
                             <div class="flex flex-row -mx-3">
@@ -200,11 +200,11 @@
             <!-- cards row 2 -->
             <div class="flex flex-wrap mt-6 -mx-3">
                 <div class="flex flex-col lg:w-8/12">
-                    <div
-                        class="w-full max-w-full px-3 mt-0 lg:w-10/12 lg:flex-none"
+                    <div 
+                        class="w-full  max-w-full px-3 mt-0 lg:w-10/12 lg:flex-none"
                     >
-                        <div
-                            class="border-black/12.5 dark:bg-slate-850 dark:shadow-dark-xl shadow-xl relative z-20 flex min-w-0 flex-col break-words rounded-2xl border-0 border-solid bg-white bg-clip-border"
+                        <div style="backdrop-filter: blur(20px);"
+                            class="border-black/12.5 dark:shadow-dark-xl shadow-3xl relative z-20 flex min-w-0 flex-col break-words rounded-2xl border-0 border-solid bg-clip-border"
                         >
                             <div
                                 class="border-black/12.5 mb-0 rounded-t-2xl border-b-0 border-solid p-6 pt-4 pb-0"
@@ -228,10 +228,10 @@
 
                     <div class="flex flex-wrap mt-6 w-full justify-between">
                         <div
-                            class="w-full px-3 mt-0 mb-6 lg:mb-0 lg:w-6/12 lg:flex-none"
+                            class="w-full px-3 mt-0 mb-6 lg:mb-0 md:w-6/12 lg:flex-none"
                         >
-                            <div
-                                class="relative flex flex-col min-w-0 break-words bg-white border-0 border-solid shadow-xl dark:bg-slate-850 dark:shadow-dark-xl dark:bg-gray-950 border-black-125 rounded-2xl bg-clip-border"
+                            <div style="backdrop-filter: blur(20px);"
+                                class="relative flex flex-col min-w-0 break-words border-0 border-solid shadow-3xl dark:bg-slate-850 dark:shadow-dark-xl dark:bg-gray-950 border-black-125 rounded-2xl bg-clip-border"
                             >
                                 <div class="p-4 pb-0 mb-0 rounded-t-4">
                                     <div class="flex justify-between">
@@ -518,10 +518,10 @@
                             </div>
                         </div>
                         <div
-                            class="w-full px-3 mt-0 mb-6 lg:mb-0 lg:w-6/12 lg:flex-none"
+                            class="w-full px-3 mt-0 mb-6 md:mb-0 md:w-6/12 lg:flex-none"
                         >
-                            <div
-                                class="border-black/12.5 shadow-xl dark:bg-slate-850 dark:shadow-dark-xl relative flex min-w-0 flex-col break-words rounded-2xl border-0 border-solid bg-white bg-clip-border"
+                            <div style="backdrop-filter: blur(20px);"
+                                class="border-black/12.5 shadow-3xl  dark:shadow-dark-xl relative flex min-w-0 flex-col break-words rounded-2xl border-0 border-solid bg-clip-border"
                             >
                                 <div class="p-4 pb-0 rounded-t-4">
                                     <h6 class="mb-0 dark:text-white">
@@ -689,8 +689,8 @@
                         </div>
                     </div>
                 </div>
-                <div
-                    class="w-full max-w-full px-3 lg:w-4/12 lg:flex-none bg-red-DEFAULT-700"
+                <div style="backdrop-filter: blur(20px);"
+                    class="w-full max-w-full px-3 lg:w-4/12 lg:flex-none  shadow-3xl "
                 >
                     <div
                         slider

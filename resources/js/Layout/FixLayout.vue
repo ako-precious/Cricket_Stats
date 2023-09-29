@@ -4,7 +4,7 @@
             fixed-plugin-button
             class="fixed px-4 py-2 text-xl bg-white shadow-lg cursor-pointer bottom-8 right-8 z-990 rounded-circle text-slate-700"
         >
-            <i class="py-2 pointer-events-none fa fa-cog"> </i>
+        <font-awesome-icon icon="fa-solid fa-gear" />
         </a>
         <!-- -right-90 in loc de 0-->
         <div

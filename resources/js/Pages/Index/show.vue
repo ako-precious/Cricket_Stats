@@ -594,7 +594,7 @@
             </div>
 
             <!-- cards row 2 -->
-            <div class="flex flex-wrap mt-6 -mx-3">
+            <div class="flex flex-wrap mt-8 -mx-3">
                 <div class="flex flex-col lg:w-8/12">
                     <div
                         class="w-full max-w-full px-3 mt-0 lg:w-10/12 lg:flex-none"
