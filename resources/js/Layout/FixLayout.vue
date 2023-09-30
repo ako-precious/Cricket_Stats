@@ -32,45 +32,7 @@
                   class="h-px mx-0 my-1 bg-transparent bg-gradient-to-r from-transparent via-black/40 to-transparent dark:bg-gradient-to-r dark:from-transparent dark:via-white dark:to-transparent"
               />
               <div class="flex-auto p-6 pt-0 overflow-auto sm:pt-4">
-                  <!-- Sidebar Backgrounds -->
-                  <div>
-                      <h6 class="mb-0 dark:text-white">Sidebar Colors</h6>
-                  </div>
-                  <a href="javascript:void(0)">
-                      <div class="my-2 text-left" sidenav-colors>
-                          <span
-                              class="py-2.2 text-xs rounded-circle h-5.6 mr-1.25 w-5.6 ease-in-out bg-gradient-to-tl from-blue-500 to-violet-500 relative inline-block cursor-pointer whitespace-nowrap border border-solid border-slate-700 text-center align-baseline font-bold uppercase leading-none text-white transition-all duration-200 hover:border-slate-700"
-                              active-color
-                              data-color="blue"
-                              onclick="sidebarColor(this)"
-                          ></span>
-                          <span
-                              class="py-2.2 text-xs rounded-circle h-5.6 mr-1.25 w-5.6 ease-in-out bg-gradient-to-tl from-zinc-800 to-zinc-700 dark:bg-gradient-to-tl dark:from-slate-750 dark:to-gray-850 relative inline-block cursor-pointer whitespace-nowrap border border-solid border-white text-center align-baseline font-bold uppercase leading-none text-white transition-all duration-200 hover:border-slate-700"
-                              data-color="gray"
-                              onclick="sidebarColor(this)"
-                          ></span>
-                          <span
-                              class="py-2.2 text-xs rounded-circle h-5.6 mr-1.25 w-5.6 ease-in-out bg-gradient-to-tl from-blue-700 to-cyan-500 relative inline-block cursor-pointer whitespace-nowrap border border-solid border-white text-center align-baseline font-bold uppercase leading-none text-white transition-all duration-200 hover:border-slate-700"
-                              data-color="cyan"
-                              onclick="sidebarColor(this)"
-                          ></span>
-                          <span
-                              class="py-2.2 text-xs rounded-circle h-5.6 mr-1.25 w-5.6 ease-in-out bg-gradient-to-tl from-emerald-500 to-teal-400 relative inline-block cursor-pointer whitespace-nowrap border border-solid border-white text-center align-baseline font-bold uppercase leading-none text-white transition-all duration-200 hover:border-slate-700"
-                              data-color="emerald"
-                              onclick="sidebarColor(this)"
-                          ></span>
-                          <span
-                              class="py-2.2 text-xs rounded-circle h-5.6 mr-1.25 w-5.6 ease-in-out bg-gradient-to-tl from-orange-500 to-yellow-500 relative inline-block cursor-pointer whitespace-nowrap border border-solid border-white text-center align-baseline font-bold uppercase leading-none text-white transition-all duration-200 hover:border-slate-700"
-                              data-color="orange"
-                              onclick="sidebarColor(this)"
-                          ></span>
-                          <span
-                              class="py-2.2 text-xs rounded-circle h-5.6 mr-1.25 w-5.6 ease-in-out bg-gradient-to-tl from-red-600 to-orange-600 relative inline-block cursor-pointer whitespace-nowrap border border-solid border-white text-center align-baseline font-bold uppercase leading-none text-white transition-all duration-200 hover:border-slate-700"
-                              data-color="red"
-                              onclick="sidebarColor(this)"
-                          ></span>
-                      </div>
-                  </a>
+                
                   <!-- Sidenav Type -->
                   <div class="mt-4">
                       <h6 class="mb-0 dark:text-white">Sidenav Type</h6>
@@ -106,7 +68,7 @@
                   <div class="flex my-4">
                       <h6 class="mb-0 dark:text-white">Navbar Fixed</h6>
                       <div class="block pl-0 ml-auto min-h-6">
-                          <input
+                          <input  v-bind="$attrs"
                               navbarFixed
                               class="rounded-10 duration-250 ease-in-out after:rounded-circle after:shadow-2xl after:duration-250 checked:after:translate-x-5.3 h-5 relative float-left mt-1 ml-auto w-10 cursor-pointer appearance-none border border-solid border-gray-200 bg-slate-800/10 bg-none bg-contain bg-left bg-no-repeat align-top transition-all after:absolute after:top-px after:h-4 after:w-4 after:translate-x-px after:bg-white after:content-[''] checked:border-blue-500/95 checked:bg-blue-500/95 checked:bg-none checked:bg-right"
                               type="checkbox"
@@ -136,21 +98,24 @@
 </template>
 <script setup>
 // import { Link } from "@inertiajs/vue3";
+import { useAttrs } from 'vue'
 import fixedPluginCard from "@/Layout/Component/FixedPluginCard.vue";
+
 import { useDark, useToggle } from "@vueuse/core";
 
 const isDark = useDark()
 const toggleDarkMode = useToggle(isDark)
-
+const attrs = useAttrs()
 </script>
 
 <script>
 
 export default {
+    inheritAttrs: false,
     data() {
     return {
       isClassAdded: '-right-90',
-      
+      classChanged: 'notfixeddiv',
     };
   },
   methods: {
@@ -159,6 +124,11 @@ export default {
     
       this.isClassAdded = this.isClassAdded === '-right-90' ? 'right-0' : '-right-90';
     },
+    toggleNavClass() {
+      // Toggle the value when the button is clicked
+    
+      this.classChanged = this.classChanged === 'notfixeddiv' ? 'fixeddiv' : 'notfixeddiv';
+    }
   
   },
 }
