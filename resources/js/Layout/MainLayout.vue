@@ -3,36 +3,50 @@
         class="absolute h-screen w-full bg-[linear-gradient(to_right_bottom,rgba(5,150,105,1),rgba(74,223,128,0.8))] dark:hidden min-h-75"
     ></div>
     <!-- sidenav  -->
-    
+
     <SideNav :class="{ 'bg-slate-850': isClassWhite }">
-        <li class="mt-0.5 w-full group">
-            <SideBarLink>
-                <SideBarIcon class="group-hover:animate-bounce">
-                    <font-awesome-icon
-                        icon="fa-solid fa-house"
-                        style="color: #2a744a"
-                /></SideBarIcon>
-                <SideBarSpan> Dashboard </SideBarSpan>
-            </SideBarLink>
-        </li>
-        <li class="mt-0.5 w-full group" >
-            <SideBarLink>
-                <SideBarIcon class="group-hover:animate-pulse">
-                    <font-awesome-icon :icon="['fas', 'baseball-bat-ball']"  style="color: #2a744a"/>
-                       
-            </SideBarIcon>
-                <SideBarSpan> Players </SideBarSpan>
-            </SideBarLink>
-        </li>
-        <li class="mt-0.5 w-full group">
-            <SideBarLink>
-                <SideBarIcon class="group-hover:animate-spin">
-                    <font-awesome-icon icon="fa-solid fa-baseball" style="color: #2a744a"/>
-            </SideBarIcon>
-                <SideBarSpan> Teams </SideBarSpan>
-            </SideBarLink>
-        </li>
-        
+        <SideBarHeader>
+            <span
+                class="ml-2 font-bold transition-all duration-200 ease-in-out opacity-100 text-2xl uppercase"
+            >
+                Cricket
+            </span>
+        </SideBarHeader>
+
+        <SideBarCollapse>
+            <li class="mt-0.5 w-full group">
+                <SideBarLink>
+                    <SideBarIcon class="group-hover:animate-bounce">
+                        <font-awesome-icon
+                            icon="fa-solid fa-house"
+                            style="color: #2a744a"
+                    /></SideBarIcon>
+                    <SideBarSpan> Dashboard </SideBarSpan>
+                </SideBarLink>
+            </li>
+            <li class="mt-0.5 w-full group">
+                <SideBarLink>
+                    <SideBarIcon class="group-hover:animate-pulse">
+                        <font-awesome-icon
+                            :icon="['fas', 'baseball-bat-ball']"
+                            style="color: #2a744a"
+                        />
+                    </SideBarIcon>
+                    <SideBarSpan> Players </SideBarSpan>
+                </SideBarLink>
+            </li>
+            <li class="mt-0.5 w-full group">
+                <SideBarLink>
+                    <SideBarIcon class="group-hover:animate-spin">
+                        <font-awesome-icon
+                            icon="fa-solid fa-baseball"
+                            style="color: #2a744a"
+                        />
+                    </SideBarIcon>
+                    <SideBarSpan> Teams </SideBarSpan>
+                </SideBarLink>
+            </li>
+        </SideBarCollapse>
     </SideNav>
     <!-- sidenav  -->
     <!-- rgb(110 231 183 / var(--tw-bg-opacity)); -->
@@ -112,8 +126,8 @@
             <WhiteBgBtn class="blackbtn" @click="changeBgBlack()"
                 >Dark</WhiteBgBtn
             >
-        </div> </FixLayout
-    >>
+        </div>
+    </FixLayout>
     <!-- end fixed plugin  -->
 </template>
 <script setup>
@@ -123,6 +137,8 @@ import WhiteBgBtn from "@/Layout/Component/Buttons/WhiteBgBtn.vue";
 import SideBarLink from "@/Layout/Component/Sidebar/SideBarLink.vue";
 import SideBarSpan from "@/Layout/Component/Sidebar/SideBarSpan.vue";
 import SideBarIcon from "@/Layout/Component/Sidebar/SideBarIcon.vue";
+import SideBarHeader from "@/Layout/Component/Sidebar/SideBarHeader.vue";
+import SideBarCollapse from "@/Layout/Component/Sidebar/SideBarCollapse.vue";
 import NavBar from "@/Layout/NavBar.vue";
 import SideNav from "@/Layout/SideNav.vue";
 import FixLayout from "@/Layout/FixLayout.vue";
