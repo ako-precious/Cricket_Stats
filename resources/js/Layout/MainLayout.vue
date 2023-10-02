@@ -78,8 +78,8 @@
                     </p>
                 </div>
                 <div class="flex">
-                    <WhiteBgBtn  @click="changeBgWhite()"/>
-                    <BlackBgBtn @click="changeBgBlack()"/>
+                    <WhiteBgBtn class="whitebtn" @click="changeBgWhite()">Light</WhiteBgBtn>
+                    <WhiteBgBtn class="blackbtn" @click="changeBgBlack()">Dark</WhiteBgBtn>
                    
                    
                 </div>
@@ -90,7 +90,6 @@
 // import { Link } from "@inertiajs/vue3";
 import Footer from "@/Layout/FooterLayout.vue";
 import WhiteBgBtn from "@/Layout/Component/Buttons/WhiteBgBtn.vue";
-import BlackBgBtn from "@/Layout/Component/Buttons/BlackBgBtn.vue"; 
 import NavBar from "@/Layout/NavBar.vue";
 import SideNav from "@/Layout/SideNav.vue";
 import FixLayout from "@/Layout/FixLayout.vue";
