@@ -15,7 +15,7 @@
 
         <SideBarCollapse>
             <li class="mt-0.5 w-full group">
-                <SideBarLink>
+                <SideBarLink class="activesidelink">
                     <SideBarIcon class="group-hover:animate-bounce">
                         <font-awesome-icon
                             icon="fa-solid fa-house"
@@ -28,7 +28,7 @@
                 <SideBarLink>
                     <SideBarIcon class="group-hover:animate-pulse">
                         <font-awesome-icon
-                            :icon="['fas', 'baseball-bat-ball']"
+                            icon="fas-solid fa-baseball-bat-ball"
                             style="color: #2a744a"
                         />
                     </SideBarIcon>
@@ -49,13 +49,55 @@
         </SideBarCollapse>
     </SideNav>
     <!-- sidenav  -->
-    <!-- rgb(110 231 183 / var(--tw-bg-opacity)); -->
 
     <main
         class="relative h-full max-h-screen transition-all duration-200 ease-in-out xl:ml-68 rounded-xl"
     >
         <!-- Navbar -->
-        <NavBar :class="classChanged"></NavBar>
+        <NavBar :class="classChanged">
+            <nav>
+                <ol
+                    class="flex flex-wrap pt-1 mr-12 bg-transparent rounded-lg sm:mr-16"
+                >
+                    <li class="text-sm leading-normal">
+                        <a class="text-white opacity-50" href="javascript:;"
+                            >Pages</a
+                        >
+                    </li>
+                    <li
+                        class="text-sm pl-2 capitalize leading-normal text-white before:float-left before:pr-2 before:text-white before:content-['/']"
+                        aria-current="page"
+                    >
+                        Dashboard
+                    </li>
+                </ol>
+                <h6 class="mb-0 font-bold text-white capitalize">Dashboard</h6>
+            </nav>
+
+            <SubNavBar>
+                <i
+                    class="ease mb-0.75 relative block h-0.5 rounded-sm bg-white transition-all translate-x-[5px]"
+                ></i>
+                <i
+                    class="ease mb-0.75 relative block h-0.5 rounded-sm bg-white transition-all"
+                ></i>
+                <i
+                    class="ease relative block h-0.5 rounded-sm bg-white transition-all translate-x-[5px]"
+                ></i>
+            </SubNavBar>
+
+            <NavSideBar>
+                <i
+                    class="ease mb-0.75 relative block h-0.5 rounded-sm bg-white transition-all"
+                ></i>
+                <i
+                    class="ease mb-0.75 relative block h-0.5 rounded-sm bg-white transition-all"
+                ></i>
+                <i
+                    class="ease relative block h-0.5 rounded-sm bg-white transition-all"
+                ></i>
+            </NavSideBar>
+        </NavBar>
         <!-- end Navbar -->
 
         <!-- cards -->
@@ -138,8 +180,11 @@ import SideBarLink from "@/Layout/Component/Sidebar/SideBarLink.vue";
 import SideBarSpan from "@/Layout/Component/Sidebar/SideBarSpan.vue";
 import SideBarIcon from "@/Layout/Component/Sidebar/SideBarIcon.vue";
 import SideBarHeader from "@/Layout/Component/Sidebar/SideBarHeader.vue";
+// import SideBarColour from "@/Layout/Component/Sidebar/SideBarColour.vue";
 import SideBarCollapse from "@/Layout/Component/Sidebar/SideBarCollapse.vue";
 import NavBar from "@/Layout/NavBar.vue";
+import SubNavBar from "@/Layout/Component/Navbar/NavBar.vue";
+import NavSideBar from "@/Layout/Component/Navbar/NavSideBar.vue";
 import SideNav from "@/Layout/SideNav.vue";
 import FixLayout from "@/Layout/FixLayout.vue";
 
