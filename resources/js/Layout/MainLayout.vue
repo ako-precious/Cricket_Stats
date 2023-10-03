@@ -4,9 +4,14 @@
     ></div>
     <!-- sidenav  -->
 
-    <SideNav :class="{ 'bg-slate-850': isClassWhite, 'translate-x-0':isClassTranslated }">
+    <SideNav
+        :class="{
+            'bg-slate-850': isClassWhite,
+            'translate-x-0': isClassTranslated,
+        }"
+    >
         <SideBarHeader>
-            <span 
+            <span
                 class="ml-2 font-bold transition-all duration-200 ease-in-out opacity-100 text-2xl uppercase"
             >
                 Cricket
@@ -86,16 +91,22 @@
                 ></i>
             </SubNavBar>
 
-            <NavSideBar @click="openSidebar">
-                <i
-                    class="ease mb-0.75 relative block h-0.5 rounded-sm bg-white transition-all " :class="{ 'translate-x-[5px]':isClassTranslated }"
-                ></i>
-                <i
-                    class="ease mb-0.75 relative block h-0.5 rounded-sm bg-white transition-all"
-                ></i>
-                <i
-                    class="ease relative block h-0.5 rounded-sm bg-white transition-all " :class="{ 'translate-x-[5px]':isClassTranslated }"
-                ></i>
+            <NavSideBar>
+                
+                <div class="w-4.5 overflow-hidden" @click="openSidebar()">
+
+                    <i
+                        class="ease mb-0.75 relative block h-0.5 rounded-sm bg-white transition-all"
+                        :class="{ 'translate-x-[5px]': isClassTranslated }"
+                    ></i>
+                    <i
+                        class="ease mb-0.75 relative block h-0.5 rounded-sm bg-white transition-all"
+                    ></i>
+                    <i
+                        class="ease relative block h-0.5 rounded-sm bg-white transition-all"
+                        :class="{ 'translate-x-[5px]': isClassTranslated }"
+                    ></i>
+                </div>
             </NavSideBar>
         </NavBar>
         <!-- end Navbar -->
@@ -217,8 +228,9 @@ export default {
         },
         openSidebar() {
             this.isNavClassTranslated = !this.isNavClassTranslated;
-            console.log(this.isNavClassTranslated); 
-            this.isClassTranslated = true;
+            console.log(this.isNavClassTranslated);
+            this.isClassTranslated = !this.isClassTranslated;
+            // console.log(this.isClassTranslated);
         },
     },
 };

@@ -23,15 +23,14 @@
                 >
                    
 
-                    <li class="flex items-center pl-4 xl:hidden"   v-bind="$attrs">
+                    <li class="flex items-center pl-4 xl:hidden"  >
                         <a
                             href="javascript:;"
                             class="block p-0 text-sm text-white transition-all ease-nav-brand"
                             sidenav-trigger
                         >
-                            <div class="w-4.5 overflow-hidden">
-                               <slot>Default</slot>
-                            </div>
+                        <slot>Default</slot>
+                            
                         </a>
                     </li>
                   
@@ -41,7 +40,6 @@
             </div>
 </template>
 <script setup>
-import { useAttrs } from "vue";
-const attrs = useAttrs();
+
 </script>
 <script></script>
