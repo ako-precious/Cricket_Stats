@@ -4,9 +4,9 @@
     ></div>
     <!-- sidenav  -->
 
-    <SideNav :class="{ 'bg-slate-850': isClassWhite }">
+    <SideNav :class="{ 'bg-slate-850': isClassWhite, 'translate-x-0':isClassTranslated }">
         <SideBarHeader>
-            <span
+            <span 
                 class="ml-2 font-bold transition-all duration-200 ease-in-out opacity-100 text-2xl uppercase"
             >
                 Cricket
@@ -74,7 +74,7 @@
                 <h6 class="mb-0 font-bold text-white capitalize">Dashboard</h6>
             </nav>
 
-            <SubNavBar>
+            <SubNavBar @click="">
                 <i
                     class="ease mb-0.75 relative block h-0.5 rounded-sm bg-white transition-all translate-x-[5px]"
                 ></i>
@@ -86,15 +86,15 @@
                 ></i>
             </SubNavBar>
 
-            <NavSideBar>
+            <NavSideBar @click="openSidebar">
                 <i
-                    class="ease mb-0.75 relative block h-0.5 rounded-sm bg-white transition-all"
+                    class="ease mb-0.75 relative block h-0.5 rounded-sm bg-white transition-all " :class="{ 'translate-x-[5px]':isClassTranslated }"
                 ></i>
                 <i
                     class="ease mb-0.75 relative block h-0.5 rounded-sm bg-white transition-all"
                 ></i>
                 <i
-                    class="ease relative block h-0.5 rounded-sm bg-white transition-all"
+                    class="ease relative block h-0.5 rounded-sm bg-white transition-all " :class="{ 'translate-x-[5px]':isClassTranslated }"
                 ></i>
             </NavSideBar>
         </NavBar>
@@ -196,6 +196,8 @@ export default {
         return {
             classChanged: "notfixeddiv",
             isClassWhite: false,
+            isClassTranslated: false,
+            isNavClassTranslated: false,
         };
     },
     methods: {
@@ -212,6 +214,10 @@ export default {
         },
         changeBgWhite() {
             this.isClassWhite = false;
+        },
+        openSidebar() {
+            this.isNavClassTranslated = true;
+            this.isClassTranslated = true;
         },
     },
 };

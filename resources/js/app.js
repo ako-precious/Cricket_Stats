@@ -15,8 +15,6 @@ import "./js/plugins/chartjs.min.js";
 //  plugin for scrollbar
 import "./js/plugins/perfect-scrollbar.min.js";
 
-// main script file
-import "./js/argon-dashboard-tailwind.js";
 
 /* import the fontawesome core */
 import { library } from "@fortawesome/fontawesome-svg-core";

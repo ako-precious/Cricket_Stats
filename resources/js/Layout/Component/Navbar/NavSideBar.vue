@@ -23,7 +23,7 @@
                 >
                    
 
-                    <li class="flex items-center pl-4 xl:hidden">
+                    <li class="flex items-center pl-4 xl:hidden"   v-bind="$attrs">
                         <a
                             href="javascript:;"
                             class="block p-0 text-sm text-white transition-all ease-nav-brand"
@@ -40,5 +40,8 @@
                 </ul>
             </div>
 </template>
-<script setup></script>
+<script setup>
+import { useAttrs } from "vue";
+const attrs = useAttrs();
+</script>
 <script></script>

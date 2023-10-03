@@ -6,11 +6,7 @@
         >
             <font-awesome-icon icon="fa-solid fa-gear" style="color: #2a744a" />
         </a>
-        <!-- -right-90 in loc de 0-->
-        <!-- <div
-              fixed-plugin-card
-              :class="{ 'right-0': isClassAdded } z-sticky backdrop-blur-2xl backdrop-saturate-200 dark:bg-slate-850/80 shadow-3xl w-90 ease -right-90 fixed top-0 left-auto flex h-full min-w-0 flex-col break-words rounded-none border-0 bg-white/80 bg-clip-border px-2.5 duration-200"
-          > -->
+       
         <fixedPluginCard :class="isClassAdded">
             <div class="px-6 pt-4 pb-0 mb-0 border-b-0 rounded-t-2xl">
                 <div class="float-left">
@@ -81,6 +77,7 @@
     </div>
 </template>
 <script setup>
+
 // import { Link } from "@inertiajs/vue3";
 import { useAttrs } from "vue";
 import fixedPluginCard from "@/Layout/Component/FixedPluginCard.vue";
