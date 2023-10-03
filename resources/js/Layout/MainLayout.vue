@@ -216,7 +216,8 @@ export default {
             this.isClassWhite = false;
         },
         openSidebar() {
-            this.isNavClassTranslated = true;
+            this.isNavClassTranslated = !this.isNavClassTranslated;
+            console.log(this.isNavClassTranslated); 
             this.isClassTranslated = true;
         },
     },
