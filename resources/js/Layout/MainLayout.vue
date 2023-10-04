@@ -7,11 +7,12 @@
     <SideNav
         :class="{
             'bg-slate-850': isClassWhite,
-            'translate-x-0': isClassTranslated,
+            'translate-x-0':isClassTranslated ,
+            sidebarReduced 
         }"
     >
         <SideBarHeader>
-            <span
+            <span :class="{ 'opacity-0': isLinkHidden }"
                 class="ml-2 font-bold transition-all duration-200 ease-in-out opacity-100 text-2xl uppercase"
             >
                 Cricket
@@ -26,7 +27,7 @@
                             icon="fa-solid fa-house"
                             style="color: #2a744a"
                     /></SideBarIcon>
-                    <SideBarSpan> Dashboard </SideBarSpan>
+                    <SideBarSpan :class="{ 'opacity-0': isLinkHidden }"> Dashboard </SideBarSpan>
                 </SideBarLink>
             </li>
             <li class="mt-0.5 w-full group">
@@ -37,7 +38,7 @@
                             style="color: #2a744a"
                         />
                     </SideBarIcon>
-                    <SideBarSpan> Players </SideBarSpan>
+                    <SideBarSpan :class="{ 'opacity-0': isLinkHidden }"> Players </SideBarSpan>
                 </SideBarLink>
             </li>
             <li class="mt-0.5 w-full group">
@@ -48,14 +49,14 @@
                             style="color: #2a744a"
                         />
                     </SideBarIcon>
-                    <SideBarSpan> Teams </SideBarSpan>
+                    <SideBarSpan :class="{ 'opacity-0': isLinkHidden }"> Teams </SideBarSpan>
                 </SideBarLink>
             </li>
         </SideBarCollapse>
     </SideNav>
     <!-- sidenav  -->
 
-    <main
+    <main :class="{ 'xl:ml-30': isMarginReduced }"
         class="relative h-full max-h-screen transition-all duration-200 ease-in-out xl:ml-68 rounded-xl"
     >
         <!-- Navbar -->
@@ -79,15 +80,15 @@
                 <h6 class="mb-0 font-bold text-white capitalize">Dashboard</h6>
             </nav>
 
-            <SubNavBar @click="">
-                <i
-                    class="ease mb-0.75 relative block h-0.5 rounded-sm bg-white transition-all translate-x-[5px]"
+            <SubNavBar @click="minSidebar()">
+                <i  :class="{ 'translate-x-[5px]': isClassTranslated2 }"
+                    class="ease mb-0.75 relative block h-0.5 rounded-sm bg-white transition-all " 
                 ></i>
                 <i
                     class="ease mb-0.75 relative block h-0.5 rounded-sm bg-white transition-all"
                 ></i>
-                <i
-                    class="ease relative block h-0.5 rounded-sm bg-white transition-all translate-x-[5px]"
+                <i  :class="{ 'translate-x-[5px]': isClassTranslated2 }"
+                    class="ease relative block h-0.5 rounded-sm bg-white transition-all "
                 ></i>
             </SubNavBar>
 
@@ -207,8 +208,12 @@ export default {
         return {
             classChanged: "notfixeddiv",
             isClassWhite: false,
+            isLinkHidden: false,
+            isMarginReduced: false,
+            sidebarReduced: "sidebar",
             isClassTranslated: false,
             isNavClassTranslated: false,
+            isClassTranslated2: true,
         };
     },
     methods: {
@@ -228,9 +233,15 @@ export default {
         },
         openSidebar() {
             this.isNavClassTranslated = !this.isNavClassTranslated;
-            console.log(this.isNavClassTranslated);
             this.isClassTranslated = !this.isClassTranslated;
-            // console.log(this.isClassTranslated);
+        },
+        minSidebar() {
+            this.isLinkHidden = !this.isLinkHidden;
+            this.isMarginReduced = !this.isMarginReduced;
+            this.sidebarReduced = this.sidebarReduced === "sidebar"
+                    ? "minisidebar"
+                    : "sidebar";
+            this.isClassTranslated2 = !this.isClassTranslated2;
         },
     },
 };
