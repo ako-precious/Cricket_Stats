@@ -4,11 +4,11 @@
     ></div>
     <!-- sidenav  -->
 
-    <SideNav
-        :class="{
+    <SideNav @mouseover="hoverSidebar()" @mouseout="hoverOutSidebar()"
+        :class=" sidebarReduced, {
             'bg-slate-850': isClassWhite,
-            'translate-x-0':isClassTranslated ,
-            sidebarReduced 
+            'translate-x-0':isClassTranslated,
+            
         }"
     >
         <SideBarHeader>
@@ -56,8 +56,8 @@
     </SideNav>
     <!-- sidenav  -->
 
-    <main :class="{ 'xl:ml-30': isMarginReduced }"
-        class="relative h-full max-h-screen transition-all duration-200 ease-in-out xl:ml-68 rounded-xl"
+    <main :class="marginReduced"
+        class="relative h-full max-h-screen transition-all duration-200 ease-in-out  rounded-xl"
     >
         <!-- Navbar -->
         <NavBar :class="classChanged">
@@ -209,7 +209,8 @@ export default {
             classChanged: "notfixeddiv",
             isClassWhite: false,
             isLinkHidden: false,
-            isMarginReduced: false,
+            hover: false,
+            marginReduced: "xl:ml-68",
             sidebarReduced: "sidebar",
             isClassTranslated: false,
             isNavClassTranslated: false,
@@ -237,11 +238,35 @@ export default {
         },
         minSidebar() {
             this.isLinkHidden = !this.isLinkHidden;
-            this.isMarginReduced = !this.isMarginReduced;
+            this.marginReduced = this.marginReduced === "xl:ml-68" ? "xl:ml-30" : "xl:ml-68";
             this.sidebarReduced = this.sidebarReduced === "sidebar"
                     ? "minisidebar"
                     : "sidebar";
             this.isClassTranslated2 = !this.isClassTranslated2;
+        },
+        hoverSidebar() {
+            if (this.sidebarReduced ===  "minisidebar") {
+                
+                this.isLinkHidden = !this.isLinkHidden;
+                this.marginReduced = this.marginReduced === "xl:ml-68" ? "xl:ml-30" : "xl:ml-68";
+                this.sidebarReduced = this.sidebarReduced === "sidebar"
+                        ? "minisidebar"
+                        : "sidebar";
+                this.isClassTranslated2 = !this.isClassTranslated2;
+                this.hover = true
+            }
+        },
+        hoverOutSidebar() {
+            if ( this.hover === true) {
+                
+                this.isLinkHidden = !this.isLinkHidden;
+                this.marginReduced = this.marginReduced === "xl:ml-68" ? "xl:ml-30" : "xl:ml-68";
+                this.sidebarReduced = this.sidebarReduced === "sidebar"
+                        ? "minisidebar"
+                        : "sidebar";
+                this.isClassTranslated2 = !this.isClassTranslated2;
+                this.hover = false
+            }
         },
     },
 };
