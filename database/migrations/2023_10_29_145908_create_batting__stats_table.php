@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('bowling__stats', function (Blueprint $table) {
+        Schema::create('batting__stats', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('player_id');
             $table->foreign('player_id')->references('id')->on('players');
@@ -28,17 +28,16 @@ return new class extends Migration
             $table->integer('four_wicket_hauls');
             $table->integer('five_wicket_hauls');
             $table->integer('ten_wicket_hauls');
-
-            $table->timestamps('matches');
+            $table->date('matches');
+            $table->timestamps();
         });
     }
-    
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('bowling__stats');
+        Schema::dropIfExists('batting__stats');
     }
 };
