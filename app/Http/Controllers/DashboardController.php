@@ -8,7 +8,7 @@ class DashboardController extends Controller
 {
     public function index(){
         $message = "Hello World";
-        return inertia('Index/Index',['message'=> $message]);
+        return inertia('Index',['message'=> $message]);
 
         }
 }

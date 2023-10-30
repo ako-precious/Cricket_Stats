@@ -12,7 +12,7 @@
                         <!-- <script>
                     document.write(new Date().getFullYear() + ",");
                   </script> -->
-                        made with <i class="fa fa-heart"></i> by
+                        made with <i class="fa fa-heart"></i> 
                         <a
                             href="https://www.creative-tim.com"
                             class="font-semibold text-slate-700 dark:text-white"
