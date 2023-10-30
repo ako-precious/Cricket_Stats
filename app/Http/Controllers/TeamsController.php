@@ -7,10 +7,15 @@ use Illuminate\Http\Request;
 
 class TeamsController extends Controller
 {
-    
-    public function index(){
-        dd(Teams::all());
-        return inertia('Teams/Index',['Teams' => Teams::all() ]);
 
-        }
+    public function index()
+    {
+
+        return inertia('Teams/Index',['teams' => Teams::all() ]);
+    }
+    public function show(Teams $team)
+    {
+        dd(Teams::all());
+        return inertia('Teams/Show', ['team' => $team]);
+    }
 }
