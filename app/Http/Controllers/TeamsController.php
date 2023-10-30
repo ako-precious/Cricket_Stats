@@ -9,8 +9,8 @@ class TeamsController extends Controller
 {
     
     public function index(){
-        
-        return inertia('Teams/Index',['Teams'=> Teams::all() ]);
+        dd(Teams::all());
+        return inertia('Teams/Index',['Teams' => Teams::all() ]);
 
         }
 }

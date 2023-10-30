@@ -159,6 +159,7 @@
                                             </th>
                                         </tr>
                                     </thead>
+                                    <div v-for="team in teams" > {{ team.id }} </div>
                                     <tbody>
                                         <tr>
                                             <td>
@@ -175,7 +176,7 @@
                                                     <p
                                                         class="mb-0 ml-2 text-xs font-semibold leading-tight"
                                                     >
-                                                        #10430
+                                                        # {{ team.id }}
                                                     </p>
                                                 </div>
                                             </td>
@@ -288,7 +289,7 @@
 <script setup>
 // import { Link } from "@inertiajs/vue3";
 import MainLayout from "@/Layout/MainLayout.vue";
-import TableLayout from "../Layout/TableLayout.vue";
+// import TableLayout from "../Layout/TableLayout.vue";
 defineProps({
   Teams: Array,
 });
