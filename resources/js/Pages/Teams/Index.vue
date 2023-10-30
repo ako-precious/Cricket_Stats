@@ -1,5 +1,6 @@
 <template>
-    <div class="w-full p-6 mx-auto">
+    <MainLayout>
+      <div class="w-full p-6 mx-auto">
         <div class="justify-between sm:flex">
             <div>
                 <a
@@ -282,10 +283,14 @@
             </div>
         </div>
     </div>
+    </MainLayout>
 </template>
 <script setup>
 // import { Link } from "@inertiajs/vue3";
-
-// defineProps(["message"]);
+import MainLayout from "@/Layout/MainLayout.vue";
+import TableLayout from "../Layout/TableLayout.vue";
+defineProps({
+  Teams: Array,
+});
 </script>
 <script></script>

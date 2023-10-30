@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Teams;
 use Illuminate\Http\Request;
 
 class TeamsController extends Controller
 {
     
     public function index(){
-        $message = "Hello World";
-        return inertia('Teams',['message'=> $message]);
+        
+        return inertia('Teams/Index',['Teams'=> Teams::all() ]);
 
         }
 }
