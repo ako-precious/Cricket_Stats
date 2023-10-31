@@ -92,17 +92,27 @@
                                             <th
                                                 class="px-6 py-3 font-bold text-left uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70"
                                             >
-                                                Country Name
+                                                Name
                                             </th>
                                             <th
                                                 class="px-6 py-3 pl-2 font-bold text-left uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70"
                                             >
-                                                Slug
+                                                Gender
                                             </th>
                                             <th
                                                 class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70"
                                             >
-                                                Abbreviation
+                                               Date Of Birth
+                                            </th>
+                                            <th
+                                                class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70"
+                                            >
+                                               Date Of Death
+                                            </th>
+                                            <th
+                                                class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70"
+                                            >
+                                               Country Name
                                             </th>
                                             
                                             <th
@@ -110,15 +120,15 @@
                                             ></th>
                                         </tr>
                                     </thead>
-                                    <tbody v-for="player in players">
+                                    <tbody v-for="player in players.data">
                                         <tr>
                                             <td
                                                 class="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent"
                                             >
                                                 <div class="flex px-2 py-1">
                                                     <div>
-                                                        <!-- :src="player.flag_url" -->
                                                         <img
+                                                        :src="player.headshot_image_url" 
                                                     :alt="player.long_name"
                                                             class="inline-flex items-center justify-center mr-4 text-sm text-white transition-all duration-200 ease-in-out h-9 w-9 rounded-xl"
                                                         />
@@ -141,7 +151,7 @@
                                                 <p
                                                     class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80"
                                                 >
-                                                    <!-- {{ player.slug }} -->
+                                                    {{ player.gender }}
                                                 </p>
                                                 
                                             </td>
@@ -149,10 +159,26 @@
                                             <td
                                                 class="p-2 text-center align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent"
                                             >
-                                                <!-- <span
+                                                <span
                                                     class="text-xs font-semibold leading-tight dark:text-white dark:opacity-80 text-slate-400"
-                                                    > {{ player.abbr }}</span -->
+                                                    > {{ player.dob }}</span >
+                                            </td>
+                                            <td
+                                                class="p-2 text-center align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent"
+                                            >
+                                                <span
+                                                    class="text-xs font-semibold leading-tight dark:text-white dark:opacity-80 text-slate-400"
+                                                    > {{ player.dod }}</span >
+                                            </td>
+                                            <td
+                                                class="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent"
+                                            >
+                                                <p
+                                                    class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80"
                                                 >
+                                                    {{ player.tesa }}
+                                                </p>
+                                                
                                             </td>
                                             <td
                                                 class="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent"
@@ -205,6 +231,6 @@ import { Link } from "@inertiajs/vue3";
 import MainLayout from "@/Layout/MainLayout.vue";
 // import TableLayout from "../Layout/TableLayout.vue";
 defineProps({
-    players: Array,
+    players: Object,
 });
 </script>

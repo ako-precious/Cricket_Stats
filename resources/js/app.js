@@ -7,13 +7,13 @@ import "../css/nucleo-icons.css";
 import "../css/nucleo-svg.css";
 
 //  Main Styling
-import "../css/argon-dashboard-tailwind.css";
+// import "../css/argon-dashboard-tailwind.css";
 
 // plugin for charts
 import "./js/plugins/chartjs.min.js";
 
 //  plugin for scrollbar
-import "./js/plugins/perfect-scrollbar.min.js";
+// import "./js/plugins/perfect-scrollbar.min.js";
 
 
 /* import the fontawesome core */

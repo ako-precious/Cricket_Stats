@@ -22,4 +22,4 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 Route::get('/', [DashboardController::class, 'index']);
 Route::resource('teams', TeamsController::class);
-Route::resource('teams', PlayersController::class);
+Route::resource('players', PlayersController::class);
