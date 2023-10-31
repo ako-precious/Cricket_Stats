@@ -11,7 +11,7 @@ class Teams extends Model
     use HasFactory;
     protected $table = 'teams';
 
-    public function players(): HasMany
+    public function player(): HasMany
     {
         return $this->hasMany(Players::class);
     }
