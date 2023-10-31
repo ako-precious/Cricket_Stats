@@ -176,7 +176,7 @@
                                                 <p
                                                     class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80"
                                                 >
-                                                    {{ player.tesa }}
+                                                    {{ player }}
                                                 </p>
                                                 
                                             </td>
