@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\TeamsController;
+use App\Http\Controllers\PlayersController;
+use App\Models\Players;
 use App\Models\Teams;
 use Illuminate\Routing\Route as RoutingRoute;
 use Illuminate\Support\Facades\Route;
@@ -20,3 +22,4 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 Route::get('/', [DashboardController::class, 'index']);
 Route::resource('teams', TeamsController::class);
+Route::resource('teams', PlayersController::class);

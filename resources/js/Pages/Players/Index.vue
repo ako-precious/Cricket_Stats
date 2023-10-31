@@ -80,7 +80,7 @@
                         <div
                             class="p-6 pb-0 mb-0 border-b-0 border-b-solid rounded-t-2xl border-b-transparent"
                         >
-                            <h6 class="dark:text-white">Teams </h6>
+                            <h6 class="dark:text-white">Players </h6>
                         </div>
                         <div class="flex-auto px-0 pt-0 pb-2">
                             <div class="p-0 overflow-x-auto ps">
@@ -110,16 +110,16 @@
                                             ></th>
                                         </tr>
                                     </thead>
-                                    <tbody v-for="team in teams">
+                                    <tbody v-for="player in players">
                                         <tr>
                                             <td
                                                 class="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent"
                                             >
                                                 <div class="flex px-2 py-1">
                                                     <div>
+                                                        <!-- :src="player.flag_url" -->
                                                         <img
-                                                        :src="team.flag_url"
-                                                    :alt="team.long_name"
+                                                    :alt="player.long_name"
                                                             class="inline-flex items-center justify-center mr-4 text-sm text-white transition-all duration-200 ease-in-out h-9 w-9 rounded-xl"
                                                         />
                                                     </div>
@@ -129,7 +129,7 @@
                                                         <h6
                                                             class="mb-0 text-sm leading-normal dark:text-white"
                                                         >
-                                                        {{ team.long_name }}
+                                                        {{ player.long_name }}
                                                         </h6>
                                                         
                                                     </div>
@@ -141,7 +141,7 @@
                                                 <p
                                                     class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80"
                                                 >
-                                                    {{ team.slug }}
+                                                    <!-- {{ player.slug }} -->
                                                 </p>
                                                 
                                             </td>
@@ -149,16 +149,16 @@
                                             <td
                                                 class="p-2 text-center align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent"
                                             >
-                                                <span
+                                                <!-- <span
                                                     class="text-xs font-semibold leading-tight dark:text-white dark:opacity-80 text-slate-400"
-                                                    > {{ team.abbr }}</span
+                                                    > {{ player.abbr }}</span -->
                                                 >
                                             </td>
                                             <td
                                                 class="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent"
                                             >
                                                 
-                                                   <!-- <Link :href="`/teams/${team.id}` href="javascript:;"
+                                                   <!-- <Link :href="`/players/${player.id}` href="javascript:;"
                                                     class="text-xs font-semibold leading-tight dark:text-white dark:opacity-80 text-slate-400"
                                             
                                         > -->
@@ -205,6 +205,6 @@ import { Link } from "@inertiajs/vue3";
 import MainLayout from "@/Layout/MainLayout.vue";
 // import TableLayout from "../Layout/TableLayout.vue";
 defineProps({
-    teams: Array,
+    players: Array,
 });
 </script>
