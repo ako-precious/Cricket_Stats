@@ -3,8 +3,8 @@ import { createInertiaApp } from "@inertiajs/vue3";
 import "../css/app.css";
 
 //  Nucleo Icons
-import "../css/nucleo-icons.css";
-import "../css/nucleo-svg.css";
+// import "../css/nucleo-icons.css";
+// import "../css/nucleo-svg.css";
 
 //  Main Styling
 // import "../css/argon-dashboard-tailwind.css";
