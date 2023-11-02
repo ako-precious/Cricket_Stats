@@ -20,8 +20,8 @@ return new class extends Migration
             $table->integer('balls');
             $table->integer('runs');
             $table->integer('wickets');
-            $table->string('best_bowling_innings');
-            $table->string('best_bowling_match');
+            $table->date('best_bowling_innings');
+            $table->date('best_bowling_match');
             $table->double('average');
             $table->double('economy');
             $table->double('strike_rate');
