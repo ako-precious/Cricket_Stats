@@ -14,19 +14,19 @@ return new class extends Migration
         Schema::create('bowling__stats', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('player_id');
-            $table->foreign('player_id')->references('id')->on('players');
+            $table->foreign('player_id', 'custom__foreign__key__name')->references('id')->on('players');
             $table->string('match-format');
-            $table->int('matches');
-            $table->int('innings');
-            $table->int('balls');
-            $table->int('runs');
-            $table->int('wickets');
+            $table->integer('matches');
+            $table->integer('innings');
+            $table->integer('balls');
+            $table->integer('runs');
+            $table->integer('wickets');
             $table->double('average');
             $table->double('economy');
             $table->double('strike_rate');
-            $table->int('four_wicket_hauls');
-            $table->int('five_wicket_hauls');
-            $table->int('ten_wicket_hauls');
+            $table->integer('four_wicket_hauls');
+            $table->integer('five_wicket_hauls');
+            $table->integer('ten_wicket_hauls');
             $table->timestamps();
         });
     }

@@ -20,7 +20,8 @@ return new class extends Migration
             $table->timestamp('dob');
             $table->timestamp('dod');
             $table->unsignedBigInteger('country_team_id');
-            $table->foreign('country_team_id')->references('id')->on('teams');
+            $table->foreign('country_team_id', 'custom_foreign_key_name')->references('id')->on('teams');
+            // $table->foreign('country_team_id')->references('id')->on('teams');
             $table->timestamps();
         });
     }
