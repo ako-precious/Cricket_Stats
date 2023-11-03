@@ -8,7 +8,7 @@
                 <div
                     class="p-6 pb-0 mb-0 border-b-0 border-b-solid rounded-t-2xl border-b-transparent"
                 >
-                    <h6 class="dark:text-white">Batting Stats</h6>
+                    <h6 class="dark:text-white">bowling Stats</h6>
                 </div>
                 <div class="flex-auto px-0 pt-0 pb-2">
                     <div class="p-0 overflow-x-auto ps">
@@ -99,16 +99,16 @@
                                     ></th>
                                 </tr>
                             </thead>
-                            <tbody v-for="batting in battings.data">
+                            <tbody v-for="bowling in bowlings.data">
                                 <tr class="px-2">
                                     <TdLayout>
                                         <div class="flex px-2 py-1">
                                             <div>
                                                 <img
                                                     :src="
-                                                        batting.player.headshot_image_url
+                                                        bowling.player.headshot_image_url
                                                     "
-                                                    :alt="batting.player.long_name"
+                                                    :alt="bowling.player.long_name"
                                                     class="inline-flex items-center justify-center mr-4 text-sm text-white transition-all duration-200 ease-in-out h-9 w-9 rounded-xl"
                                                 />
                                             </div>
@@ -118,7 +118,7 @@
                                                 <h6
                                                     class="mb-0 text-sm leading-normal dark:text-white"
                                                 >
-                                                    {{ batting.player.long_name }}
+                                                    {{ bowling.player.long_name }}
                                                 </h6>
                                             </div>
                                         </div>
@@ -130,7 +130,7 @@
                                         <p
                                             class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80"
                                         >
-                                            {{ batting.match_format }}
+                                            {{ bowling.match_format }}
                                         </p>
                                     </td>
 
@@ -138,7 +138,7 @@
                                         ><span
                                             class="text-xs font-semibold leading-tight dark:text-white dark:opacity-80 text-slate-400"
                                         >
-                                            {{ batting.matches }}</span
+                                            {{ bowling.matches }}</span
                                         ></TdLayout
                                     >
 
@@ -146,97 +146,97 @@
                                         ><span
                                             class="text-xs font-semibold leading-tight dark:text-white dark:opacity-80 text-slate-400"
                                         >
-                                            {{ batting.innings }}</span
+                                            {{ bowling.innings }}</span
                                         ></TdLayout
                                     >
                                     <TdLayout>
                                         <p
                                             class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80"
                                         >
-                                            {{ batting.notouts }}
+                                            {{ bowling.notouts }}
                                         </p>
                                     </TdLayout>
                                     <TdLayout>
                                         <p
                                             class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80"
                                         >
-                                            {{ batting.runs }}
+                                            {{ bowling.runs }}
                                         </p>
                                     </TdLayout>
                                     <TdLayout>
                                         <p
                                             class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80"
                                         >
-                                            {{ batting.high_score }}
+                                            {{ bowling.high_score }}
                                         </p>
                                     </TdLayout>
                                     <TdLayout>
                                         <p
                                             class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80"
                                         >
-                                            {{ batting.average }}
+                                            {{ bowling.average }}
                                         </p>
                                     </TdLayout>
                                     <TdLayout>
                                         <p
                                             class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80"
                                         >
-                                            {{ batting.balls_faced }}
+                                            {{ bowling.balls_faced }}
                                         </p>
                                     </TdLayout>
                                     <TdLayout>
                                         <p
                                             class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80"
                                         >
-                                            {{ batting.hundreds }}
+                                            {{ bowling.hundreds }}
                                         </p>
                                     </TdLayout>
                                     <TdLayout>
                                         <p
                                             class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80"
                                         >
-                                            {{ batting.fifties }}
+                                            {{ bowling.fifties }}
                                         </p>
                                     </TdLayout>
                                     <TdLayout>
                                         <p
                                             class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80"
                                         >
-                                            {{ batting.fours }}
+                                            {{ bowling.fours }}
                                         </p>
                                     </TdLayout>
                                     <TdLayout>
                                         <p
                                             class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80"
                                         >
-                                            {{ batting.sixes }}
+                                            {{ bowling.sixes }}
                                         </p>
                                     </TdLayout>
                                     <TdLayout>
                                         <p
                                             class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80"
                                         >
-                                            {{ batting.catches }}
+                                            {{ bowling.catches }}
                                         </p>
                                     </TdLayout>
                                     <TdLayout>
                                         <p
                                             class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80"
                                         >
-                                            {{ batting.stumps }}
+                                            {{ bowling.stumps }}
                                         </p>
                                     </TdLayout>
                                     <TdLayout>
                                         <p
                                             class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80"
                                         >
-                                            {{ batting.batman_out }}
+                                            {{ bowling.batman_out }}
                                         </p>
                                     </TdLayout>
 
                                     <TdLayout>
                                         <Link
-                                            :href="`/battings/${batting.id}`"
+                                            :href="`/bowlings/${bowling.id}`"
                                             title="view"
                                             class="text-xs font-semibold leading-tight dark:text-white dark:opacity-80 text-slate-400"
                                         >
@@ -249,10 +249,10 @@
                             </tbody>
                         </table>
                         <div
-                            v-if="battings.data.length"
+                            v-if="bowlings.data.length"
                             class="w-full flex justify-center mt-8 mb-8"
                         >
-                            <Pagination :links="battings.links" />
+                            <Pagination :links="bowlings.links" />
                         </div>
                     </div>
                 </div>
@@ -263,10 +263,11 @@
 <script setup>
 import { Link } from "@inertiajs/vue3";
 import MainLayout from "@/Layout/MainLayout.vue";
+import Pagination from "@/Layout/Component/Pagination.vue";
 import TdLayout from "@/Layout/Component/Table/TdLayout.vue";
 import TableContainer from "@/Layout/Component/Table/TableContainer.vue";
 
 defineProps({
-    battings: Object,
+    bowlings: Object,
 });
 </script>

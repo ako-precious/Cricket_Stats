@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BattingStatsController;
+use App\Http\Controllers\BowlingStatsController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\TeamsController;
 use App\Http\Controllers\PlayersController;
@@ -25,3 +26,4 @@ Route::get('/', [DashboardController::class, 'index']);
 Route::resource('teams', TeamsController::class);
 Route::resource('players', PlayersController::class);
 Route::resource('battings', BattingStatsController::class);
+Route::resource('bowlings', BowlingStatsController::class);
