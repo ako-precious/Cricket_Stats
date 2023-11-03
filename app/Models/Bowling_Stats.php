@@ -10,7 +10,7 @@ class Bowling_Stats extends Model
 {
     use HasFactory;
 
-    protected $table = 'bawling__stats';
+    protected $table = 'bowling__stats';
 
     public function player(): BelongsTo
     {

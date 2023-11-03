@@ -153,7 +153,7 @@
                                         <p
                                             class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80"
                                         >
-                                            {{ bowling.notouts }}
+                                            {{ bowling.balls }}
                                         </p>
                                     </TdLayout>
                                     <TdLayout>
@@ -167,7 +167,7 @@
                                         <p
                                             class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80"
                                         >
-                                            {{ bowling.high_score }}
+                                            {{ bowling.wicket }}
                                         </p>
                                     </TdLayout>
                                     <TdLayout>
@@ -181,59 +181,38 @@
                                         <p
                                             class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80"
                                         >
-                                            {{ bowling.balls_faced }}
+                                            {{ bowling.economy }}
                                         </p>
                                     </TdLayout>
                                     <TdLayout>
                                         <p
                                             class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80"
                                         >
-                                            {{ bowling.hundreds }}
+                                            {{ bowling.strike_rate }}
+                                        </p>
+                                    </TdLayout>
+                                    
+                                    <TdLayout>
+                                        <p
+                                            class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80"
+                                        >
+                                            {{ bowling.four_wicket_hauls }}
                                         </p>
                                     </TdLayout>
                                     <TdLayout>
                                         <p
                                             class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80"
                                         >
-                                            {{ bowling.fifties }}
+                                            {{ bowling.five_wicket_hauls }}
                                         </p>
                                     </TdLayout>
                                     <TdLayout>
                                         <p
                                             class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80"
                                         >
-                                            {{ bowling.fours }}
+                                            {{ bowling.ten_wicket_hauls }}
                                         </p>
                                     </TdLayout>
-                                    <TdLayout>
-                                        <p
-                                            class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80"
-                                        >
-                                            {{ bowling.sixes }}
-                                        </p>
-                                    </TdLayout>
-                                    <TdLayout>
-                                        <p
-                                            class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80"
-                                        >
-                                            {{ bowling.catches }}
-                                        </p>
-                                    </TdLayout>
-                                    <TdLayout>
-                                        <p
-                                            class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80"
-                                        >
-                                            {{ bowling.stumps }}
-                                        </p>
-                                    </TdLayout>
-                                    <TdLayout>
-                                        <p
-                                            class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80"
-                                        >
-                                            {{ bowling.batman_out }}
-                                        </p>
-                                    </TdLayout>
-
                                     <TdLayout>
                                         <Link
                                             :href="`/bowlings/${bowling.id}`"
