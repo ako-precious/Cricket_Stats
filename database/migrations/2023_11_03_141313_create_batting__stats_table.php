@@ -13,9 +13,29 @@ return new class extends Migration
     {
         Schema::create('batting__stats', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('player_id');
+            $table->foreign('player_id')->references('id')->on('players');
+            $table->string('match-format');
+            $table->int('matches');
+            $table->int('innings');
+            $table->int('notouts');
+            $table->unsignedBigInteger('runs');
+            $table->int('high_score');
+            $table->double('average');
+            $table->int('balls_faced');
+            $table->double('strike_rate');
+            $table->int('hundreds');
+            $table->int('fifties');
+            $table->int('fours');
+            $table->int('sixes');
+            $table->int('catches');
+            $table->int('stumps');
+            $table->boolean('batsman_out');
             $table->timestamps();
         });
     }
+
+    //	average	balls_faced	strike_rate	hundreds	fifties	fours	sixes	catches	stumps	batsman_out
 
     /**
      * Reverse the migrations.
