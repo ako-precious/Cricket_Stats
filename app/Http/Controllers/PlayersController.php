@@ -15,9 +15,9 @@ class PlayersController extends Controller
     }
     public function show(Players $player)
     {
-        $comment = Players::find(53826);
+        // $comment = Players::find(53826);
  
-          dd($comment->team->long_name);
+        //   dd($comment->team->long_name);
         // dd(Players::all());
         return inertia('Players/Show', ['player' => $player]);
     }

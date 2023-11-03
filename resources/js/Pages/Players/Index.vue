@@ -32,11 +32,7 @@
                                     >
                                         Date Of Birth
                                     </th>
-                                    <th
-                                        class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70"
-                                    >
-                                        Date Of Death
-                                    </th>
+                                  
                                     <th
                                         class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70"
                                     >
@@ -83,21 +79,11 @@
                                         </p>
                                     </td>
 
-                                    <TdLayout
-                                        ><span
+                                    <TdLayout><span
                                             class="text-xs font-semibold leading-tight dark:text-white dark:opacity-80 text-slate-400"
                                         >
                                             {{ player.dob }}</span
-                                        ></TdLayout
-                                    >
-
-                                    <TdLayout
-                                        ><span
-                                            class="text-xs font-semibold leading-tight dark:text-white dark:opacity-80 text-slate-400"
-                                        >
-                                            {{ player.dod }}</span
-                                        ></TdLayout
-                                    >
+                                        ></TdLayout>
 
                                     <TdLayout>
                                         <div class="flex px-2 py-1">
