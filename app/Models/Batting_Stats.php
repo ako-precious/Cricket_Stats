@@ -8,5 +8,4 @@ use Illuminate\Database\Eloquent\Model;
 class Batting_Stats extends Model
 {
     use HasFactory;
-    protected $table = 'batting__stats'; 
 }
