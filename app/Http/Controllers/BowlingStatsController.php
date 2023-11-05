@@ -11,6 +11,6 @@ class BowlingStatsController extends Controller
     {
         // dd(Bowling_Stats::all());
 
-        return inertia('Bowlings/Index',['bowling' => Bowling_Stats::with('player')->paginate(15) ]);
+        return inertia('Bowlings/Index',['bowlings' => Bowling_Stats::with('player')->paginate(15) ]);
     }
 }

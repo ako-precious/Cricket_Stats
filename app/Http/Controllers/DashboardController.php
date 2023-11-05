@@ -1,14 +1,20 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Bowling_Stats;
+use App\Models\Batting_Stats;
+use App\Models\Teams;
+use App\Models\Players;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
     public function index(){
-        $message = "Hello World";
-        return inertia('Index/Index',['message'=> $message]);
+        // HIGHEST SCORER IN MEN'S TEST CRICKET
+
+        $higestrunner = Batting_Stats::where('match-format', 'Tests')->orderBy('runs', 'desc')->first() ;
+        // dd($higestrunner);
+        return inertia('Index/Index',['highestrunner'=> $higestrunner]);
 
         }
 }

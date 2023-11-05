@@ -59,14 +59,14 @@
                     <div class="flex-auto p-4">
                         <div class="flex flex-row -mx-3">
                             <div class="flex-none w-2/3 max-w-full px-3">
-                                <div>
+                                <div v-for=" best_runner  in higestrunner">
                                     <p
                                         class="mb-0 font-sans text-sm font-semibold leading-normal uppercase dark:text-white dark:opacity-60"
                                     >
-                                        Today's Users
+                                        Best Runner in MEN'S TEST CRICKET
                                     </p>
                                     <h5 class="mb-2 font-bold dark:text-white">
-                                        2,300
+                                        {{ best_runner.runs }}
                                     </h5>
                                     <p
                                         class="mb-0 dark:text-white dark:opacity-60"
@@ -186,7 +186,7 @@
         <div class="flex flex-wrap mt-6 -mx-3">
             <div class="flex flex-col lg:w-8/12">
                 <div
-                    class="w-full max-w-full px-3 mt-0 lg:w-10/12 lg:flex-none"
+                    class="w-full max-w-full px-3 mt-0 lg:flex-none"
                 >
                     <div
                         style="backdrop-filter: blur(20px)"
@@ -711,6 +711,28 @@
 // import { Link } from "@inertiajs/vue3";
 import MainLayout from "@/Layout/MainLayout.vue";
 
-// defineProps(["message"]);
+
+
+defineProps({
+    higestrunner: Array,
+});
 </script>
-<script></script>
+<script>
+// Example code in Index.vue
+// export default {
+//   data() {
+//     return {
+//       // Your data properties here
+//     };
+//   },
+//   methods: {
+//     someMethod() {
+//       // Accessing data property, but it may be undefined
+//       console.log(this.data); // This is where the error occurs
+//     },
+//   },
+//   // ... other component options
+// };
+
+
+</script>
