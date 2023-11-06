@@ -1,145 +1,144 @@
 <template>
     <MainLayout>
         <!-- row 1 -->
-        <CardPTwo class=" text-center font-extrabold text-xl"> Best Runners In Men's </CardPTwo>
-        <div class="flex flex-wrap -mx-3">
-            <!-- card1 -->
+        <div>
+            <CardPTwo class="text-center font-extrabold text-xl">
+                Best Runners In Men's Matches
+            </CardPTwo>
+            <div class="flex flex-wrap -mx-3">
+                <!-- card1 -->
 
-            <CardContainer>
-                <div class="flex-none w-2/3 max-w-full px-2">
-                    <div>
-                        <CardPOne> Test Matches </CardPOne>
-                        <CardPTwo>
-                            {{ highestrunner.runs }}
-                        </CardPTwo>
-                        <CardPThree>
-                            {{ highestrunner.player.long_name }}
-                        </CardPThree>
-                    </div>
-                </div>
-                <CardImage>
-                    <img
-                        :src="highestrunner.player.headshot_image_url"
-                        :alt="highestrunner.player.long_name"
-                        class="inline-flex items-center justify-center mr-4 text-sm text-white transition-all duration-200 ease-in-out h-full w-full rounded-xl"
-                    />
-                </CardImage>
-            </CardContainer>
-
-            <!-- card2 -->
-
-            <!-- <CardContainer>
-                <div class="flex-none w-2/3 max-w-full px-2">
-                    <div>
-                        <CardPOne>
-                            Best Wicket Bolwer in Men's Test Matches
-                        </CardPOne>
-                        <CardPTwo>
-                            {{ highest_wicket_test.wickets }}
-                        </CardPTwo>
-                        <CardPThree>
-                            {{ highest_wicket_test.player.long_name }}
-                        </CardPThree>
-                    </div>
-                </div>
-                <CardImage>
-                    <img
-                        :src="highest_wicket_test.player.headshot_image_url"
-                        :alt="highest_wicket_test.player.long_name"
-                        class="inline-flex items-center justify-center mr-4 text-sm text-white transition-all duration-200 ease-in-out h-full w-full rounded-xl"
-                    />
-                </CardImage>
-            </CardContainer> -->
-
-            <!-- card3 -->
-            <div
-                class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4"
-            >
-                <div
-                    style="backdrop-filter: blur(20px)"
-                    class="relative flex flex-col min-w-0 break-words shadow-3xl dark:shadow-dark-xl rounded-2xl bg-clip-border dark:bg-slate-850"
-                >
-                    <div class="flex-auto p-4">
-                        <div class="flex flex-row -mx-3">
-                            <div class="flex-none w-2/3 max-w-full px-3">
-                                <div>
-                                    <p
-                                        class="mb-0 font-sans text-sm font-semibold leading-normal uppercase dark:text-white dark:opacity-60"
-                                    >
-                                        New Clients
-                                    </p>
-                                    <h5 class="mb-2 font-bold dark:text-white">
-                                        +3,462
-                                    </h5>
-                                    <p
-                                        class="mb-0 dark:text-white dark:opacity-60"
-                                    >
-                                        <span
-                                            class="text-sm font-bold leading-normal text-red-600"
-                                            >-2%</span
-                                        >
-                                        since last quarter
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="px-3 text-right basis-1/3">
-                                <div
-                                    class="inline-block w-12 h-12 text-center rounded-circle bg-gradient-to-tl from-emerald-500 to-teal-400"
-                                >
-                                    <i
-                                        class="ni leading-none ni-paper-diploma text-lg relative top-3.5 text-white"
-                                    ></i>
-                                </div>
+                <CardContainer>
+                    <div class="flex flex-row -mx-3">
+                        <div class="flex-none w-2/3 max-w-full px-2">
+                            <div>
+                                <CardPOne> Test </CardPOne>
+                                <CardPTwo>
+                                    {{ highestrunner.runs }}
+                                </CardPTwo>
                             </div>
                         </div>
+                        <CardImage>
+                            <img
+                                :src="highestrunner.player.headshot_image_url"
+                                :alt="highestrunner.player.long_name"
+                                class="inline-flex items-center justify-center mr-4 text-sm text-white transition-all duration-200 ease-in-out h-full w-full rounded-xl"
+                            />
+                        </CardImage>
                     </div>
-                </div>
-            </div>
+                    <CardPThree>
+                        {{ highestrunner.player.long_name }}
+                    </CardPThree>
+                </CardContainer>
 
-            <!-- card4 -->
-            <div class="w-full max-w-full px-3 sm:w-1/2 sm:flex-none xl:w-1/4">
-                <div
-                    style="backdrop-filter: blur(20px)"
-                    class="relative flex flex-col min-w-0 break-words shadow-3xl dark:shadow-dark-xl rounded-2xl bg-clip-border dark:bg-slate-850"
-                >
-                    <div class="flex-auto p-4">
-                        <div class="flex flex-row -mx-3">
-                            <div class="flex-none w-2/3 max-w-full px-3">
-                                <div>
-                                    <p
-                                        class="mb-0 font-sans text-sm font-semibold leading-normal uppercase dark:text-white dark:opacity-60"
-                                    >
-                                        Sales
-                                    </p>
-                                    <h5 class="mb-2 font-bold dark:text-white">
-                                        $103,430
-                                    </h5>
-                                    <p
-                                        class="mb-0 dark:text-white dark:opacity-60"
-                                    >
-                                        <span
-                                            class="text-sm font-bold leading-normal text-emerald-500"
-                                            >+5%</span
-                                        >
-                                        than last month
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="px-3 text-right basis-1/3">
-                                <div
-                                    class="inline-block w-12 h-12 text-center rounded-circle bg-gradient-to-tl from-orange-500 to-yellow-500"
-                                >
-                                    <i
-                                        class="ni leading-none ni-cart text-lg relative top-3.5 text-white"
-                                    ></i>
-                                </div>
+                <!-- card2 -->
+
+                <CardContainer>
+                    <div class="flex flex-row -mx-3">
+                        <div class="flex-none w-2/3 max-w-full px-2">
+                            <div>
+                                <CardPOne> ODI </CardPOne>
+                                <CardPTwo>
+                                    {{ highest_runner_ODI.runs }}
+                                </CardPTwo>
                             </div>
                         </div>
+                        <CardImage>
+                            <img
+                                :src="
+                                    highest_runner_ODI.player.headshot_image_url
+                                "
+                                :alt="highest_runner_ODI.player.long_name"
+                                class="inline-flex items-center justify-center mr-4 text-sm text-white transition-all duration-200 ease-in-out h-full w-full rounded-xl"
+                            />
+                        </CardImage>
                     </div>
-                </div>
+                    <CardPThree>
+                        {{ highest_runner_ODI.player.long_name }}
+                    </CardPThree>
+                </CardContainer>
+
+                <!-- <CardContainer>
+                    <div class="flex-none w-2/3 max-w-full px-2">
+                        <div>
+                            <CardPOne>
+                                Best Wicket Bolwer in Men's Test Matches
+                            </CardPOne>
+                            <CardPTwo>
+                                {{ highest_wicket_test.wickets }}
+                            </CardPTwo>
+                            <CardPThree>
+                                {{ highest_wicket_test.player.long_name }}
+                            </CardPThree>
+                        </div>
+                    </div>
+                    <CardImage>
+                        <img
+                            :src="highest_wicket_test.player.headshot_image_url"
+                            :alt="highest_wicket_test.player.long_name"
+                            class="inline-flex items-center justify-center mr-4 text-sm text-white transition-all duration-200 ease-in-out h-full w-full rounded-xl"
+                        />
+                    </CardImage>
+                </CardContainer> -->
+
+                <!-- card3 -->
+                <CardContainer>
+                    <div class="flex flex-row -mx-3">
+                        <div class="flex-none w-2/3 max-w-full px-2">
+                            <div>
+                                <CardPOne> T20I </CardPOne>
+                                <CardPTwo>
+                                    {{ highest_runner_T20I.runs }}
+                                </CardPTwo>
+                            </div>
+                        </div>
+                        <CardImage>
+                            <img
+                                :src="
+                                    highest_runner_T20I.player
+                                        .headshot_image_url
+                                "
+                                :alt="highest_runner_T20I.player.long_name"
+                                class="inline-flex items-center justify-center mr-4 text-sm text-white transition-all duration-200 ease-in-out h-full w-full rounded-xl"
+                            />
+                        </CardImage>
+                    </div>
+                    <CardPThree>
+                        {{ highest_runner_T20I.player.long_name }}
+                    </CardPThree>
+                </CardContainer>
+
+                <!-- card4 -->
+                <CardContainer>
+                    <div class="flex flex-row -mx-3">
+                        <div class="flex-none w-2/3 max-w-full px-2">
+                            <div>
+                                <CardPOne class=" text-ellipsis "> First-Class </CardPOne>
+                                <CardPTwo>
+                                    {{ highest_runner_First_class.runs }}
+                                </CardPTwo>
+                            </div>
+                        </div>
+                        <CardImage>
+                            <img
+                                :src="
+                                    highest_runner_First_class.player
+                                        .headshot_image_url
+                                "
+                                :alt="
+                                    highest_runner_First_class.player.long_name
+                                "
+                                class="inline-flex items-center justify-center mr-4 text-sm text-white transition-all duration-200 ease-in-out h-full w-full rounded-xl"
+                            />
+                        </CardImage>
+                    </div>
+                    <CardPThree>
+                        {{ highest_runner_First_class.player.long_name }}
+                    </CardPThree>
+                </CardContainer>
             </div>
         </div>
-
+        
         <!-- cards row 2 -->
         <div class="flex flex-wrap mt-6 -mx-3">
             <div class="flex flex-col lg:w-8/12">
@@ -673,7 +672,13 @@ import CardPThree from "@/Layout/Component/StatCard/CardPThree.vue";
 </script>
 <script>
 export default {
-    props: ["highestrunner", "highest_wicket_test"],
+    props: [
+        "highestrunner",
+        "highest_wicket_test",
+        "highest_runner_ODI",
+        "highest_runner_T20I",
+        "highest_runner_First_class",
+    ],
     // Other Vue component logic
 };
 // Example code in Index.vue

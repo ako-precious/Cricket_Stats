@@ -8,10 +8,10 @@
                     class="relative flex flex-col min-w-0 break-words shadow-3xl dark:shadow-dark-xl rounded-2xl bg-clip-border dark:bg-slate-850"
                 >
                 <div class="flex-auto p-4">
-                    <div class="flex flex-row -mx-3">
+                  
                        
                         <slot>default</slot>
-                    </div>
+                    
                 </div>
                 </div>
             </div>
