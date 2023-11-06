@@ -1,5 +1,5 @@
 <template>
-    <p class="mb-0 dark:text-white dark:opacity-60 font-bold">
+    <p class="mb-0 text-white dark:opacity-60 font-bold">
         <slot>default</slot>
     </p>
 </template>

@@ -1,5 +1,5 @@
 <template>
-    <h5 class="my-2 font-bold dark:text-white">
+    <h5 class="text-white my-2 ">
                           <slot>default</slot>
                         </h5>
 </template>

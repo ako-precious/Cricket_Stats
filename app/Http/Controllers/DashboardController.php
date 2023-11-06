@@ -13,8 +13,9 @@ class DashboardController extends Controller
         // HIGHEST SCORER IN MEN'S TEST CRICKET
 
         $higestrunner = Batting_Stats::with('player')->where('match-format', 'Tests')->orderBy('runs', 'desc')->first() ;
+        $highest_wicket_test = Bowling_Stats::with('player')->where('match_format', 'Tests')->orderBy('wickets', 'desc')->first() ;
         // dd($higestrunner);
-        return inertia('Index/Index',['highestrunner'=> $higestrunner]);
+        return inertia('Index/Index',['highestrunner'=> $higestrunner, 'highest_wicket_test' =>  $highest_wicket_test]);
 
         }
 }

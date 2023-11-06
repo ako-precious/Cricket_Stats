@@ -1,6 +1,6 @@
 <template>
     <p
-        class="mb-0 font-sans text-xs font-semibold leading-normal uppercase dark:text-white dark:opacity-60"
+        class="mb-0 font-sans text-xs font-semibold leading-normal uppercase text-white dark:opacity-60"
     >
         <slot>default</slot>
     </p>
