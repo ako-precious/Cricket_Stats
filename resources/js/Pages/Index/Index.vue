@@ -2,6 +2,127 @@
     <MainLayout>
         <!-- row 1 -->
         <div>
+            <CardPTwo class="text-center font-extrabold text-xl my-4">
+                Best Wicket Taking Bolwer in Men's Matches
+            </CardPTwo>
+            <div class="flex flex-wrap -mx-3">
+                <!-- card1 -->
+                <CardContainer>
+                    <div class="flex flex-row -mx-3">
+                        <div class="flex-none w-2/3 max-w-full px-2">
+                            <div>
+                                <CardPOne>
+                                    Test 
+                                </CardPOne>
+                                <CardPTwo>
+                                    {{ highest_wicket_test.wickets }}
+                                </CardPTwo>
+                            </div>
+                        </div>
+                        <CardImage>
+                            <img
+                                :src="
+                                    highest_wicket_test.player
+                                        .headshot_image_url
+                                "
+                                :alt="highest_wicket_test.player.long_name"
+                                class="inline-flex items-center justify-center mr-4 text-sm text-white transition-all duration-200 ease-in-out h-full w-full rounded-xl"
+                            />
+                        </CardImage>
+                    </div>
+                    <CardPThree>
+                        {{ highest_wicket_test.player.long_name }}
+                    </CardPThree>
+                </CardContainer>
+
+                <!-- card2 -->
+
+                <CardContainer>
+                    <div class="flex flex-row -mx-3">
+                        <div class="flex-none w-2/3 max-w-full px-2">
+                            <div>
+                                <CardPOne> ODI </CardPOne>
+                                <CardPTwo>
+                                    {{ highest_runner_ODI.runs }}
+                                </CardPTwo>
+                            </div>
+                        </div>
+                        <CardImage>
+                            <img
+                                :src="
+                                    highest_runner_ODI.player.headshot_image_url
+                                "
+                                :alt="highest_runner_ODI.player.long_name"
+                                class="inline-flex items-center justify-center mr-4 text-sm text-white transition-all duration-200 ease-in-out h-full w-full rounded-xl"
+                            />
+                        </CardImage>
+                    </div>
+                    <CardPThree>
+                        {{ highest_runner_ODI.player.long_name }}
+                    </CardPThree>
+                </CardContainer>
+
+                <!-- card3 -->
+                <CardContainer>
+                    <div class="flex flex-row -mx-3">
+                        <div class="flex-none w-2/3 max-w-full px-2">
+                            <div>
+                                <CardPOne> T20I </CardPOne>
+                                <CardPTwo>
+                                    {{ highest_runner_T20I.runs }}
+                                </CardPTwo>
+                            </div>
+                        </div>
+                        <CardImage>
+                            <img
+                                :src="
+                                    highest_runner_T20I.player
+                                        .headshot_image_url
+                                "
+                                :alt="highest_runner_T20I.player.long_name"
+                                class="inline-flex items-center justify-center mr-4 text-sm text-white transition-all duration-200 ease-in-out h-full w-full rounded-xl"
+                            />
+                        </CardImage>
+                    </div>
+                    <CardPThree>
+                        {{ highest_runner_T20I.player.long_name }}
+                    </CardPThree>
+                </CardContainer>
+
+                <!-- card4 -->
+                <CardContainer>
+                    <div class="flex flex-row -mx-3">
+                        <div class="flex-none w-2/3 max-w-full px-2">
+                            <div>
+                                <CardPOne class="text-ellipsis">
+                                    First-Class
+                                </CardPOne>
+                                <CardPTwo>
+                                    {{ highest_runner_First_class.runs }}
+                                </CardPTwo>
+                            </div>
+                        </div>
+                        <CardImage>
+                            <img
+                                :src="
+                                    highest_runner_First_class.player
+                                        .headshot_image_url
+                                "
+                                :alt="
+                                    highest_runner_First_class.player.long_name
+                                "
+                                class="inline-flex items-center justify-center mr-4 text-sm text-white transition-all duration-200 ease-in-out h-full w-full rounded-xl"
+                            />
+                        </CardImage>
+                    </div>
+                    <CardPThree>
+                        {{ highest_runner_First_class.player.long_name }}
+                    </CardPThree>
+                </CardContainer>
+            </div>
+        </div>
+        <!-- row 2 -->
+        <div>
             <CardPTwo class="text-center font-extrabold text-xl">
                 Best Runners In Men's Matches
             </CardPTwo>
@@ -113,7 +234,9 @@
                     <div class="flex flex-row -mx-3">
                         <div class="flex-none w-2/3 max-w-full px-2">
                             <div>
-                                <CardPOne class=" text-ellipsis "> First-Class </CardPOne>
+                                <CardPOne class="text-ellipsis">
+                                    First-Class
+                                </CardPOne>
                                 <CardPTwo>
                                     {{ highest_runner_First_class.runs }}
                                 </CardPTwo>
@@ -138,8 +261,8 @@
                 </CardContainer>
             </div>
         </div>
-        
-        <!-- cards row 2 -->
+
+        <!-- cards row 3 -->
         <div class="flex flex-wrap mt-6 -mx-3">
             <div class="flex flex-col lg:w-8/12">
                 <div class="w-full max-w-full px-3 mt-0 lg:flex-none">
