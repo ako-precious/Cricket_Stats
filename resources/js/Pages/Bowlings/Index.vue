@@ -8,7 +8,7 @@
                 <div
                     class="p-6 pb-0 mb-0 border-b-0 border-b-solid rounded-t-2xl border-b-transparent"
                 >
-                    <h6 class="dark:text-white">bowling Stats</h6>
+                    <h6 class="dark:text-white uppercase">bowling Stats</h6>
                 </div>
                 <div class="flex-auto px-0 pt-0 pb-2">
                     <div class="p-0 overflow-x-auto ps">
@@ -35,36 +35,6 @@
                                     <th
                                         class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70"
                                     >
-                                        Innings
-                                    </th>
-                                    <th
-                                        class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70"
-                                    >
-                                        Balls
-                                    </th>
-                                    <th
-                                        class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70"
-                                    >
-                                        Runs
-                                    </th>
-                                    <th
-                                        class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70"
-                                    >
-                                        Wickets
-                                    </th>
-                                    <th
-                                        class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70"
-                                    >
-                                        Best Bowling Innings
-                                    </th>
-                                    <th
-                                        class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70"
-                                    >
-                                        Best Bowling Match
-                                    </th>
-                                    <th
-                                        class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70"
-                                    >
                                         Average
                                     </th>
                                     <th
@@ -80,18 +50,7 @@
                                     <th
                                         class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70"
                                     >
-                                        Four Wicket Hauls
-                                    </th>
-
-                                    <th
-                                        class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70"
-                                    >
                                         Five Wicket Hauls
-                                    </th>
-                                    <th
-                                        class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70"
-                                    >
-                                        Ten Wicket Hauls
                                     </th>
 
                                     <th
@@ -106,9 +65,12 @@
                                             <div>
                                                 <img
                                                     :src="
-                                                        bowling.player.headshot_image_url
+                                                        bowling.player
+                                                            .headshot_image_url
                                                     "
-                                                    :alt="bowling.player.long_name"
+                                                    :alt="
+                                                        bowling.player.long_name
+                                                    "
                                                     class="inline-flex items-center justify-center mr-4 text-sm text-white transition-all duration-200 ease-in-out h-9 w-9 rounded-xl"
                                                 />
                                             </div>
@@ -118,7 +80,9 @@
                                                 <h6
                                                     class="mb-0 text-sm leading-normal dark:text-white"
                                                 >
-                                                    {{ bowling.player.long_name }}
+                                                    {{
+                                                        bowling.player.long_name
+                                                    }}
                                                 </h6>
                                             </div>
                                         </div>
@@ -134,41 +98,12 @@
                                         </p>
                                     </td>
 
-                                    <TdLayout
-                                        ><span
+                                    <TdLayout>
+                                        <span
                                             class="text-xs font-semibold leading-tight dark:text-white dark:opacity-80 text-slate-400"
                                         >
-                                            {{ bowling.matches }}</span
-                                        ></TdLayout
-                                    >
-
-                                    <TdLayout
-                                        ><span
-                                            class="text-xs font-semibold leading-tight dark:text-white dark:opacity-80 text-slate-400"
-                                        >
-                                            {{ bowling.innings }}</span
-                                        ></TdLayout
-                                    >
-                                    <TdLayout>
-                                        <p
-                                            class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80"
-                                        >
-                                            {{ bowling.balls }}
-                                        </p>
-                                    </TdLayout>
-                                    <TdLayout>
-                                        <p
-                                            class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80"
-                                        >
-                                            {{ bowling.runs }}
-                                        </p>
-                                    </TdLayout>
-                                    <TdLayout>
-                                        <p
-                                            class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80"
-                                        >
-                                            {{ bowling.wicket }}
-                                        </p>
+                                            {{ bowling.matches }}
+                                        </span>
                                     </TdLayout>
                                     <TdLayout>
                                         <p
@@ -191,26 +126,12 @@
                                             {{ bowling.strike_rate }}
                                         </p>
                                     </TdLayout>
-                                    
-                                    <TdLayout>
-                                        <p
-                                            class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80"
-                                        >
-                                            {{ bowling.four_wicket_hauls }}
-                                        </p>
-                                    </TdLayout>
+
                                     <TdLayout>
                                         <p
                                             class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80"
                                         >
                                             {{ bowling.five_wicket_hauls }}
-                                        </p>
-                                    </TdLayout>
-                                    <TdLayout>
-                                        <p
-                                            class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80"
-                                        >
-                                            {{ bowling.ten_wicket_hauls }}
                                         </p>
                                     </TdLayout>
                                     <TdLayout>
