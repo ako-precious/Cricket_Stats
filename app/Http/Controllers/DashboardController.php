@@ -12,7 +12,7 @@ class DashboardController extends Controller
     public function index(){
         // HIGHEST SCORER IN MEN'S TEST CRICKET
 
-        $higestrunner = Batting_Stats::where('match-format', 'Tests')->orderBy('runs', 'desc')->first() ;
+        $higestrunner = Batting_Stats::with('player')->where('match-format', 'Tests')->orderBy('runs', 'desc')->first() ;
         // dd($higestrunner);
         return inertia('Index/Index',['highestrunner'=> $higestrunner]);
 
