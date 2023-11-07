@@ -6,21 +6,25 @@
 
             <div class="max-w-4xl mx-auto ">
                 <div
-                    class="bg-white shadow-md border border-gray-200 rounded-lg max-w-sm dark:bg-gray-800 dark:border-gray-700 flex flex-col justify-between  "
+                    class="  rounded-lg max-w-sm dark:dark:bg-slate-850  flex flex-col justify-between  "
                 >
-                <div class="shadow-md rounded-lg ">
+                <div style="background-image: url('../../../cricket.jpg');" class="shadow-md rounded-lg w-full h-50 ">
                     
-                    <!-- <a href="#">
+                    <a href="#">
                         <img 
-                        class="rounded-lg w-full "
-                        src="https://flowbite.com/docs/images/blog/image-1.jpg"
+                        class="rounded-lg w-full h-full "
+                        src=""
                         alt=""
                         />
-                    </a> -->
+                    </a>
                 </div>
-                    <div style="backdrop-filter: blur(20px)" class="relative mt-3 bg-green-400 rounded-lg shadow-md rounded-tl-none   ">
-                        <div class="h-20 w-40 rounded-r-lg  bg-green-400 absolute -top-20 border-t-white border-t-[12px] border-r-white border-r-[12px]" >
-
+                    <div style="backdrop-filter: blur(20px)" class="relative mt-3 bg-white rounded-lg shadow-md rounded-tl-none dark:dark:bg-slate-850  ">
+                        <div style="border-color: #40BD82;" class="h-20 w-40 rounded-r-lg bg-white bg-green absolute -top-20 dark:border-t-slate-850 border-t-[12px] dark:border-r-slate-850 border-r-[12px] " >
+                            <h5
+                                    class="text-gray-900 font-bold text-xl tracking-tight mb-2 dark:text-white"
+                                >
+                                    Noteworthy technology 
+                                </h5>
                         </div>
                         <div class="p-5">
 
