@@ -44,7 +44,7 @@
                                     ></th>
                                 </tr>
                             </thead>
-                            <tbody v-for="player in players.data">
+                            <tbody v-for="player in players.data " :key="player.id">
                                 <tr class="px-2">
                                     <TdLayout>
                                         <div class="flex px-2 py-1">

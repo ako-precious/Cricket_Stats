@@ -13,7 +13,7 @@
     >
         <SideBarHeader>
             <span :class="{ 'opacity-0': isLinkHidden }"
-                class="ml-2 font-bold transition-all duration-200 ease-in-out opacity-100 text-2xl uppercase"
+                class="ml-2 font-bold transition-all duration-200 ease-in-out text-2xl uppercase"
             >
                 Cricket
             </span>
