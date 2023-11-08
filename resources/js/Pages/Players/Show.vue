@@ -11,12 +11,12 @@
                         style="
                             background-image: url('../../../assets/img/cricket.jpg');
                         "
-                        class="rounded-lg w-full h-50 bg-[url('../../../assets/img/cricket.jpg')]"
+                        class="rounded-lg w-full h-50 bg-white flex justify-center dark:dark:bg-slate-850" 
                     >
                         <img
-                            class="rounded-lg w-full h-full"
-                            src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1049&q=80"
-                            alt=""
+                            class="rounded-lg h-full"
+                            :src="player.image_url"
+                            :alt="player.long_name"
                         />
                     </div>
                     <div
@@ -33,34 +33,145 @@
                                     {{ player.long_name }}
                                 </h5>
                                 <div class="flex flex-col">
-                                    <img
-                                        class="rounded-full w-9 h-9"
-                                        src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1049&q=80"
-                                        alt=""
-                                    />
+                                    <!-- :src="player.team.flag_url"
+                                    :alt="player.team.long_name" -->
+                                    <img class="rounded-full w-9 h-9" />
                                     <p
                                         class="text-gray-900 font-bold text-sm tracking-tight mb-2 dark:text-white"
                                     >
-                                        
+                                        {{ player.team }}
                                     </p>
                                 </div>
                             </div>
                         </div>
                         <div class="p-5">
-                            <a href="#">
-                                <h5
-                                    class="text-gray-900 font-bold text-2xl tracking-tight mb-2 dark:text-white"
-                                > {{ player }}
-                                    Noteworthy technology acquisitions 2021
-                                </h5>
-                            </a>
-                            <p
-                                class="font-normal text-gray-700 mb-3 dark:text-gray-400"
+                            <div
+                                style="backdrop-filter: blur(20px)"
+                                class="relative flex flex-col min-w-0 mb-6 break-words bg-white border-0 border-transparent border-solid shadow-xl dark:bg-slate-850 dark:shadow-dark-xl rounded-2xl bg-clip-border"
                             >
-                                Here are the biggest enterprise technology
-                                acquisitions of 2021 so far, in reverse
-                                chronological order.
-                            </p>
+                                <div
+                                    class="p-6 pb-0 mb-0 border-b-0 border-b-solid rounded-t-2xl border-b-transparent"
+                                >
+                                    <h6 class="dark:text-white uppercase">
+                                        bowling Stats
+                                    </h6>
+                                </div>
+                                <div class="flex-auto px-0 pt-0 pb-2">
+                                    <div class="p-0 overflow-x-auto ps">
+                                        <table
+                                            class="items-center w-full mb-0 align-top border-collapse dark:border-white/40 text-slate-500"
+                                        >
+                                            <thead class="align-bottom">
+                                                <tr>
+                                                   
+                                                    <th
+                                                        class="px-6 py-3 pl-2 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70"
+                                                    >
+                                                        Match Format
+                                                    </th>
+                                                    <th
+                                                        class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70"
+                                                    >
+                                                        Matches
+                                                    </th>
+                                                    <th
+                                                        class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70"
+                                                    >
+                                                        Average
+                                                    </th>
+                                                    <th
+                                                        class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70"
+                                                    >
+                                                        Economy
+                                                    </th>
+                                                    <th
+                                                        class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70"
+                                                    >
+                                                        Strike Rate
+                                                    </th>
+                                                    <th
+                                                        class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70"
+                                                    >
+                                                        Five Wicket Hauls
+                                                    </th>
+
+                                                    <th
+                                                        class="px-6 py-3 font-semibold capitalize align-middle bg-transparent border-b border-collapse border-solid shadow-none dark:border-white/40 dark:text-white tracking-none whitespace-nowrap text-slate-400 opacity-70"
+                                                    ></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody
+                                                v-for="bowling in bowlings"
+                                            >
+                                                <tr class="px-2">
+                                                   
+
+                                                    <td
+                                                        class="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent"
+                                                    >
+                                                        <p
+                                                            class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80"
+                                                        >
+                                                            {{
+                                                                bowling.match_format
+                                                            }}
+                                                        </p>
+                                                    </td>
+
+                                                    <TdLayout>
+                                                        <span
+                                                            class="text-xs font-semibold leading-tight dark:text-white dark:opacity-80 text-slate-400"
+                                                        >
+                                                            {{
+                                                                bowling.matches
+                                                            }}
+                                                        </span>
+                                                    </TdLayout>
+                                                    <TdLayout>
+                                                        <p
+                                                            class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80"
+                                                        >
+                                                            {{
+                                                                bowling.average
+                                                            }}
+                                                        </p>
+                                                    </TdLayout>
+                                                    <TdLayout>
+                                                        <p
+                                                            class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80"
+                                                        >
+                                                            {{
+                                                                bowling.economy
+                                                            }}
+                                                        </p>
+                                                    </TdLayout>
+                                                    <TdLayout>
+                                                        <p
+                                                            class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80"
+                                                        >
+                                                            {{
+                                                                bowling.strike_rate
+                                                            }}
+                                                        </p>
+                                                    </TdLayout>
+
+                                                    <TdLayout>
+                                                        <p
+                                                            class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80"
+                                                        >
+                                                            {{
+                                                                bowling.five_wicket_hauls
+                                                            }}
+                                                        </p>
+                                                    </TdLayout>
+                                                   
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -73,20 +184,15 @@ import { Link } from "@inertiajs/vue3";
 import MainLayout from "@/Layout/MainLayout.vue";
 import TdLayout from "@/Layout/Component/Table/TdLayout.vue";
 import Pagination from "@/Layout/Component/Pagination.vue";
+
 import TableContainer from "@/Layout/Component/Table/TableContainer.vue";
 // import TableLayout from "../Layout/TableLayout.vue";
-
-
 </script>
 
 <script>
 export default {
-    props: [
-        "player",
-        
-    ],
-   
+    props: ["player", "batting", "bowling"],
+
     // Other Vue component logic
 };
-
 </script>
