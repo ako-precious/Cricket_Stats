@@ -17,7 +17,7 @@ class Players extends Model
         return $this->belongsTo(Teams::class, 'country_team_id' );
     }
 
-    public function battling(): HasMany
+    public function batting(): HasMany
     {
         return $this->hasMany(Batting_Stats::class);
     }

@@ -14,6 +14,6 @@ class Batting_Stats extends Model
 
     public function player(): BelongsTo
     {
-        return $this->belongsTo(Players::class, 'player_id' );
+        return $this->belongsTo(Players::class, 'player_id', 'id');
     }
 }

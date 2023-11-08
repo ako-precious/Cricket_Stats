@@ -11,14 +11,14 @@ class PlayersController extends Controller
     {
         // dd(Players::all());
 
-        return inertia('Players/Index',['players' => Players::orderBy('long_name', 'asc')->with('team')->paginate(15) ]);
+        return inertia('Players/Index',['players' => Players::orderBy('long_name', 'asc')->with('batting','bowling','team')->with()->paginate(15) ]);
     }
     public function show(Players $player)
     {
         // $comment = Players::find(53826);
  
-        //   dd($comment->team->long_name);
-        // dd($player);
+        //   dd($comment);
+        dd($player->batting->runs);
         return inertia('Players/Show', ['player' => $player->with('batting','bowling','team')]);
     }
 }
