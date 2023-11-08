@@ -178,3 +178,6 @@ defineProps({
     battings: Object,
 });
 </script>
+<script>
+
+</script>

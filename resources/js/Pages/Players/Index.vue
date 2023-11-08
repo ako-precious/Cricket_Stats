@@ -32,7 +32,7 @@
                                     >
                                         Date Of Birth
                                     </th>
-                                  
+
                                     <th
                                         class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70"
                                     >
@@ -44,7 +44,10 @@
                                     ></th>
                                 </tr>
                             </thead>
-                            <tbody v-for="player in players.data " :key="player.id">
+                            <tbody
+                                v-for="player in players.data"
+                                :key="player.id"
+                            >
                                 <tr class="px-2">
                                     <TdLayout>
                                         <div class="flex px-2 py-1">
@@ -79,11 +82,13 @@
                                         </p>
                                     </td>
 
-                                    <TdLayout><span
+                                    <TdLayout
+                                        ><span
                                             class="text-xs font-semibold leading-tight dark:text-white dark:opacity-80 text-slate-400"
                                         >
                                             {{ player.dob }}</span
-                                        ></TdLayout>
+                                        ></TdLayout
+                                    >
 
                                     <TdLayout>
                                         <div class="flex px-2 py-1">
@@ -120,6 +125,8 @@
                                 </tr>
                             </tbody>
                         </table>
+                        <div> { { currentRouteName }}</div>
+
                         <div
                             v-if="players.data.length"
                             class="w-full flex justify-center mt-8 mb-8"
@@ -142,4 +149,13 @@ import TableContainer from "@/Layout/Component/Table/TableContainer.vue";
 defineProps({
     players: Object,
 });
+
+
 </script>
+
+<script>
+// computed: {
+//   currentRouteName () {
+//     return this.$route.name;
+//   }  };
+  </script>
