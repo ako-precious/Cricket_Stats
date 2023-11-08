@@ -5,13 +5,13 @@
         <div class="flex justify-center items-center">
             <div class="max-w-4xl mx-auto">
                 <div
-                    class="rounded-lg max-w-sm dark:dark:bg-slate-900 flex flex-col justify-between"
+                    class="rounded-lg max-w-sm lg:max-w-lg dark:dark:bg-slate-900 flex flex-col justify-between"
                 >
                     <div
                         style="
                             background-image: url('../../../assets/img/cricket.jpg');
                         "
-                        class="rounded-lg w-full h-50 bg-white flex justify-center dark:dark:bg-slate-850" 
+                        class="rounded-lg w-full h-50 bg-white flex justify-center dark:dark:bg-slate-850 shadow-lg"
                     >
                         <img
                             class="rounded-lg h-full"
@@ -44,7 +44,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="p-5">
+                        <div class="p-3">
+                            <!-- batting -->
                             <div
                                 style="backdrop-filter: blur(20px)"
                                 class="relative flex flex-col min-w-0 mb-6 break-words bg-white border-0 border-transparent border-solid shadow-xl dark:bg-slate-850 dark:shadow-dark-xl rounded-2xl bg-clip-border"
@@ -63,7 +64,6 @@
                                         >
                                             <thead class="align-bottom">
                                                 <tr>
-                                                   
                                                     <th
                                                         class="px-6 py-3 pl-2 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70"
                                                     >
@@ -100,12 +100,8 @@
                                                     ></th>
                                                 </tr>
                                             </thead>
-                                            <tbody
-                                                v-for="bowling in bowlings"
-                                            >
+                                            <tbody v-for="bowling in bowlings">
                                                 <tr class="px-2">
-                                                   
-
                                                     <td
                                                         class="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent"
                                                     >
@@ -164,11 +160,140 @@
                                                             }}
                                                         </p>
                                                     </TdLayout>
-                                                   
                                                 </tr>
                                             </tbody>
                                         </table>
-                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- bowling -->
+                            <div
+                                style="backdrop-filter: blur(20px)"
+                                class="relative flex flex-col min-w-0 mb-6 break-words bg-white border-0 border-transparent border-solid shadow-xl dark:bg-slate-850 dark:shadow-dark-xl rounded-2xl bg-clip-border"
+                            >
+                                <div
+                                    class="p-6 pb-0 mb-0 border-b-0 border-b-solid rounded-t-2xl border-b-transparent"
+                                >
+                                    <h6 class="dark:text-white">
+                                        Batting Stats
+                                    </h6>
+                                </div>
+                                <div class="flex-auto px-0 pt-0 pb-2">
+                                    <div class="p-0 overflow-x-auto ps">
+                                        <table
+                                            class="items-center w-full mb-0 align-top border-collapse dark:border-white/40 text-slate-500"
+                                        >
+                                            <thead class="align-bottom">
+                                                <tr>
+                                                    <!-- <th
+                                        class="px-6 py-3 pl-2 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70"
+                                    >
+                                        Match Format
+                                    </th> -->
+                                                    <th
+                                                        class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70"
+                                                    >
+                                                        Matches
+                                                    </th>
+                                                    <th
+                                                        class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70"
+                                                    >
+                                                        Runs
+                                                    </th>
+                                                    <th
+                                                        class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70"
+                                                    >
+                                                        High Score
+                                                    </th>
+                                                    <th
+                                                        class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70"
+                                                    >
+                                                        Average
+                                                    </th>
+                                                    <th
+                                                        class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70"
+                                                    >
+                                                        Strike Rate
+                                                    </th>
+                                                    <th
+                                                        class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70"
+                                                    >
+                                                        Hundreds
+                                                    </th>
+                                                    <th
+                                                        class="px-6 py-3 font-semibold capitalize align-middle bg-transparent border-b border-collapse border-solid shadow-none dark:border-white/40 dark:text-white tracking-none whitespace-nowrap text-slate-400 opacity-70"
+                                                    ></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody v-for="batting in battings">
+                                                <tr class="px-2">
+                                                    <!-- 
+                                    <td
+                                        class="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent"
+                                    >
+                                        <p
+                                            class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80"
+                                        >
+                                            {{ batting.match_format }}
+                                        </p>
+                                    </td> -->
+
+                                                    <TdLayout
+                                                        ><span
+                                                            class="text-xs font-semibold leading-tight dark:text-white dark:opacity-80 text-slate-400"
+                                                        >
+                                                            {{
+                                                                batting.matches
+                                                            }}</span
+                                                        ></TdLayout
+                                                    >
+
+                                                    <TdLayout>
+                                                        <p
+                                                            class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80"
+                                                        >
+                                                            {{ batting.runs }}
+                                                        </p>
+                                                    </TdLayout>
+                                                    <TdLayout>
+                                                        <p
+                                                            class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80"
+                                                        >
+                                                            {{
+                                                                batting.high_score
+                                                            }}
+                                                        </p>
+                                                    </TdLayout>
+                                                    <TdLayout>
+                                                        <p
+                                                            class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80"
+                                                        >
+                                                            {{
+                                                                batting.average
+                                                            }}
+                                                        </p>
+                                                    </TdLayout>
+                                                    <TdLayout>
+                                                        <p
+                                                            class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80"
+                                                        >
+                                                            {{
+                                                                batting.strike_rate
+                                                            }}
+                                                        </p>
+                                                    </TdLayout>
+                                                    <TdLayout>
+                                                        <p
+                                                            class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80"
+                                                        >
+                                                            {{
+                                                                batting.hundreds
+                                                            }}
+                                                        </p>
+                                                    </TdLayout>
+                                                </tr>
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>
                             </div>
@@ -191,7 +316,7 @@ import TableContainer from "@/Layout/Component/Table/TableContainer.vue";
 
 <script>
 export default {
-    props: ["player", "batting", "bowling"],
+    props: ["player", "battings", "bowlings"],
 
     // Other Vue component logic
 };

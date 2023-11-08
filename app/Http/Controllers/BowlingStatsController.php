@@ -13,4 +13,15 @@ class BowlingStatsController extends Controller
 
         return inertia('Bowlings/Index',['bowlings' => Bowling_Stats::with('player')->paginate(15) ]);
     }
+
+    public function show(Bowling_Stats $bowling)
+    {
+        // $comment = bowlings::find(53826);
+       
+        // dd($bowling->team->flag_url);
+    
+        //   dd($comment);
+        return inertia('bowlings/Show', ['bowling' => $bowling, ]);
+    }
 }
+

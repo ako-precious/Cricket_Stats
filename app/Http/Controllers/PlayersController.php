@@ -18,13 +18,13 @@ class PlayersController extends Controller
     public function show(Players $player)
     {
         // $comment = Players::find(53826);
-        $batting = Batting_Stats::with('player')->where('player_id', $player->id )->orderBy('runs', 'desc') ;
+        $battings = Batting_Stats::with('player')->where('player_id', $player->id )->orderBy('runs', 'desc') ;
        
 
-        $bowling = Bowling_Stats::with('player')->where('player_id', $player->id)->orderBy('wickets', 'desc') ;
+        $bowlings = Bowling_Stats::with('player')->where('player_id', $player->id)->orderBy('wickets', 'desc') ;
         // dd($player->team->flag_url);
  
         //   dd($comment);
-        return inertia('Players/Show', ['player' => $player, 'batting'=> $batting, 'bowling' => $bowling ]);
+        return inertia('Players/Show', ['player' => $player, 'battings'=> $battings, 'bowlings' => $bowlings ]);
     }
 }
