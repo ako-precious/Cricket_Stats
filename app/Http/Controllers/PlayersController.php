@@ -12,21 +12,19 @@ class PlayersController extends Controller
     public function index()
     {
         // dd(Players::all());
-        $routeName = request()->route()->getName();
         // dd(($routeName));
-        return inertia('Players/Index',['players' => Players::orderBy('long_name', 'asc')->with('team')->paginate(15), "routeName" => $routeName ]);
+        return inertia('Players/Index',['players' => Players::orderBy('long_name', 'asc')->with('team')->paginate(15), ]);
     }
     public function show(Players $player)
     {
-        $routeName = request()->route()->getName();
         // $comment = Players::find(53826);
-        $battings = Batting_Stats::with('player')->where('player_id', $player->id )->orderBy('runs', 'desc') ;
+        $battings = Batting_Stats::with('player')->where('player_id', $player->id )->orderBy('runs', 'desc')->get() ;
        
 
-        $bowlings = Bowling_Stats::with('player')->where('player_id', $player->id)->orderBy('wickets', 'desc') ;
+        $bowlings = Bowling_Stats::with('player')->where('player_id', $player->id)->orderBy('wickets', 'desc')->get() ;
         // dd($player->team->flag_url);
  
-        //   dd($comment);
-        return inertia('Players/Show', ['player' => $player, 'battings'=> $battings, 'bowlings' => $bowlings, "routeName" => $routeName ]);
+        //   dd(  $battings);
+        return inertia('Players/Show', ['player' => $player, 'battings'=> $battings, 'bowlings' => $bowlings, ]);
     }
 }

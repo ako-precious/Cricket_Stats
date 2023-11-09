@@ -8,13 +8,16 @@
                     class="rounded-lg max-w-sm lg:max-w-lg dark:dark:bg-slate-900 flex flex-col justify-between"
                 >
                     <div
-                        style="
-                            background-image: url('../../../assets/img/cricket.jpg');
-                        "
-                        class="rounded-lg w-full h-50 bg-white flex justify-center dark:dark:bg-slate-850 shadow-lg"
+                       
+                        class="relative rounded-lg w-full h-52 bg-white flex justify-center dark:dark:bg-slate-850 py-2"
                     >
                         <img
-                            class="rounded-lg h-full"
+                            src='../../../assets/img/cricket.jpg'
+                            class=" absolute top-0 bottom-0 h-full w-full transition-all duration-200 ease-in-out "
+                            alt="main_logo"
+                        />
+                        <img
+                            class="rounded-lg h-full z-20 "
                             :src="player.image_url"
                             :alt="player.long_name"
                         />
@@ -185,11 +188,11 @@
                                         >
                                             <thead class="align-bottom">
                                                 <tr>
-                                                    <!-- <th
+                                                    <th
                                         class="px-6 py-3 pl-2 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70"
                                     >
                                         Match Format
-                                    </th> -->
+                                    </th>
                                                     <th
                                                         class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70"
                                                     >
@@ -227,7 +230,7 @@
                                             </thead>
                                             <tbody v-for="batting in battings">
                                                 <tr class="px-2">
-                                                    <!-- 
+                                                    
                                     <td
                                         class="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent"
                                     >
@@ -236,7 +239,7 @@
                                         >
                                             {{ batting.match_format }}
                                         </p>
-                                    </td> -->
+                                    </td>
 
                                                     <TdLayout
                                                         ><span

@@ -22,7 +22,7 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 |
 */
 
-Route::get('/', [DashboardController::class, 'index'])->name('default');
+Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 Route::resource('teams', TeamsController::class);
 Route::resource('players', PlayersController::class);
 Route::resource('battings', BattingStatsController::class);

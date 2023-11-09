@@ -22,7 +22,7 @@
         <SideBarCollapse>
             <li class="mt-0.5 w-full group">
                 <Link :href="`/`">
-                    <SideBarLink :class="getRouteClass('/')"  >
+                    <SideBarLink :class="getRouteClass('dashboard')"  >
                         <SideBarIcon class="group-hover:animate-bounce">
                             <font-awesome-icon
                                 icon="fa-solid fa-house"
