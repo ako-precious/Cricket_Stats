@@ -95,14 +95,14 @@
                             >Pages</a
                         >
                     </li>
-                    <li
+                    <li id="resultDiv"
                         class="text-sm pl-2 capitalize leading-normal text-white before:float-left before:pr-2 before:text-white before:content-['/']"
                         aria-current="page"
                     >
-                        Dashboard
+                    {{ resultText }}
                     </li>
                 </ol>
-                <h6 class="mb-0 font-bold text-white capitalize">Dashboard</h6>
+                <h6 class="mb-0 font-bold text-white capitalize"> <div id="resultDiv">{{ resultText }}</div> </h6>
             </nav>
 
             <SubNavBar @click="minSidebar()">
@@ -247,6 +247,7 @@ export default {
             isClassTranslated: false,
             isNavClassTranslated: false,
             isClassTranslated2: true,
+            resultText: 'Dashboard', 
         };
     },
     methods: {
@@ -307,6 +308,21 @@ export default {
                 };
             
         },
+        updateTextBasedOnFilePath() {
+            var filePath = window.location.pathname;
+
+            if (filePath.includes("players")) {
+                resultText = "Players";
+            } else if (filePath.includes("teams")) {
+                this.resultText = "Teams";
+            } else if (filePath.includes("battling")) {
+                this.resultText = "Battling";
+            } else if (filePath.includes("bowling")) {
+                this.resultText = "Bowling";
+            }
+        },
+
+        
     },
 };
 </script>
