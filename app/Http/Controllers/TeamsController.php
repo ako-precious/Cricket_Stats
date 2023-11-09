@@ -16,9 +16,9 @@ class TeamsController extends Controller
     }
     public function show(Teams $team)
     {
-        $comment = Teams::find($team);
-        $data = Players::where('country_team_id', 1)->get() ;
-          dd($data);
-        return inertia('Teams/Show', ['team' => $team]);
+        
+       $players = Players::where('country_team_id', $team->id )->orderBy('long_name', 'asc')->with('team')->paginate(15);
+        //   dd($players);
+        return inertia('Teams/Show', ['team' => $team, 'players' => $players ]);
     }
 }

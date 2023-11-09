@@ -42,9 +42,9 @@
                                             class=" items-center justify-center text-sm text-white transition-all duration-200 ease-in-out h-9 w-9 rounded-xl"
                                         />
                                     </div>
-                                    <h6 class="mb-0 text-xs dark:text-white">
+                                    <!-- <h6 class="mb-0 text-xs dark:text-white">
                                         {{ team.abbr }}
-                                    </h6>
+                                    </h6> -->
                                 </div>
                             </div>
                         </div>
