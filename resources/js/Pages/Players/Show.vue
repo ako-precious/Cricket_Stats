@@ -8,16 +8,15 @@
                     class="rounded-lg max-w-sm lg:max-w-lg dark:dark:bg-slate-900 flex flex-col justify-between"
                 >
                     <div
-                       
                         class="relative rounded-lg w-full h-52 bg-white flex justify-center dark:dark:bg-slate-850 py-2"
                     >
                         <img
-                            src='../../../assets/img/cricket.jpg'
-                            class=" absolute top-0 bottom-0 h-full w-full transition-all duration-200 ease-in-out "
+                            src="../../../assets/img/cricket.jpg"
+                            class="absolute top-0 bottom-0 h-full w-full transition-all duration-200 ease-in-out"
                             alt="main_logo"
                         />
                         <img
-                            class="rounded-lg h-full z-20 "
+                            class="rounded-lg h-full z-20"
                             :src="player.image_url"
                             :alt="player.long_name"
                         />
@@ -189,14 +188,24 @@
                                             <thead class="align-bottom">
                                                 <tr>
                                                     <th
-                                        class="px-6 py-3 pl-2 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70"
-                                    >
-                                        Match Format
-                                    </th>
+                                                        class="px-6 py-3 pl-2 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70"
+                                                    >
+                                                        Match Format
+                                                    </th>
                                                     <th
                                                         class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70"
                                                     >
                                                         Matches
+                                                    </th>
+                                                    <th
+                                                        class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70"
+                                                    >
+                                                        Innings
+                                                    </th>
+                                                    <th
+                                                        class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70"
+                                                    >
+                                                        notouts
                                                     </th>
                                                     <th
                                                         class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70"
@@ -216,6 +225,11 @@
                                                     <th
                                                         class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70"
                                                     >
+                                                        Balls Faced
+                                                    </th>
+                                                    <th
+                                                        class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70"
+                                                    >
                                                         Strike Rate
                                                     </th>
                                                     <th
@@ -224,22 +238,53 @@
                                                         Hundreds
                                                     </th>
                                                     <th
+                                                        class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70"
+                                                    >
+                                                        Fifties
+                                                    </th>
+                                                    <th
+                                                        class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70"
+                                                    >
+                                                        Fours
+                                                    </th>
+                                                    <th
+                                                        class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70"
+                                                    >
+                                                        Sixes
+                                                    </th>
+                                                    <th
+                                                        class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70"
+                                                    >
+                                                        Catches
+                                                    </th>
+                                                    <th
+                                                        class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70"
+                                                    >
+                                                        Stumps
+                                                    </th>
+                                                    <th
+                                                        class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70"
+                                                    >
+                                                        Batsman Out
+                                                    </th>
+                                                    <th
                                                         class="px-6 py-3 font-semibold capitalize align-middle bg-transparent border-b border-collapse border-solid shadow-none dark:border-white/40 dark:text-white tracking-none whitespace-nowrap text-slate-400 opacity-70"
                                                     ></th>
                                                 </tr>
                                             </thead>
                                             <tbody v-for="batting in battings">
                                                 <tr class="px-2">
-                                                    
-                                    <td
-                                        class="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent"
-                                    >
-                                        <p
-                                            class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80"
-                                        >
-                                            {{ batting.match_format }}
-                                        </p>
-                                    </td>
+                                                    <td
+                                                        class="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent"
+                                                    >
+                                                        <p
+                                                            class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80"
+                                                        >
+                                                            {{
+                                                                batting.match_format
+                                                            }}
+                                                        </p>
+                                                    </td>
 
                                                     <TdLayout
                                                         ><span
@@ -255,6 +300,20 @@
                                                         <p
                                                             class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80"
                                                         >
+                                                            {{ batting.innings }}
+                                                        </p>
+                                                    </TdLayout>
+                                                    <TdLayout>
+                                                        <p
+                                                            class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80"
+                                                        >
+                                                            {{ batting.notouts }}
+                                                        </p>
+                                                    </TdLayout>
+                                                    <TdLayout>
+                                                        <p
+                                                            class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80"
+                                                        >
                                                             {{ batting.runs }}
                                                         </p>
                                                     </TdLayout>
@@ -262,9 +321,7 @@
                                                         <p
                                                             class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80"
                                                         >
-                                                            {{
-                                                                batting.high_score
-                                                            }}
+                                                            {{ batting.high_score }}
                                                         </p>
                                                     </TdLayout>
                                                     <TdLayout>
@@ -273,6 +330,15 @@
                                                         >
                                                             {{
                                                                 batting.average
+                                                            }}
+                                                        </p>
+                                                    </TdLayout>
+                                                    <TdLayout>
+                                                        <p
+                                                            class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80"
+                                                        >
+                                                            {{
+                                                                batting.balls_faced
                                                             }}
                                                         </p>
                                                     </TdLayout>
@@ -291,6 +357,60 @@
                                                         >
                                                             {{
                                                                 batting.hundreds
+                                                            }}
+                                                        </p>
+                                                    </TdLayout>
+                                                    <TdLayout>
+                                                        <p
+                                                            class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80"
+                                                        >
+                                                            {{
+                                                                batting.fifties
+                                                            }}
+                                                        </p>
+                                                    </TdLayout>
+                                                    <TdLayout>
+                                                        <p
+                                                            class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80"
+                                                        >
+                                                            {{
+                                                                batting.fours
+                                                            }}
+                                                        </p>
+                                                    </TdLayout>
+                                                    <TdLayout>
+                                                        <p
+                                                            class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80"
+                                                        >
+                                                            {{
+                                                                batting.sixes
+                                                            }}
+                                                        </p>
+                                                    </TdLayout>
+                                                    <TdLayout>
+                                                        <p
+                                                            class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80"
+                                                        >
+                                                            {{
+                                                                batting.catches
+                                                            }}
+                                                        </p>
+                                                    </TdLayout>
+                                                    <TdLayout>
+                                                        <p
+                                                            class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80"
+                                                        >
+                                                            {{
+                                                                batting.stumps
+                                                            }}
+                                                        </p>
+                                                    </TdLayout>
+                                                    <TdLayout>
+                                                        <p
+                                                            class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80"
+                                                        >
+                                                            {{
+                                                                batting.batsman_out
                                                             }}
                                                         </p>
                                                     </TdLayout>
