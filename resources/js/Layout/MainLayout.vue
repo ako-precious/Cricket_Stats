@@ -22,7 +22,7 @@
         <SideBarCollapse>
             <li class="mt-0.5 w-full group">
                 <Link :href="`/`">
-                    <SideBarLink :class="getRouteClass('default')"  >
+                    <SideBarLink :class="getRouteClass('/')"  >
                         <SideBarIcon class="group-hover:animate-bounce">
                             <font-awesome-icon
                                 icon="fa-solid fa-house"
@@ -239,11 +239,6 @@ import FixLayout from "@/Layout/FixLayout.vue";
 
 export default {
 
-    computed: {
-        currentRoute() {
-            return window.location.pathname;
-        },
-    },
     data() {
         return {
             classChanged: "notfixeddiv",
@@ -257,6 +252,9 @@ export default {
             isClassTranslated2: true,
             resultText: 'Dashboard', 
         };
+    },
+    created() {
+        this.updateTextBasedOnFilePath(window.location.pathname);
     },
     methods: {
         toggleNavClass() {
@@ -311,13 +309,23 @@ export default {
         },
         getRouteClass(routeName) {
                 var currentRoute =   window.location.pathname;
-                return {
-                    activesidelink: currentRoute.includes(routeName),
-                };
+                if(currentRoute === '/'){
+                    
+                    // return {
+                    //     activesidelink:  currentRoute === '/',
+                    // };                
+                }else{
+
+                    return {
+                        activesidelink: currentRoute.includes(routeName),
+                    };
+                }
+
             
         },
-        updateTextBasedOnFilePath() {
-            var filePath = window.location.pathname;
+
+        updateTextBasedOnFilePath( filePath ) {
+        
 
             if (filePath.includes("players")) {
                 this.resultText = "Players";
