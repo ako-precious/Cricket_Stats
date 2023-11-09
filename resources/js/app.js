@@ -24,10 +24,10 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 /* import specific icons */
-import { faBaseball, faBaseballBatBall, faClose, faEye, faGear, faHouse, faUserSecret} from "@fortawesome/free-solid-svg-icons";
+import { faBaseball, faBaseballBatBall, faClose, faEye, faGear, faHouse, faPeopleGroup, faPerson, faUserSecret} from "@fortawesome/free-solid-svg-icons";
 
 /* add icons to the library */
-library.add(faUserSecret, faHouse, faGear, faClose,faBaseballBatBall, faBaseball, faEye,  );
+library.add(faUserSecret, faHouse, faGear, faClose,faBaseballBatBall, faBaseball, faEye, faPeopleGroup, faPerson  );
 
 createInertiaApp({
     resolve: (name) => {
