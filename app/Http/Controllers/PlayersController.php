@@ -12,11 +12,13 @@ class PlayersController extends Controller
     public function index()
     {
         // dd(Players::all());
-
-        return inertia('Players/Index',['players' => Players::orderBy('long_name', 'asc')->with('team')->paginate(15) ]);
+        $routeName = request()->route()->getName();
+        // dd(($routeName));
+        return inertia('Players/Index',['players' => Players::orderBy('long_name', 'asc')->with('team')->paginate(15), "routeName" => $routeName ]);
     }
     public function show(Players $player)
     {
+        $routeName = request()->route()->getName();
         // $comment = Players::find(53826);
         $battings = Batting_Stats::with('player')->where('player_id', $player->id )->orderBy('runs', 'desc') ;
        
@@ -25,6 +27,6 @@ class PlayersController extends Controller
         // dd($player->team->flag_url);
  
         //   dd($comment);
-        return inertia('Players/Show', ['player' => $player, 'battings'=> $battings, 'bowlings' => $bowlings ]);
+        return inertia('Players/Show', ['player' => $player, 'battings'=> $battings, 'bowlings' => $bowlings, "routeName" => $routeName ]);
     }
 }

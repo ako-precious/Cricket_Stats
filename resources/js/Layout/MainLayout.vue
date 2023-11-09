@@ -4,15 +4,20 @@
     ></div>
     <!-- sidenav  -->
 
-    <SideNav @mouseover="hoverSidebar()" @mouseout="hoverOutSidebar()"
-        :class=" sidebarReduced, {
-            'bg-slate-850': isClassWhite,
-            'translate-x-0':isClassTranslated,
-            
-        }"
+    <SideNav
+        @mouseover="hoverSidebar()"
+        @mouseout="hoverOutSidebar()"
+        :class="
+            (sidebarReduced,
+            {
+                'bg-slate-850': isClassWhite,
+                'translate-x-0': isClassTranslated,
+            })
+        "
     >
         <SideBarHeader>
-            <span :class="{ 'opacity-0': isLinkHidden }"
+            <span
+                :class="{ 'opacity-0': isLinkHidden }"
                 class="ml-2 font-bold transition-all duration-200 ease-in-out text-2xl uppercase"
             >
                 Cricket
@@ -21,13 +26,15 @@
 
         <SideBarCollapse>
             <li class="mt-0.5 w-full group">
-                <SideBarLink class="activesidelink">
+                <SideBarLink :class="{ activesidelink: isPlayersRoute() }">
                     <SideBarIcon class="group-hover:animate-bounce">
                         <font-awesome-icon
                             icon="fa-solid fa-house"
                             style="color: #2a744a"
                     /></SideBarIcon>
-                    <SideBarSpan :class="{ 'opacity-0': isLinkHidden }"> Dashboard </SideBarSpan>
+                    <SideBarSpan :class="{ 'opacity-0': isLinkHidden }">
+                        Dashboard
+                    </SideBarSpan>
                 </SideBarLink>
             </li>
             <li class="mt-0.5 w-full group">
@@ -38,7 +45,9 @@
                             style="color: #2a744a"
                         />
                     </SideBarIcon>
-                    <SideBarSpan :class="{ 'opacity-0': isLinkHidden }"> Players </SideBarSpan>
+                    <SideBarSpan :class="{ 'opacity-0': isLinkHidden }">
+                        Players
+                    </SideBarSpan>
                 </SideBarLink>
             </li>
             <li class="mt-0.5 w-full group">
@@ -49,15 +58,18 @@
                             style="color: #2a744a"
                         />
                     </SideBarIcon>
-                    <SideBarSpan :class="{ 'opacity-0': isLinkHidden }"> Teams </SideBarSpan>
+                    <SideBarSpan :class="{ 'opacity-0': isLinkHidden }">
+                        Teams
+                    </SideBarSpan>
                 </SideBarLink>
             </li>
         </SideBarCollapse>
     </SideNav>
     <!-- sidenav  -->
 
-    <main :class="marginReduced"
-        class="relative h-full max-h-screen transition-all duration-200 ease-in-out  rounded-xl"
+    <main
+        :class="marginReduced"
+        class="relative h-full max-h-screen transition-all duration-200 ease-in-out rounded-xl"
     >
         <!-- Navbar -->
         <NavBar :class="classChanged">
@@ -81,21 +93,21 @@
             </nav>
 
             <SubNavBar @click="minSidebar()">
-                <i  :class="{ 'translate-x-[5px]': isClassTranslated2 }"
-                    class="ease mb-0.75 relative block h-0.5 rounded-sm bg-white transition-all " 
+                <i
+                    :class="{ 'translate-x-[5px]': isClassTranslated2 }"
+                    class="ease mb-0.75 relative block h-0.5 rounded-sm bg-white transition-all"
                 ></i>
                 <i
                     class="ease mb-0.75 relative block h-0.5 rounded-sm bg-white transition-all"
                 ></i>
-                <i  :class="{ 'translate-x-[5px]': isClassTranslated2 }"
-                    class="ease relative block h-0.5 rounded-sm bg-white transition-all "
+                <i
+                    :class="{ 'translate-x-[5px]': isClassTranslated2 }"
+                    class="ease relative block h-0.5 rounded-sm bg-white transition-all"
                 ></i>
             </SubNavBar>
 
             <NavSideBar>
-                
                 <div class="w-4.5 overflow-hidden" @click="openSidebar()">
-
                     <i
                         class="ease mb-0.75 relative block h-0.5 rounded-sm bg-white transition-all"
                         :class="{ 'translate-x-[5px]': isClassTranslated }"
@@ -186,6 +198,7 @@
 </template>
 <script setup>
 // import { Link } from "@inertiajs/vue3";
+
 import Footer from "@/Layout/FooterLayout.vue";
 import WhiteBgBtn from "@/Layout/Component/Buttons/WhiteBgBtn.vue";
 import SideBarLink from "@/Layout/Component/Sidebar/SideBarLink.vue";
@@ -238,36 +251,54 @@ export default {
         },
         minSidebar() {
             this.isLinkHidden = !this.isLinkHidden;
-            this.marginReduced = this.marginReduced === "xl:ml-68" ? "xl:ml-30" : "xl:ml-68";
-            this.sidebarReduced = this.sidebarReduced === "sidebar"
-                    ? "minisidebar"
-                    : "sidebar";
+            this.marginReduced =
+                this.marginReduced === "xl:ml-68" ? "xl:ml-30" : "xl:ml-68";
+            this.sidebarReduced =
+                this.sidebarReduced === "sidebar" ? "minisidebar" : "sidebar";
             this.isClassTranslated2 = !this.isClassTranslated2;
         },
         hoverSidebar() {
-            if (this.sidebarReduced ===  "minisidebar") {
-                
+            if (this.sidebarReduced === "minisidebar") {
                 this.isLinkHidden = !this.isLinkHidden;
-                this.marginReduced = this.marginReduced === "xl:ml-68" ? "xl:ml-30" : "xl:ml-68";
-                this.sidebarReduced = this.sidebarReduced === "sidebar"
+                this.marginReduced =
+                    this.marginReduced === "xl:ml-68" ? "xl:ml-30" : "xl:ml-68";
+                this.sidebarReduced =
+                    this.sidebarReduced === "sidebar"
                         ? "minisidebar"
                         : "sidebar";
                 this.isClassTranslated2 = !this.isClassTranslated2;
-                this.hover = true
+                this.hover = true;
             }
         },
         hoverOutSidebar() {
-            if ( this.hover === true) {
-                
+            if (this.hover === true) {
                 this.isLinkHidden = !this.isLinkHidden;
-                this.marginReduced = this.marginReduced === "xl:ml-68" ? "xl:ml-30" : "xl:ml-68";
-                this.sidebarReduced = this.sidebarReduced === "sidebar"
+                this.marginReduced =
+                    this.marginReduced === "xl:ml-68" ? "xl:ml-30" : "xl:ml-68";
+                this.sidebarReduced =
+                    this.sidebarReduced === "sidebar"
                         ? "minisidebar"
                         : "sidebar";
                 this.isClassTranslated2 = !this.isClassTranslated2;
-                this.hover = false
+                this.hover = false;
             }
         },
+        isPlayersRoute() {
+            // Get the current route name from the Vue Router
+            // const currentRoute = this.$route.name;
+
+            // // Check if the route name contains the word "players"
+            // return currentRoute.includes("players");
+        },
+//         created() {
+//     // Access the current route name and path
+//     console.log('Current Route Name:', this.$route.name);
+//     console.log('Current Route Path:', this.$route.path);
+//   },
     },
+    mounted() {
+        var currentRoute = window.location.pathname;
+        console.log("Current route: " + currentRoute);
+    }
 };
 </script>

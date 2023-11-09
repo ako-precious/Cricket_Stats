@@ -812,19 +812,5 @@ export default {
     ],
     // Other Vue component logic
 };
-// Example code in Index.vue
-// export default {
-//   data() {
-//     return {
-//       // Your data properties here
-//     };
-//   },
-//   methods: {
-//     someMethod() {
-//       // Accessing data property, but it may be undefined
-//       console.log(this.data); // This is where the error occurs
-//     },
-//   },
-//   // ... other component options
-// };
+
 </script>
