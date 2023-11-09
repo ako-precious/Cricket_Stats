@@ -125,7 +125,6 @@
                                 </tr>
                             </tbody>
                         </table>
-                        <p>Current route name: {{ routeName }} {{ isPlayerRoute}}</p>
 
                         <div
                             v-if="players.data.length"
@@ -148,23 +147,11 @@ import TableContainer from "@/Layout/Component/Table/TableContainer.vue";
 // import TableLayout from "../Layout/TableLayout.vue";
 defineProps({
     players: Object, 
-    routeName: String,
    
 });
 </script>
 
 <script>
-export default {
-  computed: {
-    isPlayerRoute() {
-      // Get the current route name using the $route object
-      const routeName = this.$route.name;
-      
-      // Check if "player" is in the route name
-      return routeName.includes('player');
-    }
-  }
-  // Rest of your component logic
-};
+  
 </script>
 
