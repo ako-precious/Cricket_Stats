@@ -22,7 +22,7 @@
         <SideBarCollapse>
             <li class="mt-0.5 w-full group">
                 <Link :href="`/`">
-                    <SideBarLink :class="getRouteClass('dashboard')"  >
+                    <SideBarLink :class="{ 'activesidelink': isDashboard }"  >
                         <SideBarIcon class="group-hover:animate-bounce">
                             <font-awesome-icon
                                 icon="fa-solid fa-house"
@@ -250,6 +250,7 @@ export default {
             isClassTranslated: false,
             isNavClassTranslated: false,
             isClassTranslated2: true,
+            isDashboard: false,
             resultText: 'Dashboard', 
         };
     },
@@ -311,9 +312,7 @@ export default {
                 var currentRoute =   window.location.pathname;
                 if(currentRoute === '/'){
                     
-                    // return {
-                    //     activesidelink:  currentRoute === '/',
-                    // };                
+                    return this.isDashboard = true         
                 }else{
 
                     return {
@@ -324,6 +323,7 @@ export default {
             
         },
         
+
 
         updateTextBasedOnFilePath( filePath ) {
         
