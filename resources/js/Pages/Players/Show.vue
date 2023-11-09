@@ -35,14 +35,22 @@
                                     {{ player.long_name }}
                                 </h5>
                                 <div class="flex flex-col">
-                                    <!-- :src="player.team.flag_url"
-                                    :alt="player.team.long_name" -->
-                                    <img class="rounded-full w-9 h-9" />
-                                    <p
-                                        class="text-gray-900 font-bold text-sm tracking-tight mb-2 dark:text-white"
-                                    >
-                                        {{ player.team }}
-                                    </p>
+                                    <div>
+                                                <img
+                                                    :src="player.team.flag_url"
+                                                    :alt="player.team.long_name"
+                                                    class="inline-flex items-center justify-center mr-4 text-sm text-white transition-all duration-200 ease-in-out h-9 w-9 rounded-xl"
+                                                />
+                                            </div>
+                                            <div
+                                                class="flex flex-col justify-center"
+                                            >
+                                                <h6
+                                                    class="mb-0 text-sm leading-normal dark:text-white"
+                                                >
+                                                    {{ player.team.abbr }}
+                                                </h6>
+                                            </div>
                                 </div>
                             </div>
                         </div>
@@ -519,11 +527,16 @@ import Pagination from "@/Layout/Component/Pagination.vue";
 
 import TableContainer from "@/Layout/Component/Table/TableContainer.vue";
 // import TableLayout from "../Layout/TableLayout.vue";
+
+defineProps({
+    player: Object, 
+   
+});
 </script>
 
 <script>
 export default {
-    props: ["player", "battings", "bowlings"],
+    props: [  "battings", "bowlings"],
 
     // Other Vue component logic
 };

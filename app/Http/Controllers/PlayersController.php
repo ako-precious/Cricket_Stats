@@ -22,7 +22,7 @@ class PlayersController extends Controller
        
 
         $bowlings = Bowling_Stats::with('player')->where('player_id', $player->id)->orderBy('wickets', 'desc')->get() ;
-        // dd($player->team->flag_url);
+        // dd($player->team);
  
         //   dd(  $battings);
         return inertia('Players/Show', ['player' => $player, 'battings'=> $battings, 'bowlings' => $bowlings, ]);
