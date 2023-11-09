@@ -21,7 +21,7 @@
 
         <SideBarCollapse>
             <li class="mt-0.5 w-full group">
-                <SideBarLink class="activesidelink" >
+                <SideBarLink :class="getRouteClass('default')"  >
                     <SideBarIcon class="group-hover:animate-bounce">
                         <font-awesome-icon
                             icon="fa-solid fa-house"
@@ -30,8 +30,9 @@
                     <SideBarSpan :class="{ 'opacity-0': isLinkHidden }"> Dashboard </SideBarSpan>
                 </SideBarLink>
             </li>
+
             <li class="mt-0.5 w-full group">
-                <SideBarLink>
+                <SideBarLink :class="getRouteClass('players')">
                     <SideBarIcon class="group-hover:animate-pulse">
                         <font-awesome-icon
                             icon="fas-solid fa-baseball-bat-ball"
@@ -41,8 +42,9 @@
                     <SideBarSpan :class="{ 'opacity-0': isLinkHidden }"> Players </SideBarSpan>
                 </SideBarLink>
             </li>
+             
             <li class="mt-0.5 w-full group">
-                <SideBarLink>
+                <SideBarLink :class="getRouteClass('teams')">
                     <SideBarIcon class="group-hover:animate-spin">
                         <font-awesome-icon
                             icon="fa-solid fa-baseball"
@@ -50,6 +52,29 @@
                         />
                     </SideBarIcon>
                     <SideBarSpan :class="{ 'opacity-0': isLinkHidden }"> Teams </SideBarSpan>
+                </SideBarLink>
+            </li>
+
+            <li class="mt-0.5 w-full group">
+                <SideBarLink :class="getRouteClass('batting')">
+                    <SideBarIcon class="group-hover:animate-pulse">
+                        <font-awesome-icon
+                            icon="fas-solid fa-baseball-bat-ball"
+                            style="color: #2a744a"
+                        />
+                    </SideBarIcon>
+                    <SideBarSpan :class="{ 'opacity-0': isLinkHidden }"> Batting Stats </SideBarSpan>
+                </SideBarLink>
+            </li>
+            <li class="mt-0.5 w-full group">
+                <SideBarLink :class="getRouteClass('bowlings')">
+                    <SideBarIcon class="group-hover:animate-spin">
+                        <font-awesome-icon
+                            icon="fa-solid fa-baseball"
+                            style="color: #2a744a"
+                        />
+                    </SideBarIcon>
+                    <SideBarSpan :class="{ 'opacity-0': isLinkHidden }"> Bowling Stats </SideBarSpan>
                 </SideBarLink>
             </li>
         </SideBarCollapse>
@@ -203,7 +228,14 @@ import FixLayout from "@/Layout/FixLayout.vue";
 // defineProps(["message"]);
 </script>
 <script>
+
 export default {
+
+    computed: {
+        currentRoute() {
+            return window.location.pathname;
+        },
+    },
     data() {
         return {
             classChanged: "notfixeddiv",
@@ -267,6 +299,13 @@ export default {
                 this.isClassTranslated2 = !this.isClassTranslated2;
                 this.hover = false
             }
+        },
+        getRouteClass(routeName) {
+                var currentRoute =   window.location.pathname;
+                return {
+                    activesidelink: currentRoute.includes(routeName),
+                };
+            
         },
     },
 };

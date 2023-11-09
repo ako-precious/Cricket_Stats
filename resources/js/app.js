@@ -27,7 +27,7 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { faBaseball, faBaseballBatBall, faClose, faEye, faGear, faHouse, faUserSecret} from "@fortawesome/free-solid-svg-icons";
 
 /* add icons to the library */
-library.add(faUserSecret, faHouse, faGear, faClose,faBaseballBatBall, faBaseball, faEye );
+library.add(faUserSecret, faHouse, faGear, faClose,faBaseballBatBall, faBaseball, faEye,  );
 
 createInertiaApp({
     resolve: (name) => {
