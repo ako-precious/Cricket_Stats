@@ -79,6 +79,26 @@
                                                     <th
                                                         class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70"
                                                     >
+                                                        Innings
+                                                    </th>
+                                                    <th
+                                                        class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70"
+                                                    >
+                                                        Balls
+                                                    </th>
+                                                    <th
+                                                        class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70"
+                                                    >
+                                                        Runs
+                                                    </th>
+                                                    <th
+                                                        class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70"
+                                                    >
+                                                        Wickets
+                                                    </th>
+                                                    <th
+                                                        class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70"
+                                                    >
                                                         Average
                                                     </th>
                                                     <th
@@ -94,7 +114,17 @@
                                                     <th
                                                         class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70"
                                                     >
+                                                        Four Wicket Hauls
+                                                    </th>
+                                                    <th
+                                                        class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70"
+                                                    >
                                                         Five Wicket Hauls
+                                                    </th>
+                                                    <th
+                                                        class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70"
+                                                    >
+                                                        Ten Wicket Hauls
                                                     </th>
 
                                                     <th
@@ -130,6 +160,42 @@
                                                             class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80"
                                                         >
                                                             {{
+                                                                bowling.innings
+                                                            }}
+                                                        </p>
+                                                    </TdLayout>
+                                                    <TdLayout>
+                                                        <p
+                                                            class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80"
+                                                        >
+                                                            {{
+                                                                bowling.balls
+                                                            }}
+                                                        </p>
+                                                    </TdLayout>
+                                                    <TdLayout>
+                                                        <p
+                                                            class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80"
+                                                        >
+                                                            {{
+                                                                bowling.runs
+                                                            }}
+                                                        </p>
+                                                    </TdLayout>
+                                                    <TdLayout>
+                                                        <p
+                                                            class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80"
+                                                        >
+                                                            {{
+                                                                bowling.wickets
+                                                            }}
+                                                        </p>
+                                                    </TdLayout>
+                                                    <TdLayout>
+                                                        <p
+                                                            class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80"
+                                                        >
+                                                            {{
                                                                 bowling.average
                                                             }}
                                                         </p>
@@ -158,7 +224,25 @@
                                                             class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80"
                                                         >
                                                             {{
+                                                                bowling.four_wicket_hauls
+                                                            }}
+                                                        </p>
+                                                    </TdLayout>
+                                                    <TdLayout>
+                                                        <p
+                                                            class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80"
+                                                        >
+                                                            {{
                                                                 bowling.five_wicket_hauls
+                                                            }}
+                                                        </p>
+                                                    </TdLayout>
+                                                    <TdLayout>
+                                                        <p
+                                                            class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80"
+                                                        >
+                                                            {{
+                                                                bowling.ten_wicket_hauls
                                                             }}
                                                         </p>
                                                     </TdLayout>
