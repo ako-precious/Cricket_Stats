@@ -323,6 +323,7 @@ export default {
 
             
         },
+        
 
         updateTextBasedOnFilePath( filePath ) {
         
@@ -331,8 +332,8 @@ export default {
                 this.resultText = "Players";
             } else if (filePath.includes("teams")) {
                 this.resultText = "Teams";
-            } else if (filePath.includes("battling")) {
-                this.resultText = "Battling";
+            } else if (filePath.includes("batting")) {
+                this.resultText = "Batting";
             } else if (filePath.includes("bowling")) {
                 this.resultText = "Bowling";
             } 

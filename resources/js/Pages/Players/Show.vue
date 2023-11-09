@@ -12,7 +12,7 @@
                     >
                         <img
                             src="../../../assets/img/cricket.jpg"
-                            class="absolute top-0 bottom-0 h-full w-full transition-all duration-200 ease-in-out"
+                            class="absolute top-0 bottom-0 h-full w-full transition-all duration-200 ease-in-out rounded-lg"
                             alt="main_logo"
                         />
                         <img
@@ -30,27 +30,21 @@
                         >
                             <div class="flex justify-center items-center">
                                 <h5
-                                    class="text-gray-900 font-bold text-sm tracking-tight mb-2 dark:text-white"
+                                    class="text-gray-900 font-bold text-sm tracking-tight mb-2 pr-2 dark:text-white"
                                 >
                                     {{ player.long_name }}
                                 </h5>
-                                <div class="flex flex-col">
+                                <div class="flex flex-col justify-center">
                                     <div>
-                                                <img
-                                                    :src="player.team.flag_url"
-                                                    :alt="player.team.long_name"
-                                                    class="inline-flex items-center justify-center mr-4 text-sm text-white transition-all duration-200 ease-in-out h-9 w-9 rounded-xl"
-                                                />
-                                            </div>
-                                            <div
-                                                class="flex flex-col justify-center"
-                                            >
-                                                <h6
-                                                    class="mb-0 text-sm leading-normal dark:text-white"
-                                                >
-                                                    {{ player.team.abbr }}
-                                                </h6>
-                                            </div>
+                                        <img
+                                            :src="team.flag_url"
+                                            :alt="team.long_name"
+                                            class=" items-center justify-center text-sm text-white transition-all duration-200 ease-in-out h-9 w-9 rounded-xl"
+                                        />
+                                    </div>
+                                    <h6 class="mb-0 text-xs dark:text-white">
+                                        {{ team.abbr }}
+                                    </h6>
                                 </div>
                             </div>
                         </div>
@@ -176,18 +170,14 @@
                                                         <p
                                                             class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80"
                                                         >
-                                                            {{
-                                                                bowling.balls
-                                                            }}
+                                                            {{ bowling.balls }}
                                                         </p>
                                                     </TdLayout>
                                                     <TdLayout>
                                                         <p
                                                             class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80"
                                                         >
-                                                            {{
-                                                                bowling.runs
-                                                            }}
+                                                            {{ bowling.runs }}
                                                         </p>
                                                     </TdLayout>
                                                     <TdLayout>
@@ -392,14 +382,18 @@
                                                         <p
                                                             class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80"
                                                         >
-                                                            {{ batting.innings }}
+                                                            {{
+                                                                batting.innings
+                                                            }}
                                                         </p>
                                                     </TdLayout>
                                                     <TdLayout>
                                                         <p
                                                             class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80"
                                                         >
-                                                            {{ batting.notouts }}
+                                                            {{
+                                                                batting.notouts
+                                                            }}
                                                         </p>
                                                     </TdLayout>
                                                     <TdLayout>
@@ -413,7 +407,9 @@
                                                         <p
                                                             class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80"
                                                         >
-                                                            {{ batting.high_score }}
+                                                            {{
+                                                                batting.high_score
+                                                            }}
                                                         </p>
                                                     </TdLayout>
                                                     <TdLayout>
@@ -465,18 +461,14 @@
                                                         <p
                                                             class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80"
                                                         >
-                                                            {{
-                                                                batting.fours
-                                                            }}
+                                                            {{ batting.fours }}
                                                         </p>
                                                     </TdLayout>
                                                     <TdLayout>
                                                         <p
                                                             class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80"
                                                         >
-                                                            {{
-                                                                batting.sixes
-                                                            }}
+                                                            {{ batting.sixes }}
                                                         </p>
                                                     </TdLayout>
                                                     <TdLayout>
@@ -492,9 +484,7 @@
                                                         <p
                                                             class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80"
                                                         >
-                                                            {{
-                                                                batting.stumps
-                                                            }}
+                                                            {{ batting.stumps }}
                                                         </p>
                                                     </TdLayout>
                                                     <TdLayout>
@@ -527,16 +517,11 @@ import Pagination from "@/Layout/Component/Pagination.vue";
 
 import TableContainer from "@/Layout/Component/Table/TableContainer.vue";
 // import TableLayout from "../Layout/TableLayout.vue";
-
-defineProps({
-    player: Object, 
-   
-});
 </script>
 
 <script>
 export default {
-    props: [  "battings", "bowlings"],
+    props: ["player", "battings", "bowlings", "team"],
 
     // Other Vue component logic
 };
