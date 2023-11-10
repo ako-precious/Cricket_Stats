@@ -1,6 +1,7 @@
 <template>
     <MainLayout>
         <TableContainer>
+            <Filters />
             <div
                 style="backdrop-filter: blur(20px)"
                 class="relative flex flex-col min-w-0 mb-6 break-words bg-white border-0 border-transparent border-solid shadow-xl dark:bg-slate-850 dark:shadow-dark-xl rounded-2xl bg-clip-border"
@@ -170,6 +171,8 @@
 <script setup>
 import { Link } from "@inertiajs/vue3";
 import MainLayout from "@/Layout/MainLayout.vue";
+
+import Filters from "@/Layout/Component/Filter.vue";
 import Pagination from "@/Layout/Component/Pagination.vue";
 import TdLayout from "@/Layout/Component/Table/TdLayout.vue";
 import TableContainer from "@/Layout/Component/Table/TableContainer.vue";
