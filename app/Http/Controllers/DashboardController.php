@@ -29,4 +29,8 @@ class DashboardController extends Controller
          'highest_wicket_T20I' => $highest_wicket_T20I, 'highest_wicket_First_Class' => $highest_wicket_First_Class ]);
 
         }
+
+        public function  compare(){
+            return inertia('Index/Compare',[]);
+        }
 }
