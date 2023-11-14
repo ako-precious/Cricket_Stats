@@ -93,7 +93,7 @@
                 </div>
             </div>
 
-            <button type="submit" class="btn-normal text-sm dark:bg-slate-800 dark:hov shadow-md">Filter</button>
+            <button type="submit" class="btn-normal text-sm dark:bg-slate-800 dark:hover:bg-slate-850 shadow-md">Filter</button>
             <button type="reset" class="text-sm text-white" @click="clear">Clear</button>
         </div>
     </form>
@@ -101,7 +101,11 @@
  <script setup>
 import { useForm } from '@inertiajs/vue3';
 
+import { useRoute } from 'vue-router';
+
 const props = defineProps({filters: Object})
+// const route = useRoute('batting.index')
+// console.log(route);
 
 const filterForm = useForm({
   name: props.filters.name ?? null,
@@ -112,12 +116,12 @@ const filterForm = useForm({
 })
 
 const filter = () => {
-  filterForm.get(route('battings.index'),
-  {
+  filterForm.get(route('battings.index'), {
     preserveScroll: true,
-    preserveState: true
-  })
+    preserveState: true,
+  });
 }
+
 const clear = () => {
   
   filterForm.name = null
