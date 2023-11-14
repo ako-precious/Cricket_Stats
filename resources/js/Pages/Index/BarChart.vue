@@ -1,116 +1,75 @@
-<!-- <template>
-    <div>
-        <canvas id="myChart" width="100" height="100"></canvas>
-    </div>
-</template>
-
-<script>
-import Chart from "chart.js/auto";
-import {
-    Chart as ChartJS,
-    Title,
-    Tooltip,
-    Legend,
-    BarElement,
-    CategoryScale,
-    LinearScale,
-} from "chart.js";
-
-export default {
-    mounted() {
-        const ctx = document.getElementById("myChart");
-
-        new Chart(ctx, {
-            type: "bar",
-            data: {
-                labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-                datasets: [
-                    {
-                        label: "# of Votes",
-                        data: [12, 19, 3, 5, 2, 3],
-                        borderWidth: 1,
-                    },
-                ],
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                    },
-                },
-            },
-        });
-    },
-
-    // ChartJS.register(
-    //     Title,
-    //     Tooltip,
-    //     Legend,
-    //     BarElement,
-    //     CategoryScale,
-    //     LinearScale
-    // );
-    //   new Chart(ctx, {
-    //     type: 'bar',
-    //     data: {
-    //       labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-    //       datasets: [{
-    //         label: '# of Votes',
-    //         data: [12, 19, 3, 5, 2, 3],
-    //         borderWidth: 1
-    //       }]
-    //     },
-    //     options: {
-    //       scales: {
-    //         y: {
-    //           beginAtZero: true
-    //         }
-    //       }
-    //     }
-    //   });
-
-    // name: "BarChart",
-    // components: { Bar },
-    // data() {
-    //     return {
-    //         chartData: {
-    //             labels: ["January", "February", "March"],
-    //             datasets: [{ data: [40, 20, 12] }],
-    //         },
-    //         chartOptions: {
-    //             responsive: true,
-    //         },
-    //     };
-    // },
-};
-</script> -->
 <template>
-    <Bar
-      id="my-chart-id"
-      :options="chartOptions"
-      :data="chartData"
-    />
+    <Line :data="data" :options="options" />
   </template>
   
-  <script>
-  import { Bar } from 'vue-chartjs'
-  import { Chart as ChartJS, Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale } from 'chart.js'
+  <script lang="ts">
+  import {
+    Chart as ChartJS,
+    CategoryScale,
+    LinearScale,
+    PointElement,
+    LineElement,
+    Title,
+    Tooltip,
+    Legend
+  } from 'chart.js'
+  import { Line } from 'vue-chartjs'
+  import * as chartConfig from './chartConfig.js'
   
-  ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale)
+  ChartJS.register(
+    CategoryScale,
+    LinearScale,
+    PointElement,
+    LineElement,
+    Title,
+    Tooltip,
+    Legend
+  )
   
   export default {
-    name: 'BarChart',
-    components: { Bar },
+    name: 'App',
+    components: {
+      Line
+    },
     data() {
-      return {
-        chartData: {
-          labels: [ 'January', 'February', 'March' ],
-          datasets: [ { data: [40, 20, 12] } ]
-        },
-        chartOptions: {
-          responsive: true
-        }
-      }
-    }
+        
+      return chartConfig
+    },
+//     mounted(){
+//     const data = {
+//     labels: [
+//       'January',
+//       'February',
+//       'March',
+//       'April',
+//       'May',
+//       'June',
+//       'July',
+//       'August',
+//       'September',
+//       'October',
+//       'November',
+//       'December'
+//     ],
+//     datasets: [
+//       {
+//         label: 'Data One',
+//         backgroundColor: '#f87979',
+//         data: [40, 20, 12, 39, 10, 40, 39, 80, 40, 20, 12, 11],
+//       },  {
+//         label: 'Data Two',
+//         backgroundColor: '#f88170',
+//         data: [10, 40, 12, 39, 10, 40, 39, 80, 40, 20, 22, 11],
+//       }
+//     ]
+//   }
+  
+//     const options = {
+//     responsive: true,
+//     maintainAspectRatio: false
+//   }
+  
+//     }
   }
   </script>
+  
