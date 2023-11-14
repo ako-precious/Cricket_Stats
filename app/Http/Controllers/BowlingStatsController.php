@@ -18,7 +18,7 @@ class BowlingStatsController extends Controller
     {
         // $comment = bowlings::find(53826);
        
-        // dd($bowling->team->flag_url);
+        
     
         //   dd($comment);
         return inertia('bowlings/Show', ['bowling' => $bowling, ]);

@@ -19,12 +19,12 @@ class BattingStatsController extends Controller
         ]);
     }
 
-    public function show()
+    public function show( Batting_Stats $batting )
     {
         $comment = Batting_Stats::find(1);
 
-        dd($comment->player->long_name);
+        // dd($comment->player->long_name);
         // dd(Players::all());
-        // return inertia('Players/Show', ['player' => $player]);
+        return inertia('Battings/Show', ['batting' => $batting]);
     }
 }
