@@ -15,7 +15,7 @@ class BattingStatsController extends Controller
             'filters' => $request->only([
                 'name', 'matchFormat', 'gender', 'runsFrom', 'runsTo'
             ]),
-            'battings' => Batting_Stats::with('player')->paginate(15)
+            'battings' => Batting_Stats::with('player')->paginate(15)->withQueryString()
         ]);
     }
 

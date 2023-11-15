@@ -179,7 +179,7 @@ import TableContainer from "@/Layout/Component/Table/TableContainer.vue";
 
 defineProps({
     battings: Object,
-    // filters: Object,
+    filters: Object,
 });
 </script>
 <script>
