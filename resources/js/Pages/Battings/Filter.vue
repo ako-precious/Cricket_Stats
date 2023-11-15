@@ -101,11 +101,32 @@
  <script setup>
 import { useForm } from '@inertiajs/vue3';
 
-import { useRoute } from 'vue-router';
+import {createRouter, createWebHistory} from 'vue-router';
 
-const props = defineProps({filters: Object})
-// const route = useRoute('batting.index')
-// console.log(route);
+
+
+import BattingIndex from '@/Pages/Battings/Index.vue';
+
+// const props = defineProps({filters: Object})
+
+const routes = [
+    {
+        path: '/battings',
+        name: 'battings.index',
+        component: BattingIndex,
+        // component:()=>import('./pages/Home.vue')
+    }
+   
+]
+
+const router = createRouter({
+    history:createWebHistory(),
+    routes
+})
+
+// const targetRoute = this.$router.resolve({ name: 'batting.index' }).href;
+
+console.log('Route of another page:', router);
 
 const filterForm = useForm({
   name: props.filters.name ?? null,
@@ -116,11 +137,22 @@ const filterForm = useForm({
 })
 
 const filter = () => {
-  filterForm.get(route('battings.index'), {
+  filterForm.get('/battings/index', {
     preserveScroll: true,
     preserveState: true,
   });
 }
+// const filter = () => {
+//   const routeData = filterForm.get(); // Get data from filter form
+
+//   router.push({
+//     name: 'battings.index', // Route name
+//     query: routeData, // Pass data as query params
+//   }, {
+//     preserveScroll: true, // Preserve scroll position
+//     preserveState: true, // Preserve state
+//   });
+// };
 
 const clear = () => {
   
