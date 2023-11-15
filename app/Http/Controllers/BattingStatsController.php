@@ -10,16 +10,30 @@ class BattingStatsController extends Controller
     public function index(Request $request)
     {
         // dd(Players::all());
+        $filters =  $request->only([
+            'name', 'matchFormat', 'gender', 'runsFrom', 'runsTo'
+        ]);
+        $query =  Batting_Stats::with('player');
 
+        // if( $filters['name'] ){
+        //   $query->where('name', 'like', '%'.$filters['name'].'%' );
+        // }
+        if( $filters['matchFormat'] ?? false ){
+          $query->where('match_format', '=', $filters['matchFormat'] );
+        }
+        if( $filters['runsFrom'] ?? false ){
+          $query->where('runs', '>=', $filters['runsFrom'] );
+        }
+        if( $filters['runsTo'] ?? false){
+          $query->where('runs', '<=', $filters['runsTo'] );
+        }
         return inertia('Battings/Index', [
-            'filters' => $request->only([
-                'name', 'matchFormat', 'gender', 'runsFrom', 'runsTo'
-            ]),
-            'battings' => Batting_Stats::with('player')->paginate(15)->withQueryString()
+            'filters' => $filters,
+            'battings' => $query->paginate(15)->withQueryString()
         ]);
     }
 
-    public function show( Batting_Stats $batting )
+    public function show(Batting_Stats $batting)
     {
         $comment = Batting_Stats::find(1);
 
