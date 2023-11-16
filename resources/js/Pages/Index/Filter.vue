@@ -1,5 +1,5 @@
 <template>
-    <form class="w-full flex justify-evenly mb-8 mt-4">
+    <form @submit.prevent="filter" class="w-full flex justify-evenly mb-8 mt-4">
                 <div class="flex flex-col items-center">
                     <label
                         class="px-6 py-3 font-bold text-left uppercase align-middle bg-transparent border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-white opacity-70"
@@ -10,7 +10,7 @@
                         <div
                             class="flex items-center border-2 py-1 px-1.5 rounded-lg"
                         >
-                            <input
+                            <input  v-model="filterForm.firstName"
                                 class="pl-1.5 outline-none border-none bg-transparent text-white text-sm"
                                 type="text"
                                 name=""
@@ -29,10 +29,10 @@
                     </label>
 
                     <div
-                        class="flex items-center border-2 py-1 px-1.5 rounded-lg w-28 mr-1"
+                    class="flex items-center border-2 py-1 px-1.5 rounded-lg w-28 mr-1"
                     >
-                        <!-- v-model="filterForm.matchFormat" -->
-                        <select
+                    <select
+                    v-model="filterForm.matchFormat"
                             class="outline-none border-none bg-transparent text-white dark:text-white text-xs w-full p-1"
                         >
                             <option
@@ -108,7 +108,7 @@
                         <div
                             class="flex items-center border-2 py-1 px-1.5 rounded-lg"
                         >
-                            <input
+                            <input  v-model="filterForm.SecondName"
                                 class="pl-1.5 outline-none border-none bg-transparent text-white text-sm"
                                 type="text"
                                 name=""
@@ -139,9 +139,28 @@
             </form>
 </template>
 <script setup>
-// import { Link } from "@inertiajs/vue3";
+import { useForm } from '@inertiajs/vue3';
 
-// defineProps(["message"]);
+
+const props = defineProps({filters: Object})
+
+
+
+const filterForm = useForm({
+  firstName: props.filters.firstName ?? null,
+  matchFormat:  props.filters.matchFormat ?? null,
+  SecondName: props.filters.SecondName ?? null,
+  
+})
+
+const filter = () => {
+  filterForm.get('/compare', {
+    preserveScroll: true,
+    preserveState: true,
+  });
+}
+
+
 </script>
 <script>
 export default {

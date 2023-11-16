@@ -30,7 +30,11 @@ class DashboardController extends Controller
 
         }
 
-        public function  compare(){
-            return inertia('Index/Compare',[]);
+        public function  compare(Request $request){
+            $filters =  $request->only([
+                'name', 'matchFormat', 'gender', 'runsFrom', 'runsTo'
+            ]);
+
+            return inertia('Index/Compare',['filters' => $filters,]);
         }
 }
