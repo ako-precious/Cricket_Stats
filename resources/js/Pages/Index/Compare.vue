@@ -24,8 +24,9 @@
                             <thead class="align-bottom">
                                 <tr>
                                     <th
-                                        class="px-6 py-3 font-bold text-left uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70"
+                                    class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70"
                                     >
+                                    <!-- class="px-6 py-3 font-bold text-left uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70" -->
                                         Player's Details
                                     </th>
                                     <th
@@ -39,9 +40,7 @@
                                         Player's Details
                                     </th>
 
-                                    <th
-                                        class="px-6 py-3 font-semibold capitalize align-middle bg-transparent border-b border-collapse border-solid shadow-none dark:border-white/40 dark:text-white tracking-none whitespace-nowrap text-slate-400 opacity-70"
-                                    ></th>
+                                   
                                 </tr>
                             </thead>
 
@@ -142,23 +141,11 @@
                                         </div>
                                     </TdLayout>
 
-                                    <TdLayout>
-                                        <!-- <button
-                                            type="submit"
-                                            class="btn-normal text-sm dark:bg-slate-800 dark:hover:bg-slate-850 shadow-md"
-                                        >
-                                            Filter
-                                        </button> -->
-                                    </TdLayout>
+                                   
                                 </tr>
                             </tbody>
                         </table>
-                        <!-- <div
-                          v-if="battings.data.length"
-                          class="w-full flex justify-center mt-8 mb-8"
-                      >
-                          <Pagination :links="battings.links" />
-                      </div> -->
+                      
                     </div>
                 </div>
             </div>

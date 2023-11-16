@@ -108,7 +108,7 @@
                         <div
                             class="flex items-center border-2 py-1 px-1.5 rounded-lg"
                         >
-                            <input  v-model="filterForm.SecondName"
+                            <input  v-model="filterForm.secondName"
                                 class="pl-1.5 outline-none border-none bg-transparent text-white text-sm"
                                 type="text"
                                 name=""
@@ -149,7 +149,7 @@ const props = defineProps({filters: Object})
 const filterForm = useForm({
   firstName: props.filters.firstName ?? null,
   matchFormat:  props.filters.matchFormat ?? null,
-  SecondName: props.filters.SecondName ?? null,
+  secondName: props.filters.secondName ?? null,
   
 })
 
