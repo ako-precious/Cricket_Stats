@@ -11,9 +11,7 @@
                     <div class="flex flex-row -mx-3">
                         <div class="flex-none w-2/3 max-w-full px-2">
                             <div>
-                                <CardPOne>
-                                    Test 
-                                </CardPOne>
+                                <CardPOne> Test </CardPOne>
                                 <CardPTwo>
                                     {{ highest_wicket_test.wickets }}
                                 </CardPTwo>
@@ -34,16 +32,14 @@
                         {{ highest_wicket_test.player.long_name }}
                     </CardPThree>
                 </CardContainer>
-                
+
                 <!-- card2 -->
-              
+
                 <CardContainer>
                     <div class="flex flex-row -mx-3">
                         <div class="flex-none w-2/3 max-w-full px-2">
                             <div>
-                                <CardPOne>
-                                    ODI
-                                </CardPOne>
+                                <CardPOne> ODI </CardPOne>
                                 <CardPTwo>
                                     {{ highest_wicket_ODI.wickets }}
                                 </CardPTwo>
@@ -52,8 +48,7 @@
                         <CardImage>
                             <img
                                 :src="
-                                    highest_wicket_ODI.player
-                                        .headshot_image_url
+                                    highest_wicket_ODI.player.headshot_image_url
                                 "
                                 :alt="highest_wicket_ODI.player.long_name"
                                 class="inline-flex items-center justify-center mr-4 text-sm text-white transition-all duration-200 ease-in-out h-full w-full rounded-xl"
@@ -64,15 +59,13 @@
                         {{ highest_wicket_ODI.player.long_name }}
                     </CardPThree>
                 </CardContainer>
-                
+
                 <!-- card3 -->
                 <CardContainer>
                     <div class="flex flex-row -mx-3">
                         <div class="flex-none w-2/3 max-w-full px-2">
                             <div>
-                                <CardPOne>
-                                    T20I
-                                </CardPOne>
+                                <CardPOne> T20I </CardPOne>
                                 <CardPTwo>
                                     {{ highest_wicket_T20I.wickets }}
                                 </CardPTwo>
@@ -93,16 +86,13 @@
                         {{ highest_wicket_T20I.player.long_name }}
                     </CardPThree>
                 </CardContainer>
-                
-                
+
                 <!-- card4 -->
                 <CardContainer>
                     <div class="flex flex-row -mx-3">
                         <div class="flex-none w-2/3 max-w-full px-2">
                             <div>
-                                <CardPOne>
-                                    First Class
-                                </CardPOne>
+                                <CardPOne> First Class </CardPOne>
                                 <CardPTwo>
                                     {{ highest_wicket_First_Class.wickets }}
                                 </CardPTwo>
@@ -114,7 +104,9 @@
                                     highest_wicket_First_Class.player
                                         .headshot_image_url
                                 "
-                                :alt="highest_wicket_First_Class.player.long_name"
+                                :alt="
+                                    highest_wicket_First_Class.player.long_name
+                                "
                                 class="inline-flex items-center justify-center mr-4 text-sm text-white transition-all duration-200 ease-in-out h-full w-full rounded-xl"
                             />
                         </CardImage>
@@ -123,7 +115,6 @@
                         {{ highest_wicket_First_Class.player.long_name }}
                     </CardPThree>
                 </CardContainer>
-               
             </div>
         </div>
         <!-- row 2 -->
@@ -284,7 +275,7 @@
                         </div>
                         <div class="flex-auto p-4">
                             <div>
-                                <canvas id="chart-line" height="130"></canvas>
+                                <BarChart />
                             </div>
                         </div>
                     </div>
@@ -791,6 +782,7 @@
 </template>
 <script setup>
 // import { Link } from "@inertiajs/vue3";
+import BarChart from '@/Pages/Index/BarChart.vue'
 import MainLayout from "@/Layout/MainLayout.vue";
 import CardContainer from "@/Layout/Component/StatCard/CardContainer.vue";
 import CardImage from "@/Layout/Component/StatCard/CardImage.vue";
@@ -800,6 +792,9 @@ import CardPThree from "@/Layout/Component/StatCard/CardPThree.vue";
 </script>
 <script>
 export default {
+    name: 'App',
+    components: { BarChart },
+
     props: [
         "highestrunner",
         "highest_wicket_test",
@@ -812,5 +807,4 @@ export default {
     ],
     // Other Vue component logic
 };
-
 </script>
