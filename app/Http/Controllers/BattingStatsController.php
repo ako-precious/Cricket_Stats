@@ -28,13 +28,27 @@ class BattingStatsController extends Controller
         return inertia('Battings/Index', [
             'filters' => $filters,
             'battings' => $query
-            ->when( $filters['matchFormat'] ?? false,
-            fn ($query, $value) => $query->where('match_format', '=', $value))
-            ->when( $filters['runsFrom'] ?? false,
-            fn ($query, $value) => $query->where('runs', '>=', $value))
-            ->when( $filters['runsTo'] ?? false,
-            fn ($query, $value) => $query->where('runs', '<=', $value))
-            ->paginate(15)->withQueryString()
+                ->when($filters['name'] ?? false, function ($query) use ($filters) {
+                    $query->whereHas('player', function ($query) use ($filters) {
+                        $query->where('long_name', 'like', '%' . $filters['name'] . '%');
+                    });
+                })
+                ->when($filters['gender'] ?? false, function ($query) use ($filters) {
+                    $query->whereHas('player', function ($query) use ($filters) {
+                        $query->where('gender',  $filters['gender']);
+                    });
+                })
+                ->when($filters['matchFormat'] ?? false, function ($query) use ($filters) {
+                    $query->where('match_format', '=', $filters['matchFormat']);
+                })
+                ->when($filters['runsFrom'] ?? false, function ($query) use ($filters) {
+                    $query->where('runs', '>=', $filters['runsFrom']);
+                })
+                ->when($filters['runsTo'] ?? false, function ($query) use ($filters) {
+                    $query->where('runs', '<=', $filters['runsTo']);
+                })
+                ->paginate(15)
+                ->withQueryString()
         ]);
     }
 

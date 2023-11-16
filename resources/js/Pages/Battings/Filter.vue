@@ -1,7 +1,7 @@
 <template>
     <form @submit.prevent="filter">
         <div class="mb-8 mt-4 flex flex-wrap gap-2 justify-center">
-            <!-- <div class="flex flex-nowrap items-center">
+            <div class="flex flex-nowrap items-center">
                 <div class="flex items-center border-2 py-1 px-1.5 rounded-lg">
                     <input v-model="filterForm.name"
                         class="pl-1.5 outline-none border-none bg-transparent text-white text-sm"
@@ -11,7 +11,7 @@
                         placeholder="Name"
                     />
                 </div>
-            </div> -->
+            </div>
 
             <div class="flex flex-nowrap items-center">
                 <div
@@ -107,7 +107,7 @@ const props = defineProps({filters: Object})
 
 
 const filterForm = useForm({
-//   name: props.filters.name ?? null,
+  name: props.filters.name ?? null,
   matchFormat:  props.filters.matchFormat ?? null,
   gender:  props.filters.gender ?? null,
   runsFrom:  props.filters.runsFrom ?? null,
@@ -124,7 +124,7 @@ const filter = () => {
 
 const clear = () => {
   
-//   filterForm.name = null
+  filterForm.name = null
   filterForm.matchFormat = null
   filterForm.gender = null
   filterForm.runsFrom = null
