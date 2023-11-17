@@ -6,7 +6,7 @@
             >
                 Player's Name
             </label>
-            <div class="flex flex-nowrap items-center">
+            <!-- <div class="flex flex-nowrap items-center">
                 <div class="flex items-center border-2 py-1 px-1.5 rounded-lg">
                     <input
                         v-model="filterForm.firstName" @input="getSuggestions" 
@@ -19,6 +19,29 @@
                     />
                     <ul v-if="suggestions.length">
                         <li v-for="suggestion in suggestions" :key="suggestion">
+                            {{ suggestion }}
+                        </li>
+                    </ul>
+                </div>
+            </div> -->
+            <div class="flex flex-nowrap items-center">
+                <div class="flex items-center border-2 py-1 px-1.5 rounded-lg">
+                    <input
+                        v-model="filterForm.firstName"
+                        @input="getSuggestions('firstName')"
+                        required
+                        class="pl-1.5 outline-none border-none bg-transparent text-white text-sm"
+                        type="text"
+                        name=""
+                        id=""
+                        placeholder="Name"
+                    />
+                    <ul v-if="suggestions.firstName.length">
+                        <li
+                            v-for="suggestion in suggestions.firstName"
+                            :key="suggestion"
+                            @click="selectSuggestion('firstName', suggestion)"
+                        >
                             {{ suggestion }}
                         </li>
                     </ul>
@@ -110,7 +133,7 @@
             >
                 Player's Name
             </label>
-            <div class="flex flex-nowrap items-center">
+            <!-- <div class="flex flex-nowrap items-center">
                 <div class="flex items-center border-2 py-1 px-1.5 rounded-lg">
                     <input
                         v-model="filterForm.secondName"
@@ -121,6 +144,29 @@
                         id=""
                         placeholder="Name"
                     />
+                </div>
+            </div> -->
+            <div class="flex flex-nowrap items-center">
+                <div class="flex items-center border-2 py-1 px-1.5 rounded-lg">
+                    <input
+                        v-model="filterForm.secondName"
+                        @input="getSuggestions('secondName')"
+                        required
+                        class="pl-1.5 outline-none border-none bg-transparent text-white text-sm"
+                        type="text"
+                        name=""
+                        id=""
+                        placeholder="Name"
+                    />
+                    <ul v-if="suggestions.secondName.length">
+                        <li
+                            v-for="suggestion in suggestions.secondName"
+                            :key="suggestion"
+                            @click="selectSuggestion('secondName', suggestion)"
+                        >
+                            {{ suggestion }}
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -144,9 +190,63 @@
         </div>
     </form>
 </template>
-<script setup>
-import { useForm } from "@inertiajs/vue3";
 
+<script setup>
+import { ref, onMounted } from "vue";
+import { useForm } from "@inertiajs/vue3";
+import axios from 'axios';
+
+const props = defineProps({ filters: Object });
+
+const filterForm = useForm({
+    firstName: props.filters.firstName ?? null,
+    matchFormat: props.filters.matchFormat ?? null,
+    secondName: props.filters.secondName ?? null,
+});
+
+const suggestions = {
+    firstName: ref([]),
+    secondName: ref([]),
+};
+
+const getSuggestions = async (field) => {
+  try {
+    // Make an HTTP GET request to your Laravel route that handles suggestions
+    const response = await axios.get('/compare', {
+      params: { query: filterForm[field], field: field },
+    });
+
+    // Assuming the response.data is an array of suggestions
+    suggestions[field] = response.data;
+  } catch (error) {
+    console.error('Error fetching suggestions:', error);
+  }
+};
+
+const selectSuggestion = (field, suggestion) => {
+    filterForm[field] = suggestion;
+    suggestions[field] = []; // Clear suggestions after selection
+};
+
+const filter = () => {
+    filterForm.get("/compare", {
+        preserveScroll: true,
+        preserveState: true,
+    });
+};
+
+// You may want to call getSuggestions for initial data fetching
+onMounted(() => {
+    getSuggestions("firstName");
+    getSuggestions("secondName");
+});
+</script>
+
+<!-- <script setup>
+import { useForm } from "@inertiajs/vue3";
+import { ref } from 'vue';
+import axios from 'axios';
+ 
 const props = defineProps({ filters: Object });
 
 const filterForm = useForm({
@@ -161,26 +261,49 @@ const filter = () => {
         preserveState: true,
     });
 };
-</script>
-<script>
-export default {
-    data() {
-        return {
-            firstName: "",
-            suggestions: [],
-        };
-    },
-    methods: {
-        async getSuggestions() {
-            try {
-                const response = await axios.get("/compare", {
-                    params: {  firstName: this. firstName },
-                });
-                this.suggestions = response.data;
-            } catch (error) {
-                console.error(error);
-            }
-        },
-    },
+
+// Add suggestions data for each input field
+const suggestions = ref({
+  firstName: [],
+  secondName: [],
+  // ... add more fields as needed
+});
+
+// Method to fetch suggestions from the server
+const getSuggestions = async (field) => {
+  try {
+    const response = await axios.get(`/compare`, {
+      params: { query: filterForm[field] }
+    });
+    suggestions[field] = response.data;
+  } catch (error) {
+    console.error(error);
+  }
 };
-</script>
+
+// Method to handle suggestion selection
+const selectSuggestion = (field, suggestion) => {
+  filterForm[field] = suggestion;
+  suggestions[field] = [];
+};
+</script> -->
+<style scoped>
+/* Add some styling for the suggestions */
+.suggestions {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    max-height: 200px;
+    overflow-y: auto;
+}
+.suggestions li {
+    padding: 8px;
+    cursor: pointer;
+}
+.suggestions li:hover {
+    background-color: #f2f2f2;
+}
+</style>

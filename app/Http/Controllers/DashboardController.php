@@ -35,7 +35,7 @@ class DashboardController extends Controller
 
     public function  compare(Request $request)
     {
-        $query1 = $request->input('firstName');
+        $query1 = $request->input('query');
 
         $filters =  $request->only([
             'firstName', 'matchFormat', 'secondName'
@@ -70,6 +70,7 @@ class DashboardController extends Controller
                     $query->where('match_format', $filters['matchFormat']);
                 })
                 ->first(),
+                response()->json($suggestions)
         ]);
     }
 }
