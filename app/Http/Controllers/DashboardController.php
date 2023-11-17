@@ -36,14 +36,14 @@ class DashboardController extends Controller
     public function  compare(Request $request)
     {
         $query1 = $request->input('query');
+        // $query1 = $request->input('field');
 
         $filters =  $request->only([
             'firstName', 'matchFormat', 'secondName'
         ]);
-        $suggestions = Players::where('long_name', 'like', '%' . $query1  . '%')->pluck('long_name');
+        $suggestions = Players::where('long_name', 'like', '%' . $query1  . '%')->take(10)->pluck('long_name');
 
-         $firstname = response()->json($suggestions);
-        // dd($firstname);
+
         $query =  Batting_Stats::with('player');
 
 
@@ -69,8 +69,14 @@ class DashboardController extends Controller
                 ->when($filters['matchFormat'] ?? false, function ($query) use ($filters) {
                     $query->where('match_format', $filters['matchFormat']);
                 })
-                ->first(),
-                response()->json($suggestions)
+                ->first(), response()->json(['suggestions' => $suggestions])
         ]);
+    }
+    public function getSuggestions()
+    {
+        $query = request('query');
+        $suggestions = Players::where('long_name', 'like', '%' . $query . '%')->take(6)->pluck('long_name');
+
+        return response()->json($suggestions);
     }
 }
