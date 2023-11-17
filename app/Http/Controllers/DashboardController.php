@@ -35,31 +35,41 @@ class DashboardController extends Controller
 
     public function  compare(Request $request)
     {
+        $query1 = $request->input('firstName');
+
         $filters =  $request->only([
             'firstName', 'matchFormat', 'secondName'
         ]);
+        $suggestions = Players::where('long_name', 'like', '%' . $query1  . '%')->pluck('long_name');
+
+         $firstname = response()->json($suggestions);
+        // dd($firstname);
+        $query =  Batting_Stats::with('player');
 
 
 
-        if ($filters['firstName'] ?? false) {
-            $firstPlayer = Players::where('long_name', 'like', '%' . $filters['firstName'] . '%')->first();;
-        }
-
-        if ($filters['secondName'] ?? false) {
-            $secondPlayer = Players::where('long_name', 'like', '%' . $filters['secondName'] . '%')->first();;
-        }
-
-        if ($filters['matchFormat'] ?? false) {
-            $secondPlayer = Batting_Stats::where('match_format', '=', $filters['matchFormat']); 
-        }
-        
-        
-      
-
-        dd($secondPlayer);
-        // $firstPlayer = Players::when( $filters['matchFormat'] ?? false,
-        // fn ($query, $value) => $query->where('match_format', '=', $value))
-
-        return inertia('Index/Compare', ['filters' => $filters,]);
+        return inertia('Index/Compare', [
+            'filters' => $filters,
+            'firstPlayer' => $query
+                ->when($filters['firstName'] ?? false, function ($query) use ($filters) {
+                    $query->whereHas('player', function ($query) use ($filters) {
+                        $query->where('long_name', 'like', '%' . $filters['firstName'] . '%');
+                    });
+                })
+                ->when($filters['matchFormat'] ?? false, function ($query) use ($filters) {
+                    $query->where('match_format', $filters['matchFormat']);
+                })
+                ->first(),
+            'secondPlayer' => $query
+                ->when($filters['secondName'] ?? false, function ($query) use ($filters) {
+                    $query->whereHas('player', function ($query) use ($filters) {
+                        $query->where('long_name', 'like', '%' . $filters['secondName'] . '%');
+                    });
+                })
+                ->when($filters['matchFormat'] ?? false, function ($query) use ($filters) {
+                    $query->where('match_format', $filters['matchFormat']);
+                })
+                ->first(),
+        ]);
     }
 }

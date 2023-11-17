@@ -39,7 +39,7 @@ class BattingStatsController extends Controller
                     });
                 })
                 ->when($filters['matchFormat'] ?? false, function ($query) use ($filters) {
-                    $query->where('match_format', '=', $filters['matchFormat']);
+                    $query->where('match_format', $filters['matchFormat']);
                 })
                 ->when($filters['runsFrom'] ?? false, function ($query) use ($filters) {
                     $query->where('runs', '>=', $filters['runsFrom']);
