@@ -35,22 +35,20 @@ class DashboardController extends Controller
 
     public function  compare(Request $request)
     {
-        $query1 = $request->input('query');
-        // $query1 = $request->input('field');
+     
 
         $filters =  $request->only([
             'firstName', 'matchFormat', 'secondName'
         ]);
-        $suggestions = Players::where('long_name', 'like', '%' . $query1  . '%')->take(10)->pluck('long_name');
-
-
+      
         $query =  Batting_Stats::with('player');
+        $query2 =  Batting_Stats::with('player');
 
 
 
         return inertia('Index/Compare', [
             'filters' => $filters,
-            'firstPlayer' => $query
+            'firstPlayerBatting' => $query
                 ->when($filters['firstName'] ?? false, function ($query) use ($filters) {
                     $query->whereHas('player', function ($query) use ($filters) {
                         $query->where('long_name', 'like', '%' . $filters['firstName'] . '%');
@@ -60,16 +58,16 @@ class DashboardController extends Controller
                     $query->where('match_format', $filters['matchFormat']);
                 })
                 ->first(),
-            'secondPlayer' => $query
-                ->when($filters['secondName'] ?? false, function ($query) use ($filters) {
-                    $query->whereHas('player', function ($query) use ($filters) {
-                        $query->where('long_name', 'like', '%' . $filters['secondName'] . '%');
+            'secondPlayerBatting' => $query2
+                ->when($filters['secondName'] ?? false, function ($query2) use ($filters) {
+                    $query2->whereHas('player', function ($query2) use ($filters) {
+                        $query2->where('long_name', 'like', '%' . $filters['secondName'] . '%');
                     });
                 })
                 ->when($filters['matchFormat'] ?? false, function ($query) use ($filters) {
                     $query->where('match_format', $filters['matchFormat']);
                 })
-                ->first(), response()->json(['suggestions' => $suggestions])
+                ->first(),
         ]);
     }
     public function getSuggestions()

@@ -2,7 +2,7 @@
     <MainLayout>
         <TableContainer>
             <Filters :filters="filters" />
-            
+
             <div
                 style="backdrop-filter: blur(20px)"
                 class="relative flex flex-col min-w-0 mb-6 break-words bg-white border-0 border-transparent border-solid shadow-xl dark:bg-slate-850 dark:shadow-dark-xl rounded-2xl bg-clip-border"
@@ -24,9 +24,9 @@
                             <thead class="align-bottom">
                                 <tr>
                                     <th
-                                    class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70"
+                                        class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70"
                                     >
-                                    <!-- class="px-6 py-3 font-bold text-left uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70" -->
+                                        <!-- class="px-6 py-3 font-bold text-left uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70" -->
                                         Player's Details
                                     </th>
                                     <th
@@ -39,113 +39,545 @@
                                     >
                                         Player's Details
                                     </th>
-
-                                   
                                 </tr>
                             </thead>
 
                             <tbody>
-                                <tr class="px-2">
-                                    <TdLayout> 10 </TdLayout>
+                                <tr class="items-center">
+                                    <TdLayout>
+                                        <div class="relative">
+                                            <div
+                                                class="w-30 h-30 bg-green-100 mx-auto rounded-full shadow-2xl flex items-center justify-center text-indigo-500"
+                                            >
+                                                <img
+                                                    class="rounded-full h-full w-full z-20"
+                                                    :src="
+                                                        firstPlayerBatting.player.image_url
+                                                    "
+                                                    :alt="
+                                                        firstPlayerBatting.player.long_name
+                                                    "
+                                                />
+                                            </div></div
+                                    ></TdLayout>
 
                                     <TdLayout class="flex justify-center">
                                         <div
-                                            class="flex items-center border-2 py-1 px-1.5 rounded-lg w-28 mr-1"
-                                        >
-                                            <!-- v-model="filterForm.matchFormat" -->
-                                            <select
-                                                class="outline-none border-none bg-transparent text-black dark:text-white text-xs w-full p-2"
-                                            >
-                                                <option
-                                                    class="bg-green-400 p-2 dark:bg-slate-850"
-                                                    :value="null"
-                                                >
-                                                    Match Format
-                                                </option>
-                                                <!-- <option class="bg-green-400 p-2 dark:bg-slate-850" :value="null">
-                            Match Format
-                        </option> -->
-                                                <option
-                                                    class="bg-green-400 p-2 dark:bg-slate-850"
-                                                    value="T20I"
-                                                >
-                                                    T20I
-                                                </option>
-                                                <option
-                                                    class="bg-green-400 p-2 dark:bg-slate-850"
-                                                    value="Tests"
-                                                >
-                                                    Tests
-                                                </option>
-                                                <option
-                                                    class="bg-green-400 p-2 dark:bg-slate-850"
-                                                    value="List A"
-                                                >
-                                                    List A
-                                                </option>
-                                                <option
-                                                    class="bg-green-400 p-2 dark:bg-slate-850"
-                                                    value="T20"
-                                                >
-                                                    T20
-                                                </option>
-                                                <option
-                                                    class="bg-green-400 p-2 dark:bg-slate-850"
-                                                    value="First-Class"
-                                                >
-                                                    First-Class
-                                                </option>
-                                                <option
-                                                    class="bg-green-400 p-2 dark:bg-slate-850"
-                                                    value="ODI"
-                                                >
-                                                    ODI
-                                                </option>
-                                                <option
-                                                    class="bg-green-400 p-2 dark:bg-slate-850"
-                                                    value="Women's T20I"
-                                                >
-                                                    Women's T20I
-                                                </option>
-                                                <option
-                                                    class="bg-green-400 p-2 dark:bg-slate-850"
-                                                    value="Women's ODI"
-                                                >
-                                                    Women's ODI
-                                                </option>
-                                                <option
-                                                    class="bg-green-400 p-2 dark:bg-slate-850"
-                                                    value="Women's Tests"
-                                                >
-                                                    Women's Tests
-                                                </option>
-                                            </select>
-                                        </div>
+                                            class="flex items-center py-1 px-1.5 h-48 m"
+                                        ></div>
                                     </TdLayout>
 
                                     <TdLayout>
-                                        <div
-                                            class="flex flex-nowrap items-center"
-                                        >
+                                        <div class="relative">
                                             <div
-                                                class="flex items-center border-2 py-1 px-1.5 rounded-lg"
+                                                class="w-30 h-30 bg-green-100 mx-auto rounded-full shadow-2xl flex items-center justify-center text-indigo-500"
                                             >
-                                                <input
-                                                    class="pl-1.5 outline-none border-none bg-transparent text-white text-sm"
-                                                    type="text"
-                                                    name=""
-                                                    id=""
-                                                    placeholder="Name"
+                                                <img
+                                                    class="rounded-full h-full w-full z-20"
+                                                    :src="
+                                                        secondPlayerBatting
+                                                            .player.image_url
+                                                    "
+                                                    :alt="
+                                                        secondPlayerBatting
+                                                            .player.long_name
+                                                    "
                                                 />
                                             </div>
                                         </div>
                                     </TdLayout>
+                                </tr>
+                                <tr >
+                                    <TdLayout class="py-6">
+                                        <div class="relative">
+                                            <h6
+                                                class="uppercase mb-0 leading-normal dark:text-white"
+                                            >
+                                                {{
+                                                    firstPlayerBatting.player
+                                                        .long_name
+                                                }}
+                                            </h6>
+                                        </div></TdLayout
+                                    >
 
-                                   
+                                    <TdLayout class="flex justify-center py-6">
+                                        <h6
+                                            class="uppercase mb-0 text-sm leading-normal text-green-600  dark:text-green-200"
+                                        >
+                                            Name
+                                        </h6>
+                                    </TdLayout>
+
+                                    <TdLayout class="py-6">
+                                        <div class="relative ">
+                                            <h6
+                                                class="uppercase mb-0 leading-normal dark:text-white"
+                                            >
+                                                {{
+                                                    secondPlayerBatting.player
+                                                        .long_name
+                                                }}
+                                            </h6>
+                                        </div>
+                                    </TdLayout>
+                                </tr>
+                                <tr >
+                                    <TdLayout class="py-6">
+                                        <div class="relative">
+                                            <h6
+                                                class="uppercase mb-0 leading-normal dark:text-white"
+                                            >
+                                                {{
+                                                    firstPlayerBatting.matches
+                                                }}
+                                            </h6>
+                                        </div></TdLayout
+                                    >
+
+                                    <TdLayout class="flex justify-center py-6">
+                                        <h6
+                                            class="uppercase mb-0 text-sm leading-normal text-green-600  dark:text-green-200"
+                                        >
+                                            Matches
+                                        </h6>
+                                    </TdLayout>
+
+                                    <TdLayout class="py-6">
+                                        <div class="relative ">
+                                            <h6
+                                                class="uppercase mb-0 leading-normal dark:text-white"
+                                            >
+                                                {{
+                                                    secondPlayerBatting.matches
+                                                }}
+                                            </h6>
+                                        </div>
+                                    </TdLayout>
+                                </tr>
+                                
+                                <tr >
+                                    <TdLayout class="py-6">
+                                        <div class="relative">
+                                            <h6
+                                                class="uppercase mb-0 leading-normal dark:text-white"
+                                            >
+                                                {{
+                                                    firstPlayerBatting.innings
+                                                }}
+                                            </h6>
+                                        </div></TdLayout
+                                    >
+
+                                    <TdLayout class="flex justify-center py-6">
+                                        <h6
+                                            class="uppercase mb-0 text-sm leading-normal text-green-600  dark:text-green-200"
+                                        >
+                                            innings
+                                        </h6>
+                                    </TdLayout>
+
+                                    <TdLayout class="py-6">
+                                        <div class="relative ">
+                                            <h6
+                                                class="uppercase mb-0 leading-normal dark:text-white"
+                                            >
+                                                {{
+                                                    secondPlayerBatting.innings
+                                                }}
+                                            </h6>
+                                        </div>
+                                    </TdLayout>
+                                </tr>
+                                <tr >
+                                    <TdLayout class="py-6">
+                                        <div class="relative">
+                                            <h6
+                                                class="uppercase mb-0 leading-normal dark:text-white"
+                                            >
+                                                {{
+                                                    firstPlayerBatting.notouts
+                                                }}
+                                            </h6>
+                                        </div></TdLayout
+                                    >
+
+                                    <TdLayout class="flex justify-center py-6">
+                                        <h6
+                                            class="uppercase mb-0 text-sm leading-normal text-green-600  dark:text-green-200"
+                                        >
+                                        notouts
+                                        </h6>
+                                    </TdLayout>
+
+                                    <TdLayout class="py-6">
+                                        <div class="relative ">
+                                            <h6
+                                                class="uppercase mb-0 leading-normal dark:text-white"
+                                            >
+                                                {{
+                                                    secondPlayerBatting.notouts
+                                                }}
+                                            </h6>
+                                        </div>
+                                    </TdLayout>
+                                </tr>
+                                <tr >
+                                    <TdLayout class="py-6">
+                                        <div class="relative">
+                                            <h6
+                                                class="uppercase mb-0 leading-normal dark:text-white"
+                                            >
+                                                {{
+                                                    firstPlayerBatting.runs
+                                                }}
+                                            </h6>
+                                        </div></TdLayout
+                                    >
+
+                                    <TdLayout class="flex justify-center py-6">
+                                        <h6
+                                            class="uppercase mb-0 text-sm leading-normal text-green-600  dark:text-green-200"
+                                        >
+                                        runs
+                                        </h6>
+                                    </TdLayout>
+
+                                    <TdLayout class="py-6">
+                                        <div class="relative ">
+                                            <h6
+                                                class="uppercase mb-0 leading-normal dark:text-white"
+                                            >
+                                                {{
+                                                    secondPlayerBatting.runs
+                                                }}
+                                            </h6>
+                                        </div>
+                                    </TdLayout>
+                                </tr>
+                                <tr >
+                                    <TdLayout class="py-6">
+                                        <div class="relative">
+                                            <h6
+                                                class="uppercase mb-0 leading-normal dark:text-white"
+                                            >
+                                                {{
+                                                    firstPlayerBatting.high_score
+                                                }}
+                                            </h6>
+                                        </div></TdLayout
+                                    >
+
+                                    <TdLayout class="flex justify-center py-6">
+                                        <h6
+                                            class="uppercase mb-0 text-sm leading-normal text-green-600  dark:text-green-200"
+                                        >
+                                        high score
+                                        </h6>
+                                    </TdLayout>
+
+                                    <TdLayout class="py-6">
+                                        <div class="relative ">
+                                            <h6
+                                                class="uppercase mb-0 leading-normal dark:text-white"
+                                            >
+                                                {{
+                                                    secondPlayerBatting.high_score
+                                                }}
+                                            </h6>
+                                        </div>
+                                    </TdLayout>
+                                </tr>
+                                <tr >
+                                    <TdLayout class="py-6">
+                                        <div class="relative">
+                                            <h6
+                                                class="uppercase mb-0 leading-normal dark:text-white"
+                                            >
+                                                {{
+                                                    firstPlayerBatting.average
+                                                }}
+                                            </h6>
+                                        </div></TdLayout
+                                    >
+
+                                    <TdLayout class="flex justify-center py-6">
+                                        <h6
+                                            class="uppercase mb-0 text-sm leading-normal text-green-600  dark:text-green-200"
+                                        >average
+                                        </h6>
+                                    </TdLayout>
+
+                                    <TdLayout class="py-6">
+                                        <div class="relative ">
+                                            <h6
+                                                class="uppercase mb-0 leading-normal dark:text-white"
+                                            >
+                                                {{
+                                                    secondPlayerBatting.average
+                                                }}
+                                            </h6>
+                                        </div>
+                                    </TdLayout>
+                                </tr>
+                                <tr >
+                                    <TdLayout class="py-6">
+                                        <div class="relative">
+                                            <h6
+                                                class="uppercase mb-0 leading-normal dark:text-white"
+                                            >
+                                                {{
+                                                    firstPlayerBatting.balls_faced
+                                                }}
+                                            </h6>
+                                        </div></TdLayout
+                                    >
+
+                                    <TdLayout class="flex justify-center py-6">
+                                        <h6
+                                            class="uppercase mb-0 text-sm leading-normal text-green-600  dark:text-green-200"
+                                        >balls faced
+                                        </h6>
+                                    </TdLayout>
+
+                                    <TdLayout class="py-6">
+                                        <div class="relative ">
+                                            <h6
+                                                class="uppercase mb-0 leading-normal dark:text-white"
+                                            >
+                                                {{
+                                                    secondPlayerBatting.balls_faced
+                                                }}
+                                            </h6>
+                                        </div>
+                                    </TdLayout>
+                                </tr>
+                                <tr >
+                                    <TdLayout class="py-6">
+                                        <div class="relative">
+                                            <h6
+                                                class="uppercase mb-0 leading-normal dark:text-white"
+                                            >
+                                                {{
+                                                    firstPlayerBatting.strike_rate
+                                                }}
+                                            </h6>
+                                        </div></TdLayout
+                                    >
+
+                                    <TdLayout class="flex justify-center py-6">
+                                        <h6
+                                            class="uppercase mb-0 text-sm leading-normal text-green-600  dark:text-green-200"
+                                        >strike rate
+                                        </h6>
+                                    </TdLayout>
+
+                                    <TdLayout class="py-6">
+                                        <div class="relative ">
+                                            <h6
+                                                class="uppercase mb-0 leading-normal dark:text-white"
+                                            >
+                                                {{
+                                                    secondPlayerBatting.strike_rate
+                                                }}
+                                            </h6>
+                                        </div>
+                                    </TdLayout>
+                                </tr>
+                                <tr >
+                                    <TdLayout class="py-6">
+                                        <div class="relative">
+                                            <h6
+                                                class="uppercase mb-0 leading-normal dark:text-white"
+                                            >
+                                                {{
+                                                    firstPlayerBatting.hundreds
+                                                }}
+                                            </h6>
+                                        </div></TdLayout
+                                    >
+
+                                    <TdLayout class="flex justify-center py-6">
+                                        <h6
+                                            class="uppercase mb-0 text-sm leading-normal text-green-600  dark:text-green-200"
+                                        >Hundreds
+                                        </h6>
+                                    </TdLayout>
+
+                                    <TdLayout class="py-6">
+                                        <div class="relative ">
+                                            <h6
+                                                class="uppercase mb-0 leading-normal dark:text-white"
+                                            >
+                                                {{
+                                                    secondPlayerBatting.hundreds
+                                                }}
+                                            </h6>
+                                        </div>
+                                    </TdLayout>
+                                </tr>
+                                <tr >
+                                    <TdLayout class="py-6">
+                                        <div class="relative">
+                                            <h6
+                                                class="uppercase mb-0 leading-normal dark:text-white"
+                                            >
+                                                {{
+                                                    firstPlayerBatting.fifties
+                                                }}
+                                            </h6>
+                                        </div></TdLayout
+                                    >
+
+                                    <TdLayout class="flex justify-center py-6">
+                                        <h6
+                                            class="uppercase mb-0 text-sm leading-normal text-green-600  dark:text-green-200"
+                                        >fifties
+                                        </h6>
+                                    </TdLayout>
+
+                                    <TdLayout class="py-6">
+                                        <div class="relative ">
+                                            <h6
+                                                class="uppercase mb-0 leading-normal dark:text-white"
+                                            >
+                                                {{
+                                                    secondPlayerBatting.fifties
+                                                }}
+                                            </h6>
+                                        </div>
+                                    </TdLayout>
+                                </tr>
+                                <tr >
+                                    <TdLayout class="py-6">
+                                        <div class="relative">
+                                            <h6
+                                                class="uppercase mb-0 leading-normal dark:text-white"
+                                            >
+                                                {{
+                                                    firstPlayerBatting.fours
+                                                }}
+                                            </h6>
+                                        </div></TdLayout
+                                    >
+
+                                    <TdLayout class="flex justify-center py-6">
+                                        <h6
+                                            class="uppercase mb-0 text-sm leading-normal text-green-600  dark:text-green-200"
+                                        >fours
+                                        </h6>
+                                    </TdLayout>
+
+                                    <TdLayout class="py-6">
+                                        <div class="relative ">
+                                            <h6
+                                                class="uppercase mb-0 leading-normal dark:text-white"
+                                            >
+                                                {{
+                                                    secondPlayerBatting.fours
+                                                }}
+                                            </h6>
+                                        </div>
+                                    </TdLayout>
+                                </tr>
+                                <tr >
+                                    <TdLayout class="py-6">
+                                        <div class="relative">
+                                            <h6
+                                                class="uppercase mb-0 leading-normal dark:text-white"
+                                            >
+                                                {{
+                                                    firstPlayerBatting.sixes
+                                                }}
+                                            </h6>
+                                        </div></TdLayout
+                                    >
+
+                                    <TdLayout class="flex justify-center py-6">
+                                        <h6
+                                            class="uppercase mb-0 text-sm leading-normal text-green-600  dark:text-green-200"
+                                        >sixes
+                                        </h6>
+                                    </TdLayout>
+
+                                    <TdLayout class="py-6">
+                                        <div class="relative ">
+                                            <h6
+                                                class="uppercase mb-0 leading-normal dark:text-white"
+                                            >
+                                                {{
+                                                    secondPlayerBatting.sixes
+                                                }}
+                                            </h6>
+                                        </div>
+                                    </TdLayout>
+                                </tr>
+                                <tr >
+                                    <TdLayout class="py-6">
+                                        <div class="relative">
+                                            <h6
+                                                class="uppercase mb-0 leading-normal dark:text-white"
+                                            >
+                                                {{
+                                                    firstPlayerBatting.catches
+                                                }}
+                                            </h6>
+                                        </div></TdLayout
+                                    >
+
+                                    <TdLayout class="flex justify-center py-6">
+                                        <h6
+                                            class="uppercase mb-0 text-sm leading-normal text-green-600  dark:text-green-200"
+                                        >catches
+                                        </h6>
+                                    </TdLayout>
+
+                                    <TdLayout class="py-6">
+                                        <div class="relative ">
+                                            <h6
+                                                class="uppercase mb-0 leading-normal dark:text-white"
+                                            >
+                                                {{
+                                                    secondPlayerBatting.catches
+                                                }}
+                                            </h6>
+                                        </div>
+                                    </TdLayout>
+                                </tr>
+                                <tr >
+                                    <TdLayout class="py-6">
+                                        <div class="relative">
+                                            <h6
+                                                class="uppercase mb-0 leading-normal dark:text-white"
+                                            >
+                                                {{
+                                                    firstPlayerBatting.stumps
+                                                }}
+                                            </h6>
+                                        </div></TdLayout
+                                    >
+
+                                    <TdLayout class="flex justify-center py-6">
+                                        <h6
+                                            class="uppercase mb-0 text-sm leading-normal text-green-600  dark:text-green-200"
+                                        >stumps
+                                        </h6>
+                                    </TdLayout>
+
+                                    <TdLayout class="py-6">
+                                        <div class="relative ">
+                                            <h6
+                                                class="uppercase mb-0 leading-normal dark:text-white"
+                                            >
+                                                {{
+                                                    secondPlayerBatting.stumps
+                                                }}
+                                            </h6>
+                                        </div>
+                                    </TdLayout>
                                 </tr>
                             </tbody>
                         </table>
-                      
                     </div>
                 </div>
             </div>
@@ -161,8 +593,9 @@ import TdLayout from "@/Layout/Component/Table/TdLayout.vue";
 import TableContainer from "@/Layout/Component/Table/TableContainer.vue";
 
 defineProps({
-    // battings: Object,
     filters: Object,
+    firstPlayerBatting: Object,
+    secondPlayerBatting: Object,
 });
 </script>
 <script></script>

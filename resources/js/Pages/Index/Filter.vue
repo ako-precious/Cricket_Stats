@@ -195,11 +195,11 @@ const getSuggestions = async (field) => {
    
 
     const response = await axios.get(`/api/suggestions?query=${filterForm[field]}`);
-      console.log(response.data);
+    //   console.log(response.data);
     // Assuming the response.data is an array of suggestions
     
     // Simulate delay for the asynchronous request
-    await new Promise((resolve) => setTimeout(resolve, 10));
+    await new Promise((resolve) => setTimeout(resolve, 0));
     
     // Filter suggestions based on user input
    
