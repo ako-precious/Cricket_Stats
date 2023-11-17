@@ -43,7 +43,9 @@ class DashboardController extends Controller
       
         $query =  Batting_Stats::with('player');
         $query2 =  Batting_Stats::with('player');
-
+        
+        $bowling_query =  Bowling_Stats::with('player');
+        $bowling_query2 =  Bowling_Stats::with('player');
 
 
         return inertia('Index/Compare', [
@@ -62,6 +64,26 @@ class DashboardController extends Controller
                 ->when($filters['secondName'] ?? false, function ($query2) use ($filters) {
                     $query2->whereHas('player', function ($query2) use ($filters) {
                         $query2->where('long_name', 'like', '%' . $filters['secondName'] . '%');
+                    });
+                })
+                ->when($filters['matchFormat'] ?? false, function ($query2) use ($filters) {
+                    $query2->where('match_format', $filters['matchFormat']);
+                })
+                ->first(),
+            'firstPlayerBowling' => $bowling_query
+                ->when($filters['firstName'] ?? false, function ($bowling_query) use ($filters) {
+                    $bowling_query->whereHas('player', function ($bowling_query) use ($filters) {
+                        $bowling_query->where('long_name', 'like', '%' . $filters['firstName'] . '%');
+                    });
+                })
+                ->when($filters['matchFormat'] ?? false, function ($bowling_query) use ($filters) {
+                    $bowling_query->where('match_format', $filters['matchFormat']);
+                })
+                ->first(),
+            'secondPlayerBowling' => $bowling_query2
+                ->when($filters['secondName'] ?? false, function ($query) use ($filters) {
+                    $query->whereHas('player', function ($query) use ($filters) {
+                        $query->where('long_name', 'like', '%' . $filters['secondName'] . '%');
                     });
                 })
                 ->when($filters['matchFormat'] ?? false, function ($query) use ($filters) {
