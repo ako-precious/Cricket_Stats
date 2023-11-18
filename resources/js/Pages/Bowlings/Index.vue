@@ -12,6 +12,7 @@
                     class="p-6 pb-0 mb-0 border-b-0 border-b-solid rounded-t-2xl border-b-transparent"
                 >
                     <h6 class="dark:text-white uppercase">bowling Stats</h6>
+                   
                 </div>
                 <div class="flex-auto px-0 pt-0 pb-2">
                     <div class="p-0 overflow-x-auto ps">

@@ -3,7 +3,7 @@
         <TableContainer>
             <Filters :filters="filters" />
 
-            <div
+            <div v-show="!isHidden"
                 style="backdrop-filter: blur(20px)"
                 class="relative flex flex-col min-w-0 mb-6 break-words bg-white border-0 border-transparent border-solid shadow-xl dark:bg-slate-850 dark:shadow-dark-xl rounded-2xl bg-clip-border"
             >
@@ -11,10 +11,12 @@
                     class="p-2 pb-0 mb-0 border-b-0 border-b-solid rounded-t-2xl border-b-transparent"
                 ></div>
                 <div
-                    class="p-6 pb-0 mb-0 border-b-0 border-b-solid rounded-t-2xl border-b-transparent"
+                    class="flex justify-between p-6 pb-0 mb-0 border-b-0 border-b-solid rounded-t-2xl border-b-transparent"
                 >
-                    <h6 class="dark:text-white">Batting Stats</h6>
+                <h6 class="text-green-600 hover:text-green-800 dark:text-white">Batting Stats</h6>
+                <h6 v-on:click="toggleDivs" class="text-emerald-600 hover:text-emerald-800 dark:text-white cursor-pointer">Bowling Stats</h6>
                 </div>
+
 
                 <div class="flex-auto px-0 pt-0 pb-2">
                     <div class="p-0 overflow-x-auto ps">
@@ -24,18 +26,18 @@
                             <thead class="align-bottom">
                                 <tr>
                                     <th
-                                        class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70"
+                                        class="text-emerald-600 px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70"
                                     >
                                         <!-- class="px-6 py-3 font-bold text-left uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70" -->
                                         Player's Details
                                     </th>
                                     <th
-                                        class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70"
+                                        class="text-emerald-600 px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70"
                                     >
                                         Stats
                                     </th>
                                     <th
-                                        class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70"
+                                        class="text-emerald-600 px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70"
                                     >
                                         Player's Details
                                     </th>
@@ -582,7 +584,7 @@
                 </div>
             </div>
       
-            <div
+            <div v-show="isHidden"
                 style="backdrop-filter: blur(20px)"
                 class="relative flex flex-col min-w-0 mb-6 break-words bg-white border-0 border-transparent border-solid shadow-xl dark:bg-slate-850 dark:shadow-dark-xl rounded-2xl bg-clip-border"
             >
@@ -590,10 +592,12 @@
                     class="p-2 pb-0 mb-0 border-b-0 border-b-solid rounded-t-2xl border-b-transparent"
                 ></div>
                 <div
-                    class="p-6 pb-0 mb-0 border-b-0 border-b-solid rounded-t-2xl border-b-transparent"
+                    class="flex justify-between p-6 pb-0 mb-0 border-b-0 border-b-solid rounded-t-2xl border-b-transparent"
                 >
-                    <h6 class="dark:text-white">Bowling Stats</h6>
+                <h6 class="text-emerald-600 hover:text-emerald-800 dark:text-white">Bowling Stats</h6>
+                <h6 v-on:click="toggleDivs" class="text-green-600 hover:text-green-800 dark:text-white cursor-pointer">Batting Stats</h6>
                 </div>
+
 
                 <div class="flex-auto px-0 pt-0 pb-2">
                     <div class="p-0 overflow-x-auto ps">
@@ -603,18 +607,18 @@
                             <thead class="align-bottom">
                                 <tr>
                                     <th
-                                        class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70"
+                                        class="text-emerald-600 px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap  opacity-70"
                                     >
                                         <!-- class="px-6 py-3 font-bold text-left uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70" -->
                                         Player's Details
                                     </th>
                                     <th
-                                        class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70"
+                                        class=" text-emerald-600 px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap  opacity-70"
                                     >
                                         Stats
                                     </th>
                                     <th
-                                        class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70"
+                                        class=" text-emerald-600 px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap  opacity-70"
                                     >
                                         Player's Details
                                     </th>
@@ -1087,4 +1091,16 @@ defineProps({
     secondPlayerBowling: Object,
 });
 </script>
-<script></script>
+<script>
+export default {
+  
+  data: {
+    isHidden: false
+  },
+  methods: {
+    toggleDivs() {
+      this.isHidden = !this.isHidden;
+    }
+  }
+};
+</script>
