@@ -169,9 +169,8 @@
     </MainLayout>
 </template>
 <script setup>
-import { Link } from "@inertiajs/vue3";
+import { Link } from "@inertiajs/vue3"; 
 import MainLayout from "@/Layout/MainLayout.vue";
-
 import Filters from "@/Pages/Battings/Filter.vue";
 import Pagination from "@/Layout/Component/Pagination.vue";
 import TdLayout from "@/Layout/Component/Table/TdLayout.vue";

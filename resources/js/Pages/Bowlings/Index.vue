@@ -1,6 +1,9 @@
 <template>
     <MainLayout>
+
+        
         <TableContainer>
+            <Filters :filters="filters" />
             <div
                 style="backdrop-filter: blur(20px)"
                 class="relative flex flex-col min-w-0 mb-6 break-words bg-white border-0 border-transparent border-solid shadow-xl dark:bg-slate-850 dark:shadow-dark-xl rounded-2xl bg-clip-border"
@@ -35,8 +38,14 @@
                                     <th
                                         class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70"
                                     >
+                                        Wickets
+                                    </th>
+                                    <th
+                                        class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70"
+                                    >
                                         Average
                                     </th>
+                                    
                                     <th
                                         class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70"
                                     >
@@ -60,7 +69,7 @@
                             </thead>
                             <tbody v-for="bowling in bowlings.data">
                                 <tr class="px-2">
-                                    <TdLayout>
+                                     <TdLayout>
                                         <div class="flex px-2 py-1">
                                             <div>
                                                 <img
@@ -106,6 +115,13 @@
                                         </span>
                                     </TdLayout>
                                     <TdLayout>
+                                        <span
+                                            class="text-xs font-semibold leading-tight dark:text-white dark:opacity-80 text-slate-400"
+                                        >
+                                            {{ bowling.wickets }}
+                                        </span>
+                                    </TdLayout>
+                                    <TdLayout>
                                         <p
                                             class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80"
                                         >
@@ -119,6 +135,7 @@
                                             {{ bowling.economy }}
                                         </p>
                                     </TdLayout>
+
                                     <TdLayout>
                                         <p
                                             class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80"
@@ -163,11 +180,13 @@
 <script setup>
 import { Link } from "@inertiajs/vue3";
 import MainLayout from "@/Layout/MainLayout.vue";
+import Filters from "@/Pages/Bowlings/Filter.vue";
 import Pagination from "@/Layout/Component/Pagination.vue";
 import TdLayout from "@/Layout/Component/Table/TdLayout.vue";
 import TableContainer from "@/Layout/Component/Table/TableContainer.vue";
 
 defineProps({
     bowlings: Object,
+    filters: Object,
 });
 </script>
