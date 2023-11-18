@@ -1093,9 +1093,11 @@ defineProps({
 </script>
 <script>
 export default {
-  
-  data: {
-    isHidden: false
+  data() {
+    return{
+
+            isHidden: false
+    }
   },
   methods: {
     toggleDivs() {

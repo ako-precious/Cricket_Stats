@@ -1,5 +1,5 @@
 <template>
-    <form @submit.prevent="filter" class="w-full flex justify-evenly mb-8 mt-4">
+    <form @submit.prevent="filter" class="w-full flex flex-wrap justify-evenly mb-8 mt-4">
         <div class="flex flex-col items-center">
             <label
                 class="px-6 py-3 font-bold text-left uppercase align-middle bg-transparent border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-white opacity-70"
@@ -186,8 +186,8 @@ const filterForm = useForm({
 });
 
 const suggestions = {
-    firstName: [],
-    secondName: [],
+  firstName: ref([]),
+  secondName: ref([]),
 };
 
 const getSuggestions = async (field) => {
@@ -202,8 +202,9 @@ const getSuggestions = async (field) => {
     await new Promise((resolve) => setTimeout(resolve, 0));
     
     // Filter suggestions based on user input
-   
-    suggestions[field] = response.data.slice(0, 10);
+    suggestions[field].value = response.data.filter(name => name.toLowerCase().includes(filterForm[field].toLowerCase()).slice(0, 10));
+  
+    // suggestions[field] = response.data.slice(0, 10);
    
 
 };
@@ -212,7 +213,7 @@ const selectSuggestion = (field, suggestion) => {
     // Set the selected suggestion to the corresponding input field
     filterForm[field] = suggestion;
     // Clear suggestions for the selected field
-    suggestions[field] = [];
+    suggestions[field].value = [];
 };
 
 const filter = () => {
