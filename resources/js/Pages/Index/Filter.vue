@@ -160,7 +160,7 @@
             </label>
             <button
                 type="submit"
-                class="btn-normal text-sm dark:bg-slate-800 dark:hover:bg-slate-850 shadow-md"
+                class="btn-normal text-sm dark:bg-slate-700 dark:hover:bg-slate-800 shadow-md"
             >
                 <img
                     src="../../../assets/img/compare-icon.ico"

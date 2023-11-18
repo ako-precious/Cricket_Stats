@@ -13,8 +13,8 @@
                 <div
                     class="flex justify-between p-6 pb-0 mb-0 border-b-0 border-b-solid rounded-t-2xl border-b-transparent"
                 >
-                <h6 class="text-green-600 hover:text-green-800 dark:text-white">Batting Stats</h6>
-                <h6 v-on:click="toggleDivs" class="text-emerald-600 hover:text-emerald-800 dark:text-white cursor-pointer">Bowling Stats</h6>
+                <h6 class="text-green-600 hover:text-green-800 dark:text-green-300 dark:hover:text-green-200">Batting Stats</h6>
+                <h6 v-on:click="toggleDivs" class="text-emerald-600 hover:text-emerald-800 dark:text-emerald-300 dark:hover:text-emerald-200 cursor-pointer">Bowling Stats</h6>
                 </div>
 
 
@@ -26,18 +26,18 @@
                             <thead class="align-bottom">
                                 <tr>
                                     <th
-                                        class="text-emerald-600 px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70"
+                                        class=" px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70"
                                     >
                                         <!-- class="px-6 py-3 font-bold text-left uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70" -->
                                         Player's Details
                                     </th>
                                     <th
-                                        class="text-emerald-600 px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70"
+                                        class=" px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70"
                                     >
                                         Stats
                                     </th>
                                     <th
-                                        class="text-emerald-600 px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70"
+                                        class=" px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70"
                                     >
                                         Player's Details
                                     </th>
@@ -594,8 +594,8 @@
                 <div
                     class="flex justify-between p-6 pb-0 mb-0 border-b-0 border-b-solid rounded-t-2xl border-b-transparent"
                 >
-                <h6 class="text-emerald-600 hover:text-emerald-800 dark:text-white">Bowling Stats</h6>
-                <h6 v-on:click="toggleDivs" class="text-green-600 hover:text-green-800 dark:text-white cursor-pointer">Batting Stats</h6>
+                <h6 class="text-emerald-600 hover:text-emerald-800 dark:text-emerald-300 dark:hover:text-emerald-200">Bowling Stats</h6>
+                <h6 v-on:click="toggleDivs" class="text-green-600 hover:text-green-800 dark:text-green-300 dark:hover:text-green-200 cursor-pointer">Batting Stats</h6>
                 </div>
 
 
