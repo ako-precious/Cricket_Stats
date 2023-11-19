@@ -26,18 +26,18 @@ class DashboardController extends Controller
         $highest_wicket_First_Class = Bowling_Stats::with('player')->where('match_format', 'First-Class')->orderBy('wickets', 'desc')->first();
         // dd($higestrunner);
      
-        $topBattingPlayers =  
+        // $topBattingPlayers =  
+        // // Batting_Stats::where('match_format', 'First-Class')
+        // // ->orderByDesc('runs') // Assuming 'runs' is a column in your batting table
+        // // ->limit(10)
+        // // ->get();
         // Batting_Stats::where('match_format', 'First-Class')
-        // ->orderByDesc('runs') // Assuming 'runs' is a column in your batting table
+        // ->select('players.long_name as label', 'batting__stats.runs as value')        
+        // ->join('players', 'batting__stats.player_id', '=', 'players.id')
+        // ->orderByDesc('batting__stats.runs')
         // ->limit(10)
         // ->get();
-        Batting_Stats::where('match_format', 'First-Class')
-        ->select('players.long_name as label', 'batting__stats.runs as value')        
-        ->join('players', 'batting__stats.player_id', '=', 'players.id')
-        ->orderByDesc('batting__stats.runs')
-        ->limit(10)
-        ->get();
-         dd($topBattingPlayers ); 
+        //  dd($topBattingPlayers ); 
 
     // return response()->json($topPlayers);
      
@@ -49,8 +49,17 @@ class DashboardController extends Controller
         ]);
     }
 
+    
 
-
+    public function topBatting(){
+        $topBattingPlayers = Batting_Stats::where('match_format', 'First-Class')
+        ->select('players.long_name as label', 'batting__stats.runs as value')        
+        ->join('players', 'batting__stats.player_id', '=', 'players.id')
+        ->orderByDesc('batting__stats.runs')
+        ->limit(10)
+        ->get();
+        return response()->json($topBattingPlayers);
+    }
 
 
     public function  compare(Request $request)

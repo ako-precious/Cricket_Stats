@@ -25,6 +25,7 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 Route::get('/', [DashboardController::class, 'index'])->name('Dashboard');
 Route::get('/compare', [DashboardController::class, 'compare']);
 Route::get('/api/suggestions', [DashboardController::class, 'getSuggestions']);
+Route::get('/top-batting-players', [DashboardController::class, 'topBatting']);
 
 Route::resource('teams', TeamsController::class);
 Route::resource('players', PlayersController::class);

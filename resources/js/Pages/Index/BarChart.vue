@@ -1,75 +1,57 @@
 <template>
     <Line :data="data" :options="options" />
-  </template>
-  
-  <script lang="ts">
-  import {
-    Chart as ChartJS,
-    CategoryScale,
-    LinearScale,
-    PointElement,
-    LineElement,
-    Title,
-    Tooltip,
-    Legend
-  } from 'chart.js'
-  import { Line } from 'vue-chartjs'
-  import * as chartConfig from './chartConfig.js'
-  
-  ChartJS.register(
-    CategoryScale,
-    LinearScale,
-    PointElement,
-    LineElement,
-    Title,
-    Tooltip,
-    Legend
-  )
-  
-  export default {
-    name: 'App',
-    components: {
-      Line
-    },
-    data() {
-        
-      return chartConfig
-    },
-//     mounted(){
-//     const data = {
-//     labels: [
-//       'January',
-//       'February',
-//       'March',
-//       'April',
-//       'May',
-//       'June',
-//       'July',
-//       'August',
-//       'September',
-//       'October',
-//       'November',
-//       'December'
-//     ],
-//     datasets: [
-//       {
-//         label: 'Data One',
-//         backgroundColor: '#f87979',
-//         data: [40, 20, 12, 39, 10, 40, 39, 80, 40, 20, 12, 11],
-//       },  {
-//         label: 'Data Two',
-//         backgroundColor: '#f88170',
-//         data: [10, 40, 12, 39, 10, 40, 39, 80, 40, 20, 22, 11],
-//       }
-//     ]
-//   }
-  
-//     const options = {
-//     responsive: true,
-//     maintainAspectRatio: false
-//   }
-  
-//     }
-  }
-  </script>
-  
+</template>
+
+<script lang="ts">
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend
+} from 'chart.js'
+import { Line } from 'vue-chartjs'
+import * as chartConfig from './chartConfig.js'
+import axios from 'axios';
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend
+)
+
+export default {
+  name: 'App',
+  components: {
+    Line
+  },
+  data() {
+
+    return chartConfig
+  },
+ methods: {
+  fetchChartData() {
+    axios.get('/top-batting-players').then((response) => {
+      this.chartData = {
+        labels: response.data.map((item) => item.label),
+        datasets: [
+          {
+            label: 'Top 10 Batting Players',
+            backgroundColor: 'rgba(75,192,192,0.4)',
+            borderColor: 'rgba(75,192,192,1)',
+            borderWidth: 1,
+            data: response.data.map((item) => item.value),
+          },
+        ],
+      };
+    });
+  },
+}
+}
+</script>

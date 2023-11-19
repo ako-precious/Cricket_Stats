@@ -267,15 +267,18 @@
                         class="border-black/12.5 dark:shadow-dark-xl shadow-3xl relative z-20 flex min-w-0 flex-col break-words rounded-2xl border-0 border-solid bg-clip-border dark:bg-slate-850"
                     >
                         <div
-                            class="border-black/12.5 mb-0 rounded-t-2xl border-b-0 border-solid p-6 pt-4 pb-0"
+                            class="border-black/12.5 mb-0 rounded-t-2xl border-b-0 border-solid p-6 pt-4 pb-0 flex justify-between"
                         >
+                            <h6
+                                class="mb-0  leading-normal dark:text-white dark:opacity-60"
+                            >Top Batting Players</h6>
                             <p
                                 class="mb-0 text-sm leading-normal dark:text-white dark:opacity-60"
-                            ></p>
+                            >Top Batting Players</p>
                         </div>
                         <div class="flex-auto p-4">
                             <div>
-                                <BarChart />
+                                <BarChart class="transition-all duration-200 ease-in-out h-50" />
                             </div>
                         </div>
                     </div>
