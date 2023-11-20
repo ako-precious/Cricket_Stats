@@ -58,6 +58,7 @@ class DashboardController extends Controller
         ->orderByDesc('batting__stats.runs')
         ->limit(10)
         ->get();
+        // dd($topBattingPlayers);
         return response()->json($topBattingPlayers);
     }
 

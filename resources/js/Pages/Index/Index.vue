@@ -271,14 +271,14 @@
                         >
                             <h6
                                 class="mb-0  leading-normal dark:text-white dark:opacity-60"
-                            >Top Batting Players</h6>
+                            > </h6>
                             <p
                                 class="mb-0 text-sm leading-normal dark:text-white dark:opacity-60"
                             >Top Batting Players</p>
                         </div>
                         <div class="flex-auto p-4">
                             <div>
-                                <BarChart class="transition-all duration-200 ease-in-out h-50" />
+                                <BarChart class="transition-all duration-200 ease-in-out " />
                             </div>
                         </div>
                     </div>

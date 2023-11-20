@@ -1,4 +1,7 @@
 import { createApp, h } from "vue";
+// import Vue from 'vue';
+// import { Bar } from 'vue-chartjs';
+
 import { createInertiaApp } from "@inertiajs/vue3";
 import "../css/app.css";
 // import "../a/app.css";
@@ -29,6 +32,7 @@ import { faBaseball, faBaseballBatBall, faClose, faEye, faGear, faHouse, faPeopl
 /* add icons to the library */
 library.add(faUserSecret, faHouse, faGear, faClose,faBaseballBatBall, faBaseball, faEye, faPeopleGroup, faPerson  );
 
+// Vue.component('Bar', Bar);
 createInertiaApp({
     resolve: (name) => {
         const pages = import.meta.glob("./Pages/**/*.vue", { eager: true });
@@ -39,5 +43,6 @@ createInertiaApp({
             .use(plugin)
             .component("font-awesome-icon", FontAwesomeIcon)
             .mount(el);
-    },
-});
+        },
+    });
+    
