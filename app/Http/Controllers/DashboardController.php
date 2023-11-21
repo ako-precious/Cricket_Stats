@@ -55,16 +55,16 @@ class DashboardController extends Controller
 
         $filters = request('query');
 
-        $topBattingPlayers = Batting_Stats::when($filters, function ($query) use ($filters) {
+        $topBowlingPlayers = Bowling_Stats::when($filters, function ($query) use ($filters) {
                 $query->where('match_format', $filters);
             })
-            ->select('players.long_name as label', 'batting__stats.runs as value')        
-            ->join('players', 'batting__stats.player_id', '=', 'players.id')
-            ->orderByDesc('batting__stats.runs')
+            ->select('players.long_name as label', 'bowling__stats.wickets as value')        
+            ->join('players', 'bowling__stats.player_id', '=', 'players.id')
+            ->orderByDesc('bowling__stats.wickets')
             ->limit(10)
             ->get();
     
-        return response()->json($topBattingPlayers);
+        return response()->json($topBowlingPlayers);
     }
 
 

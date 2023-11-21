@@ -3,7 +3,7 @@
   <div>
     <div
                         style="backdrop-filter: blur(20px)"
-                        class="border-black/12.5 dark:shadow-dark-xl shadow-3xl relative z-20 flex min-w-0 flex-col break-words rounded-2xl border-0 border-solid bg-clip-border dark:bg-slate-850"
+                        class="border-black/12.5 h-full relative z-20 flex min-w-0 flex-col break-words  border-0 border-solid bg-clip-border dark:bg-slate-850"
                     >
                         <div
                             class="border-black/12.5 mb-0 rounded-t-2xl border-b-0 border-solid p-6 pt-4 pb-0 flex justify-between"
@@ -88,10 +88,10 @@
             </div>
         </div></p>
                         </div>
-                        <div class="flex-auto p-4">
+                        <div class="flex-auto p-4 h-full lg:w-60 ">
                             <div>
                               
-                                <canvas id="bowlingChart" class="w-full transition-all duration-200 ease-in-out" height="220"></canvas>
+                                <canvas id="bowlingChart" class="w-full lg:w-60 transition-all duration-200 ease-in-out h-full" ></canvas>
                             </div>
                         </div>
                     </div>
@@ -128,7 +128,7 @@ export default {
 
   // Get the canvas element
   const canvas = document.getElementById('bowlingChart');
-  const ctx = canvas.getContext('3d');
+  const ctx = canvas.getContext('2d');
 
   // Check if there's an existing Chart instance and destroy it
   if (this.chartInstance) {
