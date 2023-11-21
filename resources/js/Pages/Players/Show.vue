@@ -23,7 +23,7 @@
                     </div>
                     <div
                         style="backdrop-filter: blur(20px)"
-                        class="relative mt-3 bg-white rounded-lg shadow-md rounded-tl-none dark:dark:bg-slate-850"
+                        class="relative mt-3 bg-white rounded-lg shadow-md rounded-tl-none dark:dark:bg-slate-850 z-30 "
                     >
                         <div
                             class="h-20 w-42 p-2 rounded-r-lg bg-white bg-green absolute -top-20 border-t-[#33B87E] border-r-[#40BD82] dark:border-t-slate-900 border-t-[12px] dark:border-r-slate-900 border-r-[12px] dark:dark:bg-slate-850"
