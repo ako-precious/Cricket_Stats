@@ -5,11 +5,11 @@
             <CardPTwo class="text-center font-extrabold text-xl">
                 Best Wicket Taking Bolwer in Men's Matches
             </CardPTwo>
-            <div class="flex flex-wrap -mx-3">
+            <div class="flex flex-wrap -mx-3 transition-all duration-200 ease-in-out">
                 <!-- card1 -->
                 <CardContainer>
-                    <div class="flex flex-row -mx-3">
-                        <div class="flex-none w-2/3 max-w-full px-2">
+                    <div class="flex flex-row -mx-3 transition-all duration-200 ease-in-out">
+                        <div class="flex-none w-2/3 max-w-full px-2 transition-all duration-200 ease-in-out">
                             <div>
                                 <CardPOne> Test </CardPOne>
                                 <CardPTwo>
@@ -36,8 +36,8 @@
                 <!-- card2 -->
 
                 <CardContainer>
-                    <div class="flex flex-row -mx-3">
-                        <div class="flex-none w-2/3 max-w-full px-2">
+                    <div class="flex flex-row -mx-3 transition-all duration-200 ease-in-out">
+                        <div class="flex-none w-2/3 max-w-full px-2 transition-all duration-200 ease-in-out">
                             <div>
                                 <CardPOne> ODI </CardPOne>
                                 <CardPTwo>
@@ -62,8 +62,8 @@
 
                 <!-- card3 -->
                 <CardContainer>
-                    <div class="flex flex-row -mx-3">
-                        <div class="flex-none w-2/3 max-w-full px-2">
+                    <div class="flex flex-row -mx-3 transition-all duration-200 ease-in-out">
+                        <div class="flex-none w-2/3 max-w-full px-2 transition-all duration-200 ease-in-out">
                             <div>
                                 <CardPOne> T20I </CardPOne>
                                 <CardPTwo>
@@ -89,8 +89,8 @@
 
                 <!-- card4 -->
                 <CardContainer>
-                    <div class="flex flex-row -mx-3">
-                        <div class="flex-none w-2/3 max-w-full px-2">
+                    <div class="flex flex-row -mx-3 transition-all duration-200 ease-in-out">
+                        <div class="flex-none w-2/3 max-w-full px-2 transition-all duration-200 ease-in-out">
                             <div>
                                 <CardPOne> First Class </CardPOne>
                                 <CardPTwo>
@@ -122,12 +122,12 @@
             <CardPTwo class="text-center font-extrabold text-xl mt-4">
                 Best Runners In Men's Matches
             </CardPTwo>
-            <div class="flex flex-wrap -mx-3">
+            <div class="flex flex-wrap -mx-3 transition-all duration-200 ease-in-out">
                 <!-- card1 -->
 
-                <CardContainer>
-                    <div class="flex flex-row -mx-3">
-                        <div class="flex-none w-2/3 max-w-full px-2">
+                <CardContainer class="transition-all duration-200 ease-in-out " >
+                    <div class="flex flex-row -mx-3 transition-all duration-200 ease-in-out">
+                        <div class="flex-none w-2/3 max-w-full px-2 transition-all duration-200 ease-in-out">
                             <div>
                                 <CardPOne> Test </CardPOne>
                                 <CardPTwo>
@@ -150,9 +150,9 @@
 
                 <!-- card2 -->
 
-                <CardContainer>
-                    <div class="flex flex-row -mx-3">
-                        <div class="flex-none w-2/3 max-w-full px-2">
+                <CardContainer class="transition-all duration-200 ease-in-out " >
+                    <div class="flex flex-row -mx-3 transition-all duration-200 ease-in-out">
+                        <div class="flex-none w-2/3 max-w-full px-2 transition-all duration-200 ease-in-out">
                             <div>
                                 <CardPOne> ODI </CardPOne>
                                 <CardPTwo>
@@ -175,33 +175,11 @@
                     </CardPThree>
                 </CardContainer>
 
-                <!-- <CardContainer>
-                    <div class="flex-none w-2/3 max-w-full px-2">
-                        <div>
-                            <CardPOne>
-                                Best Wicket Bolwer in Men's Test Matches
-                            </CardPOne>
-                            <CardPTwo>
-                                {{ highest_wicket_test.wickets }}
-                            </CardPTwo>
-                            <CardPThree>
-                                {{ highest_wicket_test.player.long_name }}
-                            </CardPThree>
-                        </div>
-                    </div>
-                    <CardImage>
-                        <img
-                            :src="highest_wicket_test.player.headshot_image_url"
-                            :alt="highest_wicket_test.player.long_name"
-                            class="inline-flex items-center justify-center mr-4 text-sm text-white transition-all duration-200 ease-in-out h-full w-full rounded-xl"
-                        />
-                    </CardImage>
-                </CardContainer> -->
-
+               
                 <!-- card3 -->
-                <CardContainer>
-                    <div class="flex flex-row -mx-3">
-                        <div class="flex-none w-2/3 max-w-full px-2">
+                <CardContainer class="transition-all duration-200 ease-in-out " >
+                    <div class="flex flex-row -mx-3 transition-all duration-200 ease-in-out">
+                        <div class="flex-none w-2/3 max-w-full px-2 transition-all duration-200 ease-in-out">
                             <div>
                                 <CardPOne> T20I </CardPOne>
                                 <CardPTwo>
@@ -226,9 +204,9 @@
                 </CardContainer>
 
                 <!-- card4 -->
-                <CardContainer>
-                    <div class="flex flex-row -mx-3">
-                        <div class="flex-none w-2/3 max-w-full px-2">
+                <CardContainer class="transition-all duration-200 ease-in-out " >
+                    <div class="flex flex-row -mx-3 transition-all duration-200 ease-in-out">
+                        <div class="flex-none w-2/3 max-w-full px-2 transition-all duration-200 ease-in-out">
                             <div>
                                 <CardPOne class="text-ellipsis">
                                     First-Class

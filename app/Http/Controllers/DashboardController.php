@@ -51,6 +51,21 @@ class DashboardController extends Controller
     
         return response()->json($topBattingPlayers);
     }
+    public function topBowling(){
+
+        $filters = request('query');
+
+        $topBattingPlayers = Batting_Stats::when($filters, function ($query) use ($filters) {
+                $query->where('match_format', $filters);
+            })
+            ->select('players.long_name as label', 'batting__stats.runs as value')        
+            ->join('players', 'batting__stats.player_id', '=', 'players.id')
+            ->orderByDesc('batting__stats.runs')
+            ->limit(10)
+            ->get();
+    
+        return response()->json($topBattingPlayers);
+    }
 
 
     public function  compare(Request $request)

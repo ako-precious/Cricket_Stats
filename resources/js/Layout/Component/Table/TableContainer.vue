@@ -1,7 +1,7 @@
 <template>
    
         <div class="w-full p-6 mx-auto">
-            <div class="justify-between sm:flex">
+            <div class="justify-between sm:flex transition-all duration-200 ease-in-out">
                 <div>
                     <Link  :href="`/compare`">
                         <p 
@@ -27,7 +27,7 @@
                 </div>
             </div>
           
-            <div class="flex flex-wrap -mx-3" >
+            <div class="flex flex-wrap -mx-3 transition-all duration-200 ease-in-out" >
                 <div class="flex-none w-full max-w-full px-3">
                     <slot>Default</slot>
                 </div>
