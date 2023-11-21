@@ -24,22 +24,7 @@ class DashboardController extends Controller
         $highest_wicket_ODI = Bowling_Stats::with('player')->where('match_format', 'ODI')->orderBy('wickets', 'desc')->first();
         $highest_wicket_T20I = Bowling_Stats::with('player')->where('match_format', 'T20I')->orderBy('wickets', 'desc')->first();
         $highest_wicket_First_Class = Bowling_Stats::with('player')->where('match_format', 'First-Class')->orderBy('wickets', 'desc')->first();
-        // dd($higestrunner);
-     
-        // $topBattingPlayers =  
-        // // Batting_Stats::where('match_format', 'First-Class')
-        // // ->orderByDesc('runs') // Assuming 'runs' is a column in your batting table
-        // // ->limit(10)
-        // // ->get();
-        // Batting_Stats::where('match_format', 'First-Class')
-        // ->select('players.long_name as label', 'batting__stats.runs as value')        
-        // ->join('players', 'batting__stats.player_id', '=', 'players.id')
-        // ->orderByDesc('batting__stats.runs')
-        // ->limit(10)
-        // ->get();
-        //  dd($topBattingPlayers ); 
-
-    // return response()->json($topPlayers);
+       
      
         return inertia('Index/Index', [
             'highestrunner' => $higestrunner, 'highest_wicket_test' =>  $highest_wicket_test,
@@ -52,13 +37,18 @@ class DashboardController extends Controller
     
 
     public function topBatting(){
-        $topBattingPlayers = Batting_Stats::where('match_format', 'First-Class')
-        ->select('players.long_name as label', 'batting__stats.runs as value')        
-        ->join('players', 'batting__stats.player_id', '=', 'players.id')
-        ->orderByDesc('batting__stats.runs')
-        ->limit(10)
-        ->get();
-        // dd($topBattingPlayers);
+
+        $filters = request('query');
+
+        $topBattingPlayers = Batting_Stats::when($filters, function ($query) use ($filters) {
+                $query->where('match_format', $filters);
+            })
+            ->select('players.long_name as label', 'batting__stats.runs as value')        
+            ->join('players', 'batting__stats.player_id', '=', 'players.id')
+            ->orderByDesc('batting__stats.runs')
+            ->limit(10)
+            ->get();
+    
         return response()->json($topBattingPlayers);
     }
 

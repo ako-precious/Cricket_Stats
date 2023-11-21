@@ -19,11 +19,11 @@
             <div
                 class="flex items-center border-2 py-1 px-1.5 rounded-lg w-28 mr-1"
             >
-                <select
-                   
-                    required
-                    class="outline-none border-none bg-transparent text-white dark:text-white text-xs w-full p-1"
-                >
+            <select
+        @input="fetchData($event.target.value)"
+        required
+        class="outline-none border-none bg-transparent text-white dark:text-white text-xs w-full p-1"
+      >
                     <option
                         class="bg-green-400 p-2 dark:bg-slate-850"
                         :value="null"
@@ -91,7 +91,7 @@
                         <div class="flex-auto p-4">
                             <div>
                               
-                                <canvas id="battingChart" class="w-full transition-all duration-200 ease-in-out" height="250"></canvas>
+                                <canvas id="battingChart" class="w-full transition-all duration-200 ease-in-out" height="220"></canvas>
                             </div>
                         </div>
                     </div>
@@ -108,11 +108,11 @@ export default {
     };
   },
   mounted() {
-    this.fetchData();
+    this.fetchData('');
   },
   methods: {
-    fetchData() {
-      axios.get('/top-batting-players')
+    fetchData(matchFormat) {
+      axios.get(`/top-batting-players?query=${matchFormat}`)
         .then(response => {
           this.battingData = response.data;
           this.renderChart();
@@ -121,33 +121,43 @@ export default {
           console.error('Error fetching data:', error);
         });
     },
+   
     renderChart() {
-      const playerNames = this.battingData.map(entry => entry.label);
-      const runs = this.battingData.map(entry => entry.value);
+  const playerNames = this.battingData.map(entry => entry.label);
+  const runs = this.battingData.map(entry => entry.value);
 
-      // Use Chart.js to render the chart
-      const ctx = document.getElementById('battingChart').getContext('2d');
-      new Chart(ctx, {
-        type: 'bar',
-        data: {
-          labels: playerNames,
-          datasets: [{
-            label: 'Top Ten Batting Players ',
-            data: runs,
-            backgroundColor: '#2BB37B',
-            borderColor: '#2BB37B',
-            borderWidth: 1,
-          }],
-        },
-        options: {
-          scales: {
-            y: {
-              beginAtZero: true,
-            },
-          },
-        },
-      });
+  // Get the canvas element
+  const canvas = document.getElementById('battingChart');
+  const ctx = canvas.getContext('2d');
+
+  // Check if there's an existing Chart instance and destroy it
+  if (this.chartInstance) {
+    this.chartInstance.destroy();
+  }
+
+  // Create a new Chart instance
+  this.chartInstance = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: playerNames,
+      datasets: [{
+        label: 'Top Ten Batting Players',
+        data: runs,
+        backgroundColor: '#2BB37B',
+        borderColor: '#2BB37B',
+        borderWidth: 1,
+      }],
     },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true,
+        },
+      },
+    },
+  });
+},
+
   },
 };
 </script>
