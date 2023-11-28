@@ -3,7 +3,7 @@
   <div>
     <div
                         style="backdrop-filter: blur(20px)"
-                        class="border-black/12.5 h-full relative z-20 flex min-w-0 flex-col break-words  border-0 border-solid bg-clip-border dark:bg-slate-850"
+                        class="border-black/12.5 dark:shadow-dark-xl shadow-3xl relative z-20 flex min-w-0 flex-col break-words rounded-2xl border-0 border-solid bg-clip-border dark:bg-slate-850"
                     >
                         <div
                             class="border-black/12.5 mb-0 rounded-t-2xl border-b-0 border-solid p-6 pt-4 pb-0 flex justify-between"
@@ -17,7 +17,7 @@
             
 
             <div
-                class="flex items-center border-2 py-1 px-1.5 rounded-lg w-28 mr-1"
+                class="flex items-center border-2 py-1 px-1.5 rounded-lg w-28 mr-1 bg-green-500"
             >
             <select
         @input="fetchData($event.target.value)"
@@ -25,61 +25,61 @@
         class="outline-none border-none bg-transparent text-white dark:text-white text-xs w-full p-1"
       >
                     <option
-                        class="bg-green-400 p-2 dark:bg-slate-850"
+                        class="bg-green-300 p-2 dark:bg-slate-850"
                         :value="null"
                     >
                         Match Format
                     </option>
                     <option
-                        class="bg-green-400 p-2 dark:bg-slate-850"
+                        class="bg-green-300 p-2 dark:bg-slate-850"
                         value="T20I"
                     >
                         T20I
                     </option>
                     <option
-                        class="bg-green-400 p-2 dark:bg-slate-850"
+                        class="bg-green-300 p-2 dark:bg-slate-850"
                         value="Tests"
                     >
                         Tests
                     </option>
                     <option
-                        class="bg-green-400 p-2 dark:bg-slate-850"
+                        class="bg-green-300 p-2 dark:bg-slate-850"
                         value="List A"
                     >
                         List A
                     </option>
                     <option
-                        class="bg-green-400 p-2 dark:bg-slate-850"
+                        class="bg-green-300 p-2 dark:bg-slate-850"
                         value="T20"
                     >
                         T20
                     </option>
                     <option
-                        class="bg-green-400 p-2 dark:bg-slate-850"
+                        class="bg-green-300 p-2 dark:bg-slate-850"
                         value="First-Class"
                     >
                         First-Class
                     </option>
                     <option
-                        class="bg-green-400 p-2 dark:bg-slate-850"
+                        class="bg-green-300 p-2 dark:bg-slate-850"
                         value="ODI"
                     >
                         ODI
                     </option>
                     <option
-                        class="bg-green-400 p-2 dark:bg-slate-850"
+                        class="bg-green-300 p-2 dark:bg-slate-850"
                         value="Women's T20I"
                     >
                         Women's T20I
                     </option>
                     <option
-                        class="bg-green-400 p-2 dark:bg-slate-850"
+                        class="bg-green-300 p-2 dark:bg-slate-850"
                         value="Women's ODI"
                     >
                         Women's ODI
                     </option>
                     <option
-                        class="bg-green-400 p-2 dark:bg-slate-850"
+                        class="bg-green-300 p-2 dark:bg-slate-850"
                         value="Women's Tests"
                     >
                         Women's Tests
@@ -88,10 +88,10 @@
             </div>
         </div></p>
                         </div>
-                        <div class="flex-auto p-4 h-full lg:w-60 ">
+                        <div class="flex-auto p-4">
                             <div>
                               
-                                <canvas id="bowlingChart" class="w-full lg:w-60 transition-all duration-200 ease-in-out h-full" ></canvas>
+                                <canvas id="bowlingChart" class="w-full transition-all duration-200 ease-in-out" height="220"></canvas>
                             </div>
                         </div>
                     </div>
