@@ -131,7 +131,6 @@ class DashboardController extends Controller
     {
         $query = request('query');
         $suggestions = Players::where('long_name', 'like', '%' . $query . '%')->take(6)->pluck('long_name');
-
         return response()->json($suggestions);
     }
 }
