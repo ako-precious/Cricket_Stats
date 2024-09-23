@@ -191,9 +191,7 @@ const suggestions = {
 };
 
 const getSuggestions = async (field) => {
-    // Simulated asynchronous database request (replace with actual API call)
-   
-
+    // Simulated asynchronous database request (replace with actual API call) 
     const response = await axios.get(`/api/suggestions?query=${filterForm[field]}`);
     //   console.log(response.data);
     // Assuming the response.data is an array of suggestions

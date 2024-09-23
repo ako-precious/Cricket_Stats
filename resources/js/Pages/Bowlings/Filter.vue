@@ -121,7 +121,6 @@ const filter = () => {
   });
 }
 
-
 const clear = () => {
   
   filterForm.name = null
