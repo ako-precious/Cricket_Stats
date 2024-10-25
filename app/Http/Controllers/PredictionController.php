@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use GuzzleHttp\Client;
 class PredictionController extends Controller
 {
     public function predict(Request $request)
