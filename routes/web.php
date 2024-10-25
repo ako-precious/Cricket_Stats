@@ -5,6 +5,7 @@ use App\Http\Controllers\BowlingStatsController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\TeamsController;
 use App\Http\Controllers\PlayersController;
+use App\Http\Controllers\PredictionController;
 use App\Models\Players;
 use App\Models\Teams;
 use Illuminate\Routing\Route as RoutingRoute;
@@ -27,6 +28,7 @@ Route::get('/compare', [DashboardController::class, 'compare']);
 Route::get('/api/suggestions', [DashboardController::class, 'getSuggestions']);
 Route::get('/top-batting-players', [DashboardController::class, 'topBatting']);
 Route::get('/top-bowling-players', [DashboardController::class, 'topBowling']);
+Route::post('/predict-runs', [PredictionController::class, 'predictRuns']);
 
 Route::resource('teams', TeamsController::class);
 Route::resource('players', PlayersController::class);
