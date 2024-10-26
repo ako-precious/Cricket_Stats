@@ -238,12 +238,12 @@
 
         <!-- cards row 3 -->
         <div class="flex flex-wrap mt-6 -mx-3">
-            <div class="flex flex-col lg:w-8/12">
+            <div class="flex flex-col lg:w-8/12 gap-3">
                 <div class="w-full max-w-full px-3 mt-0 lg:flex-none">
                     
                     <BarChart class="transition-all duration-200 ease-in-out " />
                 </div>
-                <div class="w-full max-w-full px-3 mt-0 lg:flex-none">
+                <div class="w-full max-w-full px-3 mt-0 lg:flex-none ">
                     
                     <LineChart class="transition-all duration-200 ease-in-out " />
                 </div>
@@ -705,7 +705,19 @@
                 style="backdrop-filter: blur(20px)"
                 class="w-full max-w-full px-3 lg:w-4/12 lg:flex-none shadow-3xl dark:bg-slate-850 overflow-x-auto"
             >
-            
+            <div>
+      <h3>Predict Player Runs</h3>
+      <form @submit.prevent="predictRuns">
+        <label v-for="(feature, index) in features" class="py-3" :key="index">
+          {{ feature.label }}
+          <input v-model="feature.value" type="number" required />
+        </label>
+        <button type="submit">Predict Runs</button>
+      </form>
+      <div v-if="predictedRuns !== null">
+        Predicted Runs: {{ predictedRuns }}
+      </div>
+    </div>
                 
             </div>
         </div>
@@ -723,6 +735,8 @@ import CardPTwo from "@/Layout/Component/StatCard/CardPTwo.vue";
 import CardPThree from "@/Layout/Component/StatCard/CardPThree.vue";
 </script>
 <script>
+import axios from 'axios';
+
 export default {
     name: 'App',
     components: { BarChart },
@@ -737,6 +751,37 @@ export default {
         "highest_wicket_T20I",
         "highest_wicket_First_Class"
     ],
+
+    data() {
+      return {
+        features: [
+            // 'innings', 'balls_faced', 'strike_rate', 'notouts', 'fifties', 'hundreds', 'fours', 'batsman_true', 'high_score', 'sixes'
+          { label: 'Innings', value: null },
+          { label: 'Strike Rate', value: null },
+          { label: 'Balls_faced', value: null },
+          { label: 'Notouts', value: null },
+          { label: 'Fifties', value: null },
+          { label: 'Hundreds', value: null },
+          { label: 'Fours', value: null },
+          { label: 'Batsman Status', value: null },
+          { label: 'High Score', value: null },
+          { label: 'Sixes', value: null },
+          // Add other features as needed
+        ],
+        predictedRuns: null
+      };
+    },
+    methods: {
+      async predictRuns() {
+        try {
+          const data = this.features.map((feature) => feature.value);
+          const response = await axios.post('/predict-runs', { data });
+          this.predictedRuns = response.data.predicted_runs;
+        } catch (error) {
+          console.error('Error predicting runs:', error);
+        }
+      }
+    }
     // Other Vue component logic
 };
 </script>
