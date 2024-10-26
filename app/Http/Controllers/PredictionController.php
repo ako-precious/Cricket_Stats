@@ -6,7 +6,14 @@ use Illuminate\Http\Request;
 use GuzzleHttp\Client;
 class PredictionController extends Controller
 {
-    public function predict(Request $request)
+    public function index()
+    {
+        // dd(Players::all());
+        // dd(($routeName));
+        return inertia('Predictions/runprediction.vue');
+    }
+
+    public function predictRuns(Request $request)
     {
         // Get input data from the request
         $input = $request->input('data');
