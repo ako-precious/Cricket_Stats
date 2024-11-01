@@ -23,6 +23,12 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 |
 */
 
+Route::get('/', function(){
+
+    return inertia('Welcome', [
+        
+    ]);
+} );
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('Dashboard');
 Route::get('/compare', [DashboardController::class, 'compare']);
 Route::get('/api/suggestions', [DashboardController::class, 'getSuggestions']);

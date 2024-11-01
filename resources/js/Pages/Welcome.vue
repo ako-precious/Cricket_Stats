@@ -1,29 +1,29 @@
 <script setup>
 import { Head, Link } from "@inertiajs/vue3";
 
-defineProps({
-    canLogin: {
-        type: Boolean,
-    },
-    canRegister: {
-        type: Boolean,
-    },
-    laravelVersion: {
-        type: String,
-        required: true,
-    },
-    phpVersion: {
-        type: String,
-        required: true,
-    },
-});
+// defineProps({
+//     canLogin: {
+//         type: Boolean,
+//     },
+//     canRegister: {
+//         type: Boolean,
+//     },
+//     laravelVersion: {
+//         type: String,
+//         required: true,
+//     },
+//     phpVersion: {
+//         type: String,
+//         required: true,
+//     },
+// });
 
-function handleImageError() {
-    document.getElementById("screenshot-container")?.classList.add("!hidden");
-    document.getElementById("docs-card")?.classList.add("!row-span-1");
-    document.getElementById("docs-card-content")?.classList.add("!flex-row");
-    document.getElementById("background")?.classList.add("!hidden");
-}
+// function handleImageError() {
+//     document.getElementById("screenshot-container")?.classList.add("!hidden");
+//     document.getElementById("docs-card")?.classList.add("!row-span-1");
+//     document.getElementById("docs-card-content")?.classList.add("!flex-row");
+//     document.getElementById("background")?.classList.add("!hidden");
+// }
 </script>
 
 <template>
@@ -84,7 +84,7 @@ function handleImageError() {
                             </h1>
 
                             <p
-                                class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400"
+                                class="max-w-2xl mb-6 font-light text-gray-700 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400"
                             >
                                 Empower your skills and creativity by
                                 participating in exciting data science
@@ -112,6 +112,14 @@ function handleImageError() {
                                 >
                                    
                                     Sport Prediction
+                                </a>
+                                <a
+                                    href=""
+                                    target="_blank"
+                                    class="inline-flex items-center justify-center w-full px-5 py-3 mb-2 mr-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:w-auto focus:outline-none hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+                                >
+                                   
+                                    Case Study Challenge
                                 </a>
                             </div>
                         </div>
