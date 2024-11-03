@@ -5,6 +5,7 @@ use App\Http\Controllers\BowlingStatsController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\TeamsController;
 use App\Http\Controllers\PlayersController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PredictionController;
 use App\Models\Players;
 use App\Models\Teams;
@@ -41,3 +42,11 @@ Route::resource('teams', TeamsController::class);
 Route::resource('players', PlayersController::class);
 Route::resource('battings', BattingStatsController::class);
 Route::resource('bowlings', BowlingStatsController::class);
+
+
+Route::get('login', [AuthController::class, 'create'])
+  ->name('login');
+Route::post('login', [AuthController::class, 'store'])
+  ->name('login.store');
+Route::delete('logout', [AuthController::class, 'destroy'])
+  ->name('logout');
