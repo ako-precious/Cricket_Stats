@@ -6,7 +6,7 @@
     </div>
 
     <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-      <form class="space-y-6" action="#" method="POST">
+      <form  @submit.prevent="login" class="space-y-6" >
         <div>
           <label for="email" class="block text-sm/6 font-medium text-gray-900">Email address</label>
           <div class="mt-2">
@@ -24,7 +24,7 @@
           </div>
           <div class="mt-2">
             <input id="password" v-model="form.password"  name="password" type="password" autocomplete="current-password" required="" class="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6" />
-            <input id="password"type="password" class="input" />
+           
           </div>
         </div>
 
@@ -35,10 +35,24 @@
 
     </div>
   </div>
-  
+    <!-- <form @submit.prevent="login">
+      <div class="w-1/2 mx-auto">
+        <div>
+          <label for="email" class="label">E-mail (username)</label>
+          <input id="email" type="text" class="input" />
+        </div>
+        <div class="mt-4">
+          <label for="password" class="label">Password</label>
+        </div>
+        <div class="mt-4">
+          <button class="btn-primary w-full" type="submit">Login</button>
+        </div>
+      </div>
+    </form> -->
   </template>
   <script setup>
 import { useForm } from '@inertiajs/vue3';
+import {route} from 'ziggy-js'; 
   const form = useForm({
     email: null,
     password: null,

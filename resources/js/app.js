@@ -15,7 +15,6 @@ import "../css/app.css";
 
 // plugin for charts
 import "./js/plugins/chartjs.min.js";
-
 //  plugin for scrollbar
 // import "./js/plugins/perfect-scrollbar.min.js";
 
@@ -40,9 +39,10 @@ createInertiaApp({
     },
     setup({ el, App, props, plugin }) {
         createApp({ render: () => h(App, props) })
-            .use(plugin)
-            .component("font-awesome-icon", FontAwesomeIcon)
-            .mount(el);
-        },
-    });
+        .use(plugin)
+        .component("font-awesome-icon", FontAwesomeIcon)
+        .mount(el);
+    },
+});
+
     

@@ -16,7 +16,7 @@
        
         <!-- Popper -->
         <script src="https://unpkg.com/@popperjs/core@2"></script>
-     
+        @routes
         @vite(['resources/js/app.js'])
         @inertiaHead
     </head>
