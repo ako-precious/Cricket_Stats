@@ -1,61 +1,97 @@
+
 <template>
-    <div class="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
-    <div class="sm:mx-auto sm:w-full sm:max-w-sm">
-      <!-- <img class="mx-auto h-10 w-auto" src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=600" alt="Your Company" /> -->
-      <h2 class="mt-10 text-center text-2xl/9 font-bold tracking-tight text-gray-900">Sign in to your account</h2>
+    <div
+        class="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8"
+    >
+        <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+            <!-- <img class="mx-auto h-10 w-auto" src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=600" alt="Your Company" /> -->
+            <h2
+                class="mt-10 text-center text-2xl/9 font-bold tracking-tight text-gray-900"
+            >
+                Sign in to your account
+            </h2>
+        </div>
+
+        <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+            <form @submit.prevent="login" class="space-y-6">
+                <div>
+                    <label
+                        for="email"
+                        class="block text-sm/6 font-medium text-gray-900"
+                        >Email address</label
+                    >
+                    <div class="mt-2">
+                        <input
+                            id="email"
+                            v-model="form.email"
+                            name="email"
+                            type="email"
+                            autocomplete="email"
+                            required=""
+                            class="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6"
+                        />
+                        <ErrorMessage></ErrorMessage>
+
+                        <div v-if="form.errors.email" class="input-error">
+                            {{ form.errors.email }}
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="flex items-center justify-between">
+                        <label
+                            for="password"
+                            class="block text-sm/6 font-medium text-gray-900"
+                            >Password</label
+                        >
+                        <div class="text-sm">
+                            <a
+                                href="#"
+                                class="font-semibold text-indigo-600 hover:text-indigo-500"
+                                >Forgot password?</a
+                            >
+                        </div>
+                    </div>
+                    <div class="mt-2">
+                        <input
+                            id="password"
+                            v-model="form.password"
+                            name="password"
+                            type="password"
+                            autocomplete="current-password"
+                            required=""
+                            class="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6"
+                        />
+                        <div
+                            v-if="form.errors.password"
+                            class="input-error bg-red-400"
+                        >
+                            {{ form.errors.password }}
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <button
+                        type="submit"
+                        class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                    >
+                        Sign in
+                    </button>
+                </div>
+            </form>
+        </div>
     </div>
+</template>
+<script setup>
+import { useForm } from "@inertiajs/vue3";
+import { route } from "ziggy-js";
 
-    <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-      <form  @submit.prevent="login" class="space-y-6" >
-        <div>
-          <label for="email" class="block text-sm/6 font-medium text-gray-900">Email address</label>
-          <div class="mt-2">
-              <input id="email" v-model="form.email" name="email" type="email" autocomplete="email" required="" class="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6" />
-              <div class="input-error">Potential errors</div>
-          </div>
-        </div>
-
-        <div>
-          <div class="flex items-center justify-between">
-            <label for="password" class="block text-sm/6 font-medium text-gray-900">Password</label>
-            <div class="text-sm">
-              <a href="#" class="font-semibold text-indigo-600 hover:text-indigo-500">Forgot password?</a>
-            </div>
-          </div>
-          <div class="mt-2">
-            <input id="password" v-model="form.password"  name="password" type="password" autocomplete="current-password" required="" class="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6" />
-           
-          </div>
-        </div>
-
-        <div>
-          <button type="submit" class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Sign in</button>
-        </div>
-      </form>
-
-    </div>
-  </div>
-    <!-- <form @submit.prevent="login">
-      <div class="w-1/2 mx-auto">
-        <div>
-          <label for="email" class="label">E-mail (username)</label>
-          <input id="email" type="text" class="input" />
-        </div>
-        <div class="mt-4">
-          <label for="password" class="label">Password</label>
-        </div>
-        <div class="mt-4">
-          <button class="btn-primary w-full" type="submit">Login</button>
-        </div>
-      </div>
-    </form> -->
-  </template>
-  <script setup>
-import { useForm } from '@inertiajs/vue3';
-import {route} from 'ziggy-js'; 
-  const form = useForm({
+import ErrorMessage from "@/Layout/Component/ErroMessage.vue";
+const form = useForm({
     email: null,
     password: null,
-  })
-  const login = () => form.post(route('login.store'))
-  </script>
+});
+const login = () => form.post(route("login.store"));
+</script>
