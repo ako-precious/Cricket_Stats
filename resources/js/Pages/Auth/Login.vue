@@ -1,5 +1,10 @@
 
 <template>
+     <img
+            id="background"
+            class="absolute -left-20 top-0 max-w-[877px] -z-10"
+            src="https://laravel.com/assets/img/welcome/background.svg" 
+        />
     <div
         class="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8"
     >

@@ -27,12 +27,11 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 Route::get('/', function(){
 
-    Auth::user();
+    // dd(Auth::user());
+    
 
-    return inertia('Welcome', [ Auth::user()
-        
-    ]);
-} );
+    return inertia('Welcome', [ 'user' => Auth::user()]);
+} )->name('welcome');
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('Dashboard');
 Route::get('/compare', [DashboardController::class, 'compare']);
 Route::get('/api/suggestions', [DashboardController::class, 'getSuggestions']);
