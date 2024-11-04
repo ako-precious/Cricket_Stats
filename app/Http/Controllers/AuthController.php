@@ -48,13 +48,13 @@ class AuthController extends Controller
     }
     public function storeRegistration(Request $request)
     {
-        $user = User::make($request->validate([
+      
+        $user = User::create($request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:8|confirmed'
         ]));
-        $user->password = Hash::make($user->password);
-        $user->save();
+        // $user->save();
         Auth::login($user);
         return redirect()->route('welcome')
             ->with('success', 'Account created!');

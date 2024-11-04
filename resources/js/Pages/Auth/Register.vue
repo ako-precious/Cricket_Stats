@@ -1,10 +1,9 @@
-
 <template>
-     <img
-            id="background"
-            class="absolute -left-20 top-0 max-w-[877px] -z-10"
-            src="https://laravel.com/assets/img/welcome/background.svg" 
-        />
+    <img
+        id="background"
+        class="absolute -left-20 top-0 max-w-[877px] -z-10"
+        src="https://laravel.com/assets/img/welcome/background.svg"
+    />
     <div
         class="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8"
     >
@@ -13,7 +12,7 @@
             <h2
                 class="mt-10 text-center text-2xl/9 font-bold tracking-tight text-gray-900"
             >
-                Sign Up 
+                Sign Up
             </h2>
         </div>
 
@@ -33,10 +32,13 @@
                             type="name"
                             autocomplete="name"
                             class="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6"
-                            />
-                            <!-- required="" -->
-                            <ErrorMessage v-if="form.errors.name" >   <span class="block sm:inline">{{ form.errors.name }}</span> </ErrorMessage>
-
+                        />
+                        <!-- required="" -->
+                        <ErrorMessage v-if="form.errors.name">
+                            <span class="block sm:inline">{{
+                                form.errors.name
+                            }}</span>
+                        </ErrorMessage>
                     </div>
                 </div>
                 <div>
@@ -53,10 +55,13 @@
                             type="email"
                             autocomplete="email"
                             class="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6"
-                            />
-                            <!-- required="" -->
-                            <ErrorMessage v-if="form.errors.email" >   <span class="block sm:inline">{{ form.errors.email }}</span> </ErrorMessage>
-
+                        />
+                        <!-- required="" -->
+                        <ErrorMessage v-if="form.errors.email">
+                            <span class="block sm:inline">{{
+                                form.errors.email
+                            }}</span>
+                        </ErrorMessage>
                     </div>
                 </div>
 
@@ -67,7 +72,6 @@
                             class="block text-sm/6 font-medium text-gray-900"
                             >Password</label
                         >
-                       
                     </div>
                     <div class="mt-2">
                         <input
@@ -77,10 +81,13 @@
                             type="password"
                             autocomplete="current-password"
                             class="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6"
-                            />
-                            <ErrorMessage v-if="form.errors.password" >   <span class="block sm:inline">{{ form.errors.password }}</span> </ErrorMessage>
-                            <!-- required="" -->
-
+                        />
+                        <ErrorMessage v-if="form.errors.password">
+                            <span class="block sm:inline">{{
+                                form.errors.password
+                            }}</span>
+                        </ErrorMessage>
+                        <!-- required="" -->
                     </div>
                 </div>
                 <div>
@@ -90,7 +97,6 @@
                             class="block text-sm/6 font-medium capitalize text-gray-900"
                             >password confirmation</label
                         >
-                      
                     </div>
                     <div class="mt-2">
                         <input
@@ -100,10 +106,13 @@
                             type="password"
                             autocomplete="current-password_confirmation"
                             class="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6"
-                            />
-                            <ErrorMessage v-if="form.errors.password_confirmation" >   <span class="block sm:inline">{{ form.errors.password_confirmation }}</span> </ErrorMessage>
-                            <!-- required="" -->
-
+                        />
+                        <ErrorMessage v-if="form.errors.password_confirmation">
+                            <span class="block sm:inline">{{
+                                form.errors.password_confirmation
+                            }}</span>
+                        </ErrorMessage>
+                        <!-- required="" -->
                     </div>
                 </div>
 
@@ -115,18 +124,31 @@
                         Create Account
                     </button>
                 </div>
+
+                <p class="my-1">
+
+                    Already have an account
+                    <Link
+                        :href="route('login')"
+                        class="px-4 py-2 text-sm rounded font-semibold text-[#333] bg-transparent"
+                        >Click here
+                    </Link>
+                </p>
             </form>
         </div>
     </div>
 </template>
 
 <script setup>
-import { useForm } from '@inertiajs/vue3'
+import { route } from "ziggy-js";
+import { Head, Link } from "@inertiajs/vue3";
+import { useForm } from "@inertiajs/vue3";
+import ErrorMessage from "@/Layout/Component/ErrorMessage.vue";
 const form = useForm({
-  name: null,
-  email: null,
-  password: null,
-  password_confirmation: null,
-})
-const register = () => form.post(route("register.store"))
+    name: null,
+    email: null,
+    password: null,
+    password_confirmation: null,
+});
+const register = () => form.post(route("register.store"));
 </script>

@@ -78,6 +78,11 @@
                         Sign in
                     </button>
                 </div>
+
+               <p class="my-1">
+                Need an account <Link :href="route('register')"
+              class='px-4 py-2 text-sm rounded font-semibold text-[#333] bg-transparent'>Click here</Link>
+               </p> 
             </form>
         </div>
     </div>
@@ -85,6 +90,8 @@
 <script setup>
 import { useForm } from "@inertiajs/vue3";
 import { route } from "ziggy-js";
+
+import { Head, Link } from "@inertiajs/vue3";
 
 import ErrorMessage from "@/Layout/Component/ErrorMessage.vue";
 const form = useForm({
