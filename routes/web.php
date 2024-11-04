@@ -25,14 +25,14 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 |
 */
 
-Route::get('/', function(){
+Route::get('/', function () {
 
-    // dd(Auth::user());
-    
+  // dd(Auth::user());
 
-    return inertia('Welcome', [ 'user' => Auth::user()]);
-} )->name('welcome');
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('Dashboard');
+
+  return inertia('Welcome', ['user' => Auth::user()]);
+})->name('welcome');
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('Dashboard')->middleware('auth');
 Route::get('/compare', [DashboardController::class, 'compare']);
 Route::get('/api/suggestions', [DashboardController::class, 'getSuggestions']);
 Route::get('/top-batting-players', [DashboardController::class, 'topBatting']);
@@ -52,3 +52,5 @@ Route::post('login', [AuthController::class, 'store'])
   ->name('login.store');
 Route::delete('logout', [AuthController::class, 'destroy'])
   ->name('logout');
+Route::get('register', [AuthController::class, 'register'])
+  ->name('register');

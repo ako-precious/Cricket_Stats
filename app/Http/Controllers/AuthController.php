@@ -38,4 +38,9 @@ class AuthController extends Controller
         $request->session()->regenerateToken();
         return redirect()->route('welcome');
     }
+
+    public function register()
+    {
+        return inertia('Auth/Register');
+    }
 }

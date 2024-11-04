@@ -11,14 +11,34 @@
         <div class="sm:mx-auto sm:w-full sm:max-w-sm">
             <!-- <img class="mx-auto h-10 w-auto" src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=600" alt="Your Company" /> -->
             <h2
-                class="mt-10 text-center text-2xl/9 capitalize font-bold tracking-tight text-gray-900"
+                class="mt-10 text-center text-2xl/9 font-bold tracking-tight text-gray-900"
             >
-                Sign in to your account
+                Sign Up 
             </h2>
         </div>
 
         <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-            <form @submit.prevent="login" class="space-y-6">
+            <form @submit.prevent="register" class="space-y-6">
+                <div>
+                    <label
+                        for="name"
+                        class="block text-sm/6 font-medium text-gray-900"
+                        >Name</label
+                    >
+                    <div class="mt-2">
+                        <input
+                            id="name"
+                            v-model="form.name"
+                            name="name"
+                            type="name"
+                            autocomplete="name"
+                            class="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6"
+                            />
+                            <!-- required="" -->
+                            <ErrorMessage v-if="form.errors.name" >   <span class="block sm:inline">{{ form.errors.name }}</span> </ErrorMessage>
+
+                    </div>
+                </div>
                 <div>
                     <label
                         for="email"
@@ -47,13 +67,7 @@
                             class="block text-sm/6 font-medium text-gray-900"
                             >Password</label
                         >
-                        <div class="text-sm">
-                            <a
-                                href="#"
-                                class="font-semibold text-indigo-600 hover:text-indigo-500"
-                                >Forgot password?</a
-                            >
-                        </div>
+                       
                     </div>
                     <div class="mt-2">
                         <input
@@ -69,28 +83,50 @@
 
                     </div>
                 </div>
+                <div>
+                    <div class="flex items-center justify-between">
+                        <label
+                            for="password_confirmation"
+                            class="block text-sm/6 font-medium capitalize text-gray-900"
+                            >password confirmation</label
+                        >
+                      
+                    </div>
+                    <div class="mt-2">
+                        <input
+                            id="password_confirmation"
+                            v-model="form.password_confirmation"
+                            name="password_confirmation"
+                            type="password_confirmation"
+                            autocomplete="current-password_confirmation"
+                            class="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6"
+                            />
+                            <ErrorMessage v-if="form.errors.password_confirmation" >   <span class="block sm:inline">{{ form.errors.password_confirmation }}</span> </ErrorMessage>
+                            <!-- required="" -->
+
+                    </div>
+                </div>
 
                 <div>
                     <button
                         type="submit"
                         class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                     >
-                        Sign in
+                        Create Account
                     </button>
                 </div>
             </form>
         </div>
     </div>
 </template>
+
 <script setup>
-import { useForm } from "@inertiajs/vue3";
-import { route } from "ziggy-js";
-
-import ErrorMessage from "@/Layout/Component/ErrorMessage.vue";
+import { useForm } from '@inertiajs/vue3'
 const form = useForm({
-    email: null,
-    password: null,
-});
-
-const login = () => form.post(route("login.store"));
+  name: null,
+  email: null,
+  password: null,
+  password_confirmation: null,
+})
+const register = () => form.post('')
 </script>
