@@ -97,7 +97,7 @@
                             id="password_confirmation"
                             v-model="form.password_confirmation"
                             name="password_confirmation"
-                            type="password_confirmation"
+                            type="password"
                             autocomplete="current-password_confirmation"
                             class="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6"
                             />
@@ -128,5 +128,5 @@ const form = useForm({
   password: null,
   password_confirmation: null,
 })
-const register = () => form.post('')
+const register = () => form.post(route("register.store"))
 </script>

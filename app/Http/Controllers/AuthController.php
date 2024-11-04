@@ -1,10 +1,13 @@
 <?php
-
 namespace App\Http\Controllers;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Validation\ValidationException;
-use Illuminate\Http\Request;
+
+
+use App\Models\User;
 use Inertia\Inertia;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\ValidationException;
 class AuthController extends Controller
 {
     public function create()
@@ -42,5 +45,18 @@ class AuthController extends Controller
     public function register()
     {
         return inertia('Auth/Register');
+    }
+    public function storeRegistration(Request $request)
+    {
+        $user = User::make($request->validate([
+            'name' => 'required',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|min:8|confirmed'
+        ]));
+        $user->password = Hash::make($user->password);
+        $user->save();
+        Auth::login($user);
+        return redirect()->route('welcome')
+            ->with('success', 'Account created!');
     }
 }

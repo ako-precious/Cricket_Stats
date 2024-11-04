@@ -50,7 +50,12 @@ Route::get('login', [AuthController::class, 'create'])
   ->name('login');
 Route::post('login', [AuthController::class, 'store'])
   ->name('login.store');
-Route::delete('logout', [AuthController::class, 'destroy'])
+  Route::delete('logout', [AuthController::class, 'destroy'])
   ->name('logout');
-Route::get('register', [AuthController::class, 'register'])
+  
+  
+  Route::get('register', [AuthController::class, 'register'])
   ->name('register');
+  
+  Route::post('register', [AuthController::class, 'storeRegistration'])
+    ->name('register.store');
