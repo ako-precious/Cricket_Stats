@@ -10,6 +10,7 @@ use App\Http\Controllers\PredictionController;
 use App\Models\Players;
 use App\Models\Teams;
 use Illuminate\Routing\Route as RoutingRoute;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
@@ -26,7 +27,9 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 Route::get('/', function(){
 
-    return inertia('Welcome', [
+    Auth::user();
+
+    return inertia('Welcome', [ Auth::user()
         
     ]);
 } );

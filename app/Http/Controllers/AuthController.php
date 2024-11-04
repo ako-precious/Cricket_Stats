@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Http\Request;
-
+use Inertia\Inertia;
 class AuthController extends Controller
 {
     public function create()
@@ -13,16 +13,23 @@ class AuthController extends Controller
     }
     public function store(Request $request)
     {
-        if (!Auth::attempt($request->validate([
-            'email' => 'required|string|email',
-            'password' => 'required|string'
-        ]), true)) {
-            throw ValidationException::withMessages([
-                'email' => 'Authentication failed'
+        try {
+            $request->validate([
+                'email' => 'required|string|email',
+                'password' => 'required|string|min:7'
             ]);
+    
+            if (!Auth::attempt($request->only('email', 'password'), true)) {
+                return back()->withErrors([
+                    'email' => 'Authentication failed'
+                ]);
+            }
+    
+            $request->session()->regenerate();
+            return redirect()->intended();
+        } catch (ValidationException $e) {
+            return back()->withErrors($e->errors());
         }
-        $request->session()->regenerate();
-        return redirect()->intended();
     }
     public function destroy()
     {

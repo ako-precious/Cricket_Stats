@@ -27,14 +27,11 @@
                             name="email"
                             type="email"
                             autocomplete="email"
-                            required=""
                             class="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6"
-                        />
-                        <ErrorMessage></ErrorMessage>
+                            />
+                            <!-- required="" -->
+                            <ErrorMessage v-if="form.errors.email" >   <span class="block sm:inline">{{ form.errors.email }}</span> </ErrorMessage>
 
-                        <div v-if="form.errors.email" class="input-error">
-                            {{ form.errors.email }}
-                        </div>
                     </div>
                 </div>
 
@@ -60,15 +57,11 @@
                             name="password"
                             type="password"
                             autocomplete="current-password"
-                            required=""
                             class="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6"
-                        />
-                        <div
-                            v-if="form.errors.password"
-                            class="input-error bg-red-400"
-                        >
-                            {{ form.errors.password }}
-                        </div>
+                            />
+                            <ErrorMessage v-if="form.errors.password" >   <span class="block sm:inline">{{ form.errors.password }}</span> </ErrorMessage>
+                            <!-- required="" -->
+
                     </div>
                 </div>
 
@@ -88,10 +81,11 @@
 import { useForm } from "@inertiajs/vue3";
 import { route } from "ziggy-js";
 
-import ErrorMessage from "@/Layout/Component/ErroMessage.vue";
+import ErrorMessage from "@/Layout/Component/ErrorMessage.vue";
 const form = useForm({
     email: null,
     password: null,
 });
+
 const login = () => form.post(route("login.store"));
 </script>
