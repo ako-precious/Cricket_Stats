@@ -93,7 +93,7 @@ defineProps({
                
 
                 <section class="">
-                    <div
+                    <!-- <div
                         class="grid max-w-screen-xl px-4 pt-20 pb-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12 lg:pt-28"
                     >
                         <div class="mr-auto place-self-center items-center lg:col-span-7">
@@ -125,21 +125,22 @@ defineProps({
                                    Data Science Quiz
                                 </a>
 
-                                <Link
+                                <a
                                     href=""
                                     target="_blank"
                                     class="inline-flex items-center justify-center w-full px-5 py-3 mb-2 mr-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:w-auto focus:outline-none hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
                                 >
                                    
                                     Sport Prediction
-                                </Link>
-                                <Link
+                                </a>
+                                <link
                                     :href="route('case-study')"
+                                    target="_blank"
                                     class="inline-flex items-center justify-center w-full px-5 py-3 mb-2 mr-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:w-auto focus:outline-none hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
                                 >
                                    
                                     Case Study Challenge
-                            </Link>
+                            </link>
                             </div>
                         </div>
 
@@ -151,7 +152,44 @@ defineProps({
                                 class="h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
                             />
                         </div>
-                    </div>
+                    </div> -->
+                   
+                
+
+                
+    
+               
+<div class="grid grid-cols-6 grid-rows-4 gap-7">
+    <div class="col-span-2 row-span-2"> 
+        <div class="ag-courses_item">
+                <a class="ag-courses-item_link" href="https://psridhar1996.medium.com/e-surveillance-alert-classification-8cc5d1a6d1d0">
+                  <div class="ag-courses-item_bg"></div>
+                  <div class="ag-courses-item_title">First Case Study</div>
+                  <div class="ag-courses-item_date-box">
+                    
+                    <span class="ag-courses-item_date"> E surveillance Alert classification </span>
+                  </div>
+                </a>
+                </div>
+    </div>
+    <div class="col-span-2 row-span-4 col-start-3"><div class="outer">
+    <div class="dot"></div>
+    <div class="card">
+      <div class="ray"></div>
+      <div class="text uppercase">Case</div>
+      <div class="text uppercase">Study</div>
+     
+      <div class="line topl"></div>
+      <div class="line leftl"></div>
+      <div class="line bottoml"></div>
+      <div class="line rightl"></div>
+    </div>
+  </div></div>
+    <div class="col-span-2 row-span-2 col-start-1 row-start-3">3</div>
+    <div class="col-span-2 row-span-2 col-start-5 row-start-1">4</div>
+    <div class="col-span-2 row-span-2 col-start-5 row-start-3">5</div>
+</div>
+    
                 </section>
                 <footer
                     class="py-16 text-center text-sm text-black dark:text-white/70"
@@ -162,3 +200,172 @@ defineProps({
         </div>
     </div>
 </template>
+<style scoped>
+  .ag-courses_item {
+    margin: auto;
+    overflow: hidden;
+    border-radius: 28px;
+  }
+  .ag-courses-item_link {
+    display: block;
+    padding: 30px 20px;
+    background-color: #6e1e1e92;
+    overflow: hidden;
+    position: relative;
+    text-decoration: none;
+  }
+
+  .ag-courses-item_link:hover,
+  .ag-courses-item_link:hover .ag-courses-item_date {
+    color: #121212;
+  }
+  .ag-courses-item_link:hover .ag-courses-item_bg {
+    -webkit-transform: scale(10);
+    -ms-transform: scale(10);
+    transform: scale(10);
+  }
+  .ag-courses-item_title {
+    min-height: 57px;
+    margin: 0 0 30px;
+    overflow: hidden;
+    font-weight: bold;
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    z-index: 2;
+    position: relative;
+  }
+  .ag-courses-item_date-box {
+    font-size: 18px;
+    color: #fff;
+    z-index: 2;
+    position: relative;
+  }
+  .ag-courses-item_date {
+    font-weight: bold;
+    color: #f9e534;
+    -webkit-transition: color 0.5s ease;
+    -o-transition: color 0.5s ease;
+    transition: color 0.5s ease;
+  }
+  .ag-courses-item_bg {
+    height: 130px;
+    width: 100px;
+    background-color: #f9b234;
+    z-index: 1;
+    position: absolute;
+    top: -75px;
+    right: -75px;
+    border-radius: 50%;
+    -webkit-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+  }
+
+
+
+  
+  .outer {
+    width: 300px;
+    height: 250px;
+    border-radius: 10px;
+    padding: 1px;
+    background: radial-gradient(circle 230px at 0% 0%, #ffffff, #b13458);
+    position: relative;
+  }
+
+  .dot {
+    width: 5px;
+    aspect-ratio: 1;
+    position: absolute;
+    background-color: #fff;
+    box-shadow: 0 0 10px #ffffff;
+    border-radius: 100px;
+    z-index: 2;
+    right: 10%;
+    top: 10%;
+    animation: moveDot 6s linear infinite;
+  }
+
+  @keyframes moveDot {
+    0%,
+    100% {
+      top: 10%;
+      right: 10%;
+    }
+    25% {
+      top: 10%;
+      right: calc(100% - 35px);
+    }
+    50% {
+      top: calc(100% - 30px);
+      right: calc(100% - 35px);
+    }
+    75% {
+      top: calc(100% - 30px);
+      right: 10%;
+    }
+  }
+
+  .card {
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    border-radius: 9px;
+    border: solid 1px #983c5c;
+    background-size: 20px 20px;
+    background: radial-gradient(circle 280px at 0% 0%, #444444, #0c0d0d);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    flex-direction: column;
+    color: #fff;
+  }
+  .ray {
+    width: 220px;
+    height: 45px;
+    border-radius: 100px;
+    position: absolute;
+    background-color: #c7c7c7;
+    opacity: 0.4;
+    box-shadow: 0 0 50px #fff;
+    filter: blur(10px);
+    transform-origin: 10%;
+    top: 0%;
+    left: 0;
+    transform: rotate(40deg);
+  }
+
+  .card .text {
+    font-weight: bolder;
+    font-size: 4rem;
+    background: linear-gradient(45deg, #865858 4%, #fff, #975353);
+    background-clip: text;
+    color: transparent;
+  }
+
+  .line {
+    width: 100%;
+    height: 1px;
+    position: absolute;
+    background-color: #2c2c2c;
+  }
+  .topl {
+    top: 10%;
+    background: linear-gradient(90deg, #888888 30%, #1d1f1f 70%);
+  }
+  .bottoml {
+    bottom: 10%;
+  }
+  .leftl {
+    left: 10%;
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(180deg, #747474 30%, #222424 70%);
+  }
+  .rightl {
+    right: 10%;
+    width: 1px;
+    height: 100%;
+  }
+</style>

@@ -32,6 +32,14 @@ Route::get('/', function () {
 
   return inertia('Welcome', ['user' => Auth::user()]);
 })->name('welcome');
+Route::get('/case-study', function () {
+
+  // dd(Auth::user());
+
+
+  return inertia('CaseStudy', ['user' => Auth::user()]);
+})->name('case-study');
+
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('Dashboard')->middleware('auth');
 Route::get('/compare', [DashboardController::class, 'compare']);
 Route::get('/api/suggestions', [DashboardController::class, 'getSuggestions']);
@@ -48,14 +56,19 @@ Route::resource('bowlings', BowlingStatsController::class);
 
 Route::get('login', [AuthController::class, 'create'])
   ->name('login');
+
+// Route::get('lo', [AuthController::class, 'create'])
+//   ->name('login');
+
 Route::post('login', [AuthController::class, 'store'])
   ->name('login.store');
-  Route::delete('logout', [AuthController::class, 'destroy'])
+
+Route::delete('logout', [AuthController::class, 'destroy'])
   ->name('logout');
-  
-  
-  Route::get('register', [AuthController::class, 'register'])
+
+
+Route::get('register', [AuthController::class, 'register'])
   ->name('register');
-  
-  Route::post('register', [AuthController::class, 'storeRegistration'])
-    ->name('register.store');
+
+Route::post('register', [AuthController::class, 'storeRegistration'])
+  ->name('register.store');
