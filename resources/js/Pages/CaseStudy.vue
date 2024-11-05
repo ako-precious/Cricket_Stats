@@ -92,7 +92,7 @@ defineProps({
             <div class="relative w-full max-w-2xl px-6 lg:max-w-7xl">
                
 
-                <section class="">
+                <section class="mt-24">
                     <!-- <div
                         class="grid max-w-screen-xl px-4 pt-20 pb-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12 lg:pt-28"
                     >
@@ -172,7 +172,7 @@ defineProps({
                 </a>
                 </div>
     </div>
-    <div class="col-span-2 row-span-4 col-start-3"><div class="outer">
+    <div class="col-span-2 row-span-4 col-start-3"><div class="outer w-full h-full">
     <div class="dot"></div>
     <div class="card">
       <div class="ray"></div>
@@ -185,9 +185,45 @@ defineProps({
       <div class="line rightl"></div>
     </div>
   </div></div>
-    <div class="col-span-2 row-span-2 col-start-1 row-start-3">3</div>
-    <div class="col-span-2 row-span-2 col-start-5 row-start-1">4</div>
-    <div class="col-span-2 row-span-2 col-start-5 row-start-3">5</div>
+    <div class="col-span-2 row-span-2 col-start-1 row-start-3">
+        <div class="ag-courses_item">
+                <a class="ag-courses-item_link" href="https://psridhar1996.medium.com/kane-williamson-vs-joe-root-47876e9fa1c8">
+                  <div class="ag-courses-item_bg"></div>
+                  <div class="ag-courses-item_title">Second Case Study</div>
+                  <div class="ag-courses-item_date-box">
+                    
+                    <span class="ag-courses-item_date"> Batsman comparison analysis </span>
+                  </div>
+                </a>
+                </div>
+    </div>
+    <div class="col-span-2 row-span-2 col-start-5 row-start-1"> <div class="col-span-2 row-span-2 col-start-1 row-start-3">
+        <div class="ag-courses_item">
+                <a class="ag-courses-item_link" href="https://psridhar1996.medium.com/batsman-dismissal-classification-cricket-02f0607b9272">
+                  <div class="ag-courses-item_bg"></div>
+                  <div class="ag-courses-item_title"> Third Case Study</div>
+                  <div class="ag-courses-item_date-box">
+                    
+                    <span class="ag-courses-item_date">Batsman dismissal classification</span>
+                  </div>
+                </a>
+                </div>
+    </div>
+</div>
+<div class="col-span-2 row-span-2 col-start-5 row-start-3">
+        <div class="ag-courses_item">
+                <a class="ag-courses-item_link" href="https://psridhar1996.medium.com/match-up-maxwell-vs-ashwin-3da3088970e1">
+                  <div class="ag-courses-item_bg"></div>
+                  <div class="ag-courses-item_title"> Forth Case Study</div>
+                  <div class="ag-courses-item_date-box">
+                    
+                    <span class="ag-courses-item_date">Player comparison analysis</span>
+                  </div>
+                </a>
+                </div>
+        </div>
+
+    
 </div>
     
                 </section>
@@ -265,8 +301,8 @@ defineProps({
 
   
   .outer {
-    width: 300px;
-    height: 250px;
+    /* width: 300px;
+    height: 250px; */
     border-radius: 10px;
     padding: 1px;
     background: radial-gradient(circle 230px at 0% 0%, #ffffff, #b13458);
