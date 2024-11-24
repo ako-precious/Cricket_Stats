@@ -35,10 +35,17 @@ Route::get('/', function () {
 Route::get('/case-study', function () {
 
   // dd(Auth::user());
-
-
+  
+  
   return inertia('CaseStudy', ['user' => Auth::user()]);
 })->name('case-study');
+
+
+Route::get('/quiz', function () {
+
+  // dd(Auth::user());
+  return inertia('Quiz', ['user' => Auth::user()]);
+})->name('quiz');
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('Dashboard')->middleware('auth');
 Route::get('/compare', [DashboardController::class, 'compare']);
