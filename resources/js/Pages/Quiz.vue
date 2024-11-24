@@ -139,8 +139,8 @@ defineProps({
                                 ) in currentQuiz.options"
                                 :key="optionKey"
                             >
-                                <button class="button m-2 w-full" @click="submitAnswer(optionKey)">
-                                    {{ optionKey }}) {{ optionText }}
+                                <button class="button m-2 w-full" @click="submitAnswer(optionText)">
+                                     {{ optionText }}
                                 </button>
                             </div>
                         </div>
@@ -158,7 +158,7 @@ defineProps({
                         <p v-if="feedback">{{ feedback }}</p>
 
                         <!-- Progress Bar -->
-                        <progress :value="progress" max="30"></progress>
+                        <progress :value="progress" max="30" class="rounded-full mt-5 w-full"></progress>
                     </div>
                 </section>
                 <footer
@@ -187,58 +187,59 @@ export default {
         },
         // Fetch a new quiz question
         async fetchQuestion() {
-            try {
-                this.loading = true;
-                const response = await axios.get("/api/fetch-random-quiz");
-                const { quiz, progress, remaining, message } = response.data;
+  try {
+    this.loading = true;
+    const response = await axios.get("/api/fetch-random-quiz");
+    const { quiz, progress, remaining, message } = response.data;
 
-                if (message) {
-                    this.currentQuiz = null; // No more questions
-                    this.feedback = message; // Optional: Show completion message
-                } else {
-                    this.currentQuiz = quiz;
-                    this.progress = progress;
-                    this.remaining = remaining;
-                }
-            } catch (error) {
-                console.error("Error fetching question:", error);
-            } finally {
-                this.loading = false;
-            }
-        },
+    if (message) {
+      this.currentQuiz = null; // No more questions
+    } else {
+      this.currentQuiz = quiz;
+      this.options = quiz.options; // Use options array
+      this.progress = progress;
+      this.remaining = remaining;
+    }
+  } catch (error) {
+    console.error("Error fetching question:", error);
+  } finally {
+    this.loading = false;
+  }
+},
 
-        // Submit the selected answer
-        async submitAnswer(selectedOption) {
-            try {
-                const response = await axios.post("/api/submit-answer", {
-                    quiz_id: this.currentQuiz.id,
-                    user_answer: selectedOption, // Pass the selected key
-                });
 
-                this.feedback = response.data.is_correct
-                    ? "Correct!"
-                    : "Incorrect. Try the next question.";
-                setTimeout(() => {
-                    this.feedback = "";
-                    this.fetchQuestion(); // Load the next question
-                }, 2000);
-            } catch (error) {
-                console.error("Error submitting answer:", error);
-            }
-        },
+async submitAnswer(selectedOption) {
+    // console.log(this.currentQuiz.id, selectedOption)
+  try {
+    const response = await axios.post("/api/submit-answer", {
+      quiz_id: this.currentQuiz.id,
+      user_answer: selectedOption,
+    });
+    this.feedback = response.data.is_correct
+      ? "Correct!"
+      : "Incorrect. Try the next question.";
+    setTimeout(() => {
+      this.feedback = ""; // Clear feedback after 2 seconds
+      this.fetchQuestion(); // Load the next question
+    }, 2000);
+  } catch (error) {
+    console.error("Error submitting answer:", error);
+  }
+},
 
-        // View final results
-        async viewResults() {
-            try {
-                const response = await axios.get("/api/calculate-results");
-                const { percentage, comparison } = response.data;
 
-                // Redirect to a result component or show results inline
-                this.$emit("show-results", { percentage, comparison });
-            } catch (error) {
-                console.error("Error fetching results:", error);
-            }
-        },
+async viewResults() {
+  try {
+    const response = await axios.get("/api/calculate-results");
+    const { percentage, comparison } = response.data;
+
+    // Display results or navigate to a result page
+    this.$emit("show-results", { percentage, comparison });
+  } catch (error) {
+    console.error("Error fetching results:", error);
+  }
+}
+
     },
     mounted() {
         this.fetchQuestion(); // Fetch the first question on load
