@@ -92,23 +92,43 @@ defineProps({
                             >
                                 Data Science Quiz.
                             </h1>
-
-                            <p
-                                class="max-w-2xl mb-6 font-light text-gray-700 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400"
-                            >
-                                To answer the quiz challenge click on the button
-                                below
-                            </p>
-
-                            <div
-                                class="space-y-4 sm:flex sm:space-y-0 sm:space-x-4"
-                            >
-                                <button
-                                    @click="toggleDivs"
-                                    class="inline-flex items-center justify-center w-full px-5 py-3 mb-2 mr-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:w-auto focus:outline-none hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+                            <div v-if="currentQuiz">
+                                <p
+                                    class="max-w-2xl mb-6 font-light text-gray-700 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400"
                                 >
-                                    Start Quiz
-                                </button>
+                                    To continue with the quiz click on the
+                                    button below
+                                </p>
+
+                                <div
+                                    class="space-y-4 sm:flex sm:space-y-0 sm:space-x-4"
+                                >
+                                    <button
+                                        @click="toggleDivs"
+                                        class="inline-flex items-center justify-center w-full px-5 py-3 mb-2 mr-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:w-auto focus:outline-none hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+                                    >
+                                        Continue Quiz
+                                    </button>
+                                </div>
+                            </div>
+                            <div v-else>
+                                <p
+                                    class="max-w-2xl mb-6 font-light text-gray-700 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400"
+                                >
+                                    To answer the quiz challenge click on the
+                                    button below
+                                </p>
+
+                                <div
+                                    class="space-y-4 sm:flex sm:space-y-0 sm:space-x-4"
+                                >
+                                    <button
+                                        @click="toggleDivs"
+                                        class="inline-flex items-center justify-center w-full px-5 py-3 mb-2 mr-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:w-auto focus:outline-none hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+                                    >
+                                        Start Quiz
+                                    </button>
+                                </div>
                             </div>
                         </div>
 
@@ -129,18 +149,27 @@ defineProps({
                         <div v-if="currentQuiz">
                             <h2
                                 class="max-w-2xl mb-4 text-2xl font-extrabold leading-none tracking-tight md:text-5xl xl:text-6xl dark:text-white"
-                            >Question {{ progress }} of 30</h2>
-                            <p class="max-w-2xl mb-6 text-xl font-semibold text-gray-700 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">{{ currentQuiz.question }}</p>
+                            >
+                                Question {{ progress }} of 30
+                            </h2>
+                            <p
+                                class="max-w-2xl mb-6 text-xl font-semibold text-gray-700 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400"
+                            >
+                                {{ currentQuiz.question }}
+                            </p>
 
                             <!-- Display Options -->
-                            <div 
+                            <div
                                 v-for="(
                                     optionText, optionKey
                                 ) in currentQuiz.options"
                                 :key="optionKey"
                             >
-                                <button class="button m-2 w-full" @click="submitAnswer(optionText)">
-                                     {{ optionText }}
+                                <button
+                                    class="button m-2 w-full"
+                                    @click="submitAnswer(optionText)"
+                                >
+                                    {{ optionText }}
                                 </button>
                             </div>
                         </div>
@@ -150,15 +179,36 @@ defineProps({
                             <p>Loading...</p>
                         </div>
                         <div v-else>
+                            <h2>Test Completed</h2>
                             <p>You've completed the test!</p>
-                            <button @click="viewResults">View Results</button>
+                            <button  class="button m-2 w-full"  @click="viewResults">View Results</button>
+                            <div v-if="result != []">
+                                <p>
+                                    You answered {{ result.correct_answers   }} of {{ result.total_questions }} questions correctly, which is {{ result.percentage }}% of the
+                                    questions.
+                                </p>
+                                
+                                <!-- <p>
+                                    Your performance is
+                                    {{
+                                        comparison > 0 ? "better" : "worse"
+                                    }}
+                                    than {{ Math.abs(comparison) }}% of other
+                                    users.
+                                </p> -->
+                               
+                            </div>
                         </div>
 
                         <!-- Feedback -->
                         <p v-if="feedback">{{ feedback }}</p>
 
                         <!-- Progress Bar -->
-                        <progress :value="progress" max="30" class="rounded-full mt-5 w-full"></progress>
+                        <progress
+                            :value="progress"
+                            max="30"
+                            class="rounded-full mt-5 w-full"
+                        ></progress>
                     </div>
                 </section>
                 <footer
@@ -177,8 +227,10 @@ export default {
             options: [],
             progress: 0,
             remaining: 30,
+            // percentage:0,
             feedback: "",
             loading: true,
+            result: [],
         };
     },
     methods: {
@@ -187,59 +239,58 @@ export default {
         },
         // Fetch a new quiz question
         async fetchQuestion() {
-  try {
-    this.loading = true;
-    const response = await axios.get("/api/fetch-random-quiz");
-    const { quiz, progress, remaining, message } = response.data;
+            try {
+                this.loading = true;
+                const response = await axios.get("/api/fetch-random-quiz");
+                const { quiz, progress, remaining, message } = response.data;
 
-    if (message) {
-      this.currentQuiz = null; // No more questions
-    } else {
-      this.currentQuiz = quiz;
-      this.options = quiz.options; // Use options array
-      this.progress = progress;
-      this.remaining = remaining;
-    }
-  } catch (error) {
-    console.error("Error fetching question:", error);
-  } finally {
-    this.loading = false;
-  }
-},
+                if (message) {
+                    this.currentQuiz = null; // No more questions
+                } else {
+                    this.currentQuiz = quiz;
+                    this.options = quiz.options; // Use options array
+                    this.progress = progress;
+                    this.remaining = remaining;
+                }
+            } catch (error) {
+                console.error("Error fetching question:", error);
+            } finally {
+                this.loading = false;
+            }
+        },
 
+        async submitAnswer(selectedOption) {
+            // console.log(this.currentQuiz.id, selectedOption)
+            try {
+                const response = await axios.post("/api/submit-answer", {
+                    quiz_id: this.currentQuiz.id,
+                    user_answer: selectedOption,
+                });
+                this.feedback = response.data.is_correct
+                    ? "Correct!"
+                    : "Incorrect. Try the next question.";
+                setTimeout(() => {
+                    this.feedback = ""; // Clear feedback after 2 seconds
+                    this.fetchQuestion(); // Load the next question
+                }, 2000);
+            } catch (error) {
+                console.error("Error submitting answer:", error);
+            }
+        },
 
-async submitAnswer(selectedOption) {
-    // console.log(this.currentQuiz.id, selectedOption)
-  try {
-    const response = await axios.post("/api/submit-answer", {
-      quiz_id: this.currentQuiz.id,
-      user_answer: selectedOption,
-    });
-    this.feedback = response.data.is_correct
-      ? "Correct!"
-      : "Incorrect. Try the next question.";
-    setTimeout(() => {
-      this.feedback = ""; // Clear feedback after 2 seconds
-      this.fetchQuestion(); // Load the next question
-    }, 2000);
-  } catch (error) {
-    console.error("Error submitting answer:", error);
-  }
-},
-
-
-async viewResults() {
-  try {
-    const response = await axios.get("/api/calculate-results");
-    const { percentage, comparison } = response.data;
-
-    // Display results or navigate to a result page
-    this.$emit("show-results", { percentage, comparison });
-  } catch (error) {
-    console.error("Error fetching results:", error);
-  }
-}
-
+        async viewResults() {
+            try {
+                const response = await axios.get("/api/calculate-results");
+                const { correct_answers, percentage, total_questions } =
+                    response.data;
+                  this.result = response.data
+                // Display results or navigate to a result page
+                console.error(response.data);
+               
+            } catch (error) {
+                console.error("Error fetching results:", error);
+            }
+        },
     },
     mounted() {
         this.fetchQuestion(); // Fetch the first question on load
@@ -248,7 +299,7 @@ async viewResults() {
 </script>
 
 <style scoped>
-  .button {
+.button {
     position: relative;
     padding: 10px 22px;
     border-radius: 6px;
@@ -257,14 +308,14 @@ async viewResults() {
     cursor: pointer;
     background-color: #54ae449a;
     transition: all 0.2s ease;
-  }
+}
 
-  .button:active {
+.button:active {
     transform: scale(0.96);
-  }
+}
 
-  .button:before,
-  .button:after {
+.button:before,
+.button:after {
     position: absolute;
     content: "";
     width: 150%;
@@ -273,75 +324,73 @@ async viewResults() {
     transform: translateX(-50%);
     z-index: -1000;
     background-repeat: no-repeat;
-  }
+}
 
-  .button:hover:before {
+.button:hover:before {
     top: -70%;
     background-image: radial-gradient(circle, #7d2ae8 20%, transparent 20%),
-      radial-gradient(circle, transparent 20%, #7d2ae8 20%, transparent 30%),
-      radial-gradient(circle, #7d2ae8 20%, transparent 20%),
-      radial-gradient(circle, #7d2ae8 20%, transparent 20%),
-      radial-gradient(circle, transparent 10%, #7d2ae8 15%, transparent 20%),
-      radial-gradient(circle, #7d2ae8 20%, transparent 20%),
-      radial-gradient(circle, #7d2ae8 20%, transparent 20%),
-      radial-gradient(circle, #7d2ae8 20%, transparent 20%),
-      radial-gradient(circle, #7d2ae8 20%, transparent 20%);
-    background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%,
-      10% 10%, 18% 18%;
+        radial-gradient(circle, transparent 20%, #7d2ae8 20%, transparent 30%),
+        radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+        radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+        radial-gradient(circle, transparent 10%, #7d2ae8 15%, transparent 20%),
+        radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+        radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+        radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+        radial-gradient(circle, #7d2ae8 20%, transparent 20%);
+    background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%,
+        15% 15%, 10% 10%, 18% 18%;
     background-position: 50% 120%;
     animation: greentopBubbles 0.6s ease;
-  }
+}
 
-  @keyframes greentopBubbles {
+@keyframes greentopBubbles {
     0% {
-      background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%,
-        40% 90%, 55% 90%, 70% 90%;
+        background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%,
+            40% 90%, 55% 90%, 70% 90%;
     }
 
     50% {
-      background-position: 0% 80%, 0% 20%, 10% 40%, 20% 0%, 30% 30%, 22% 50%,
-        50% 50%, 65% 20%, 90% 30%;
+        background-position: 0% 80%, 0% 20%, 10% 40%, 20% 0%, 30% 30%, 22% 50%,
+            50% 50%, 65% 20%, 90% 30%;
     }
 
     100% {
-      background-position: 0% 70%, 0% 10%, 10% 30%, 20% -10%, 30% 20%, 22% 40%,
-        50% 40%, 65% 10%, 90% 20%;
-      background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+        background-position: 0% 70%, 0% 10%, 10% 30%, 20% -10%, 30% 20%, 22% 40%,
+            50% 40%, 65% 10%, 90% 20%;
+        background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
     }
-  }
+}
 
-  .button:hover::after {
+.button:hover::after {
     bottom: -70%;
     background-image: radial-gradient(circle, #7d2ae8 20%, transparent 20%),
-      radial-gradient(circle, #7d2ae8 20%, transparent 20%),
-      radial-gradient(circle, transparent 10%, #7d2ae8 15%, transparent 20%),
-      radial-gradient(circle, #7d2ae8 20%, transparent 20%),
-      radial-gradient(circle, #7d2ae8 20%, transparent 20%),
-      radial-gradient(circle, #7d2ae8 20%, transparent 20%),
-      radial-gradient(circle, #7d2ae8 20%, transparent 20%);
-    background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 20% 20%, 18% 18%;
+        radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+        radial-gradient(circle, transparent 10%, #7d2ae8 15%, transparent 20%),
+        radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+        radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+        radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+        radial-gradient(circle, #7d2ae8 20%, transparent 20%);
+    background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 20% 20%,
+        18% 18%;
     background-position: 50% 0%;
     animation: greenbottomBubbles 0.6s ease;
-  }
+}
 
-  @keyframes greenbottomBubbles {
+@keyframes greenbottomBubbles {
     0% {
-      background-position: 10% -10%, 30% 10%, 55% -10%, 70% -10%, 85% -10%,
-        70% -10%, 70% 0%;
+        background-position: 10% -10%, 30% 10%, 55% -10%, 70% -10%, 85% -10%,
+            70% -10%, 70% 0%;
     }
 
     50% {
-      background-position: 0% 80%, 20% 80%, 45% 60%, 60% 100%, 75% 70%, 95% 60%,
-        105% 0%;
+        background-position: 0% 80%, 20% 80%, 45% 60%, 60% 100%, 75% 70%,
+            95% 60%, 105% 0%;
     }
 
     100% {
-      background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%,
-        110% 10%;
-      background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+        background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%,
+            95% 70%, 110% 10%;
+        background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
     }
-  }
+}
 </style>
-
-
-

@@ -87,11 +87,9 @@ public function submitAnswer(Request $request)
 public function calculateResults(Request $request)
 {
     $userId = auth()->id();
-    $testSession = $request->session()->get('test_session');
 
     // Get user's answers for this session
-    $userAnswers = UserTest::where('user_id', $userId)
-                           ->where('test_session', $testSession);
+    $userAnswers = UserTest::where('user_id', $userId);
 
     $totalQuestions = $userAnswers->count();
     $correctAnswers = $userAnswers->where('is_correct', true)->count();
@@ -99,17 +97,16 @@ public function calculateResults(Request $request)
     $percentage = $totalQuestions > 0 ? ($correctAnswers / $totalQuestions) * 100 : 0;
 
     // Compare to others
-    $averageScore = UserTest::where('test_session', $testSession)
-                            ->groupBy('user_id')
-                            ->selectRaw('AVG(is_correct) as avg_correct')
-                            ->pluck('avg_correct')
-                            ->first() * 100;
+    // $averageScore = UserTest::groupBy('user_id')
+    //                         ->selectRaw('AVG(is_correct) as avg_correct')
+    //                         ->pluck('avg_correct')
+    //                         ->first() * 100;
 
     return response()->json([
         'total_questions' => $totalQuestions,
         'correct_answers' => $correctAnswers,
         'percentage' => round($percentage, 2),
-        'comparison' => round($percentage - $averageScore, 2), // Comparison
+        // 'comparison' => round($percentage - $averageScore, 2), // Comparison
     ]);
 }
 
