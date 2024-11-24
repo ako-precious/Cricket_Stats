@@ -7,6 +7,7 @@ use App\Http\Controllers\TeamsController;
 use App\Http\Controllers\PlayersController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PredictionController;
+use App\Http\Controllers\QuizController;
 use App\Models\Players;
 use App\Models\Teams;
 use Illuminate\Routing\Route as RoutingRoute;
@@ -46,6 +47,12 @@ Route::get('/quiz', function () {
   // dd(Auth::user());
   return inertia('Quiz', ['user' => Auth::user()]);
 })->name('quiz');
+
+Route::get('/api/fetch-random-quiz', [QuizController::class, 'fetchRandomQuiz']);
+Route::post('/api/submit-answer', [QuizController::class, 'submitAnswer']);
+Route::get('api/calculate-results', [QuizController::class, 'calculateResults']);
+
+
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('Dashboard')->middleware('auth');
 Route::get('/compare', [DashboardController::class, 'compare']);

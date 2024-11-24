@@ -35,7 +35,16 @@ class QuizController extends Controller
     }
 
     return response()->json([
-        'quiz' => $quiz,
+        'quiz' => [
+            'id' => $quiz->id,
+            'question' => $quiz->question,
+            'options' => [
+                'A' => $quiz->option_one,
+                'B' => $quiz->option_two,
+                'C' => $quiz->option_three,
+                'D' => $quiz->option_four,
+            ],
+        ],
         'progress' => count($answeredQuestions) + 1,
         'remaining' => 30 - count($answeredQuestions),
     ]);
@@ -49,9 +58,9 @@ public function submitAnswer(Request $request)
     $testSession = $request->session()->get('test_session');
 
     $quiz = Quiz::find($quizId);
-    $isCorrect = $quiz->answer === $userAnswer;
+    $correctAnswer = $quiz->answer; // Assume `answer` holds the correct option key like 'A', 'B', 'C', or 'D'
+    $isCorrect = $correctAnswer === $userAnswer;
 
-    // Save the user's answer
     UserTest::updateOrCreate(
         ['user_id' => $userId, 'quiz_id' => $quizId, 'test_session' => $testSession],
         ['user_answer' => $userAnswer, 'is_correct' => $isCorrect]
