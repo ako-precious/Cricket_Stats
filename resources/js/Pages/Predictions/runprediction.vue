@@ -1,44 +1,32 @@
 <template>
-    <div>
-      <h3>Predict Player Runs</h3>
-      <form @submit.prevent="predictRuns">
-        <label v-for="(feature, index) in features" :key="index">
-          {{ feature.label }}
-          <input v-model="feature.value" type="number" required />
-        </label>
-        <button type="submit">Predict Runs</button>
-      </form>
-      <div v-if="predictedRuns !== null">
-        Predicted Runs: {{ predictedRuns }}
-      </div>
-    </div>
-  </template>
-  
-  <script>
-  import axios from 'axios';
-  
-  export default {
-    data() {
-      return {
-        features: [
-          { label: 'Innings', value: null },
-          { label: 'Strike Rate', value: null },
-          // Add other features as needed
-        ],
-        predictedRuns: null
-      };
-    },
-    methods: {
-      async predictRuns() {
-        try {
-          const data = this.features.map((feature) => feature.value);
-          const response = await axios.post('/api/predict-runs', { data });
-          this.predictedRuns = response.data.predicted_runs;
-        } catch (error) {
-          console.error('Error predicting runs:', error);
-        }
+  <div>
+    <h1>Predict Runs</h1>
+    <input v-model="inputData" type="text" placeholder="Enter input data (comma-separated)" />
+    <button @click="getPrediction">Predict</button>
+    <p v-if="prediction">Prediction: {{ prediction }}</p>
+  </div>
+</template>
+
+<script>
+import axios from 'axios';
+
+export default {
+  data() {
+    return {
+      inputData: '', // Input from the user
+      prediction: null,
+    };
+  },
+  methods: {
+    async getPrediction() {
+      const inputArray = this.inputData.split(',').map(Number); // Convert input to an array of numbers
+      try {
+        const response = await axios.post('http://127.0.0.1:5000/predict', { input: inputArray });
+        this.prediction = response.data.predicted_runs; // Set prediction
+      } catch (error) {
+        console.error('Error getting prediction:', error);
       }
-    }
-  };
-  </script>
-  
+    },
+  },
+};
+</script>
