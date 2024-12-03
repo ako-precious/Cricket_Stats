@@ -11,7 +11,7 @@ class PredictionController extends Controller
     {
         // dd(Players::all());
         // dd(($routeName));
-        return inertia('Predictions/runprediction.vue');
+        return inertia('Predictions/RunPrediction');
     }
 
     // public function predictRuns(Request $request)
