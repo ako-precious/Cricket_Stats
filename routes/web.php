@@ -60,7 +60,7 @@ Route::get('/api/suggestions', [DashboardController::class, 'getSuggestions']);
 Route::get('/top-batting-players', [DashboardController::class, 'topBatting']);
 Route::get('/top-bowling-players', [DashboardController::class, 'topBowling']);
 Route::post('api/predict-runs', [PredictionController::class, 'predict']);
-Route::get('/predict-run', [PredictionController::class, 'index']);
+Route::get('/predict-run', [PredictionController::class, 'index'])->name('predict');
 
 Route::resource('teams', TeamsController::class);
 Route::resource('players', PlayersController::class);
